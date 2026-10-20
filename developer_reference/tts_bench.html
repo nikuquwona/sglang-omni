@@ -1,0 +1,1123 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TTS benchmark runbook &#8212; SGLang</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ccdb6887"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer_reference/tts_bench';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
+    <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ASR benchmark runbook" href="asr_bench.html" />
+    <link rel="prev" title="Full-Duplex-Bench v1.0 unified metrics" href="full_duplex_metrics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.8" />
+    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-light" alt="SGLang - Home"/>
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-dark pst-js-only" alt="SGLang - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3 TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/qwen3_omni.html">Omni Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_chat_stage.html">Native Chat Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/audio_translations.html">Audio Translations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts.html">TTS Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiserver_design.html">API Server Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pipeline Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_parameters.html">Adding a Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference_encode_service.html">Reference Encode Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Request-level profiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_bench.html">ASR benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rl_admin_control.html">RL Admin Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlx.html">MLX Path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ci_labels.html">CI Workflows and Labels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump_version.html">Bumping the SGLang Pin</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/blob/main/docs/developer_reference/tts_bench.md?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/edit/main/docs/developer_reference/tts_bench.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/issues/new?title=Issue%20on%20page%20%2Fdeveloper_reference/tts_bench.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/developer_reference/tts_bench.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TTS benchmark runbook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-measured">What is Measured</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-time-setup">One Time Setup</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-gpu-and-cpus">Choose the GPU and CPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-container">Start the container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-variables-file">Write the variables file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-sox-and-the-cosyvoice-sources">Install sox and the CosyVoice sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-out-and-install-sglang-omni">Check out and install SGLang-Omni</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data-and-models">Download the data and models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-summary-script">Write the summary script</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-benchmark">Run the Benchmark</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smoke-test">Smoke test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-run-script">Write the run script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-one-measurement">Run one measurement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage-checks">Coverage checks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-accurately">Measuring Accurately</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-results">Reference Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-with-tts-ci">Comparing with TTS CI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tts-benchmark-runbook">
+<h1>TTS benchmark runbook<a class="headerlink" href="#tts-benchmark-runbook" title="Link to this heading">#</a></h1>
+<p>This page runs the SeedTTS EN benchmark against four TTS models served by SGLang-Omni. It measures throughput, latency, RTF and WER. WER comes from transcribing the generated speech with Qwen3-ASR-1.7B.</p>
+<p>Every run uses <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">benchmarks.eval.benchmark_tts_seedtts</span></code>. The client is <code class="docutils literal notranslate"><span class="pre">benchmarks/eval/benchmark_tts_seedtts.py</span></code>, and the scoring code is in <code class="docutils literal notranslate"><span class="pre">benchmarks/tasks/tts.py</span></code> and <code class="docutils literal notranslate"><span class="pre">benchmarks/metrics/</span></code>.</p>
+<section id="what-is-measured">
+<h2>What is Measured<a class="headerlink" href="#what-is-measured" title="Link to this heading">#</a></h2>
+<p>All four commands use the SeedTTS EN set (<code class="docutils literal notranslate"><span class="pre">zhaochenyang20/seed-tts-eval-arrow</span></code>, 1088 samples), non streaming, at concurrency 16.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Request shape</p></th>
+<th class="head"><p>Command flags</p></th>
+<th class="head"><p>Output directory name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Qwen/Qwen3-TTS-12Hz-1.7B-Base</span></code></p></td>
+<td><p>Voice clone</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ref-format</span> <span class="pre">references</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">qwen3_tts_base_en</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OpenMOSS-Team/MOSS-TTS-v1.5</span></code></p></td>
+<td><p>Voice clone with a duration target</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ref-format</span> <span class="pre">references</span> <span class="pre">--token-count</span> <span class="pre">auto</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">moss_tts_en</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice</span></code></p></td>
+<td><p>Named voice, no reference audio</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--no-ref-audio</span> <span class="pre">--voice</span> <span class="pre">Ryan</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">qwen3_tts_customvoice_en</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FunAudioLLM/Fun-CosyVoice3-0.5B-2512</span></code></p></td>
+<td><p>Voice clone</p></td>
+<td><p>none</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fun_cosyvoice3_en</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each command does the whole cycle by itself:</p>
+<ol class="arabic simple">
+<li><p>Starts the TTS server on port 8000.</p></li>
+<li><p>Sends 16 warmup requests (the default warmup equals the concurrency). They are not scored.</p></li>
+<li><p>Sends the 1088 scored requests, at most 16 in flight.</p></li>
+<li><p>Stops the TTS server.</p></li>
+<li><p>Starts Qwen3-ASR-1.7B on the same port, transcribes the saved audio, computes WER and stops it.</p></li>
+</ol>
+<p>One GPU is enough. The TTS server and Qwen3-ASR run one after the other on it.</p>
+<p>The server uses the benchmark’s engine settings (<code class="docutils literal notranslate"><span class="pre">--max-running-requests</span> <span class="pre">64</span></code> and <code class="docutils literal notranslate"><span class="pre">--cuda-graph-max-bs</span> <span class="pre">64</span></code>), not the model’s own serve defaults. <code class="docutils literal notranslate"><span class="pre">server_logs/tts_server.log</span></code> in each output directory shows the exact server command. Fun-CosyVoice3 requests send no <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code>, so the server applies the model’s own length rule. The other models send 2048.</p>
+<p>Every metric is in a JSON file in the model’s output directory, under <code class="docutils literal notranslate"><span class="pre">summary</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>File</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Throughput</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">throughput_qps</span></code></p></td>
+<td><p>Completed requests per second of wall clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latency</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latency_mean_s</span></code>, <code class="docutils literal notranslate"><span class="pre">latency_median_s</span></code>, <code class="docutils literal notranslate"><span class="pre">latency_p95_s</span></code>, <code class="docutils literal notranslate"><span class="pre">latency_p99_s</span></code></p></td>
+<td><p>Seconds per request, end to end</p></td>
+</tr>
+<tr class="row-even"><td><p>RTF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rtf_mean</span></code>, <code class="docutils literal notranslate"><span class="pre">rtf_median</span></code>, <code class="docutils literal notranslate"><span class="pre">rtf_p95</span></code>, <code class="docutils literal notranslate"><span class="pre">rtf_p99</span></code></p></td>
+<td><p>Request latency over output audio length</p></td>
+</tr>
+<tr class="row-odd"><td><p>Coverage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">completed_requests</span></code>, <code class="docutils literal notranslate"><span class="pre">failed_requests</span></code></p></td>
+<td><p>Requests</p></td>
+</tr>
+<tr class="row-even"><td><p>Length cap hits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">max_token_hits</span></code></p></td>
+<td><p>Requests that reported a length stop</p></td>
+</tr>
+<tr class="row-odd"><td><p>Finish reasons seen</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">finish_reason_observed</span></code></p></td>
+<td><p>Requests that reported a finish reason</p></td>
+</tr>
+<tr class="row-even"><td><p>Audio length</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">audio_duration_mean_s</span></code></p></td>
+<td><p>Seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>WER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">wer_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">wer_corpus</span></code></p></td>
+<td><p>Fraction (0.0144 is 1.44 percent)</p></td>
+</tr>
+<tr class="row-even"><td><p>WER coverage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">wer_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evaluated</span></code>, <code class="docutils literal notranslate"><span class="pre">skipped</span></code></p></td>
+<td><p>Samples</p></td>
+</tr>
+<tr class="row-odd"><td><p>Runaway samples</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">wer_results.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n_above_50_pct_wer</span></code></p></td>
+<td><p>Samples with WER above 50 percent</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">wer_results.json</span></code> also holds <code class="docutils literal notranslate"><span class="pre">per_sample</span></code> (each transcript and its WER), and <code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code> holds <code class="docutils literal notranslate"><span class="pre">per_request</span></code>. Read the numbers from these files, not from the printed lines. <code class="docutils literal notranslate"><span class="pre">wer_corpus</span></code> includes every sample. <code class="docutils literal notranslate"><span class="pre">wer_below_50_corpus</span></code> leaves out samples above 50 percent WER and is for debugging only.</p>
+<p><code class="docutils literal notranslate"><span class="pre">max_token_hits</span></code> counts only requests that reported a finish reason. It is complete only when <code class="docutils literal notranslate"><span class="pre">finish_reason_observed</span></code> equals <code class="docutils literal notranslate"><span class="pre">completed_requests</span></code>.</p>
+<p>SIM and UTMOS are not scored by these commands.</p>
+</section>
+<section id="one-time-setup">
+<h2>One Time Setup<a class="headerlink" href="#one-time-setup" title="Link to this heading">#</a></h2>
+<section id="choose-the-gpu-and-cpus">
+<h3>Choose the GPU and CPUs<a class="headerlink" href="#choose-the-gpu-and-cpus" title="Link to this heading">#</a></h3>
+<p>Use one GPU and one fixed set of CPUs for every run you want to compare. On the host, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvidia-smi<span class="w"> </span>topo<span class="w"> </span>-m
+lscpu<span class="w"> </span>-e<span class="o">=</span>CPU,NODE,CORE
+</pre></div>
+</div>
+<p>In the first output, read the NUMA node of your GPU. In the second, pick a set of physical cores on that node plus their SMT siblings (same <code class="docutils literal notranslate"><span class="pre">CORE</span></code> value). Leave the lowest numbered cores to the host. Keep the set the same for every run.</p>
+<p>Set these on the host. Replace the values with yours. <code class="docutils literal notranslate"><span class="pre">NODE</span></code> is the GPU’s NUMA node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">GPU</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">CPUSET</span><span class="o">=</span><span class="m">2</span>-15,114-127
+<span class="nv">NODE</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">WORK</span><span class="o">=</span><span class="nv">$HOME</span>/tts_bench
+</pre></div>
+</div>
+</section>
+<section id="start-the-container">
+<h3>Start the container<a class="headerlink" href="#start-the-container" title="Link to this heading">#</a></h3>
+<p>Use the TTS CI image. Everything under <code class="docutils literal notranslate"><span class="pre">/work</span></code> lives in <code class="docutils literal notranslate"><span class="pre">$WORK</span></code> on the host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$WORK</span><span class="w"> </span><span class="nv">$HOME</span>/.cache
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>tts-bench<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--gpus<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="nv">$GPU</span><span class="w"> </span>--cpuset-cpus<span class="w"> </span><span class="nv">$CPUSET</span><span class="w"> </span>--cpuset-mems<span class="w"> </span><span class="nv">$NODE</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/dev/shm:/dev/shm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$WORK</span>:/work<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.cache:/root/.cache<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--entrypoint<span class="w"> </span>sleep<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>hongccc/sglang-omni@sha256:ebe4239e29a764ee3a2806385c061c5fd438a26f01458e503d3822dcba5790df<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>infinity
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>tts-bench<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>Every later command runs inside the container. Open another shell with the last line. Check the environment first. <code class="docutils literal notranslate"><span class="pre">HOME</span></code> must be <code class="docutils literal notranslate"><span class="pre">/root</span></code>, and <code class="docutils literal notranslate"><span class="pre">uv</span></code>, <code class="docutils literal notranslate"><span class="pre">hf</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span></code> must be found.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span><span class="w"> </span><span class="nv">$HF_HOME</span>
+which<span class="w"> </span>uv<span class="w"> </span>hf<span class="w"> </span>git
+</pre></div>
+</div>
+</section>
+<section id="write-the-variables-file">
+<h3>Write the variables file<a class="headerlink" href="#write-the-variables-file" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>/work/env.sh<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<span class="s">export COSYVOICE_PATH=/work/CosyVoice</span>
+<span class="s">export COSYVOICE_COMMIT=074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc</span>
+<span class="s">export SGLANG_OMNI_STRICT_PORT=1</span>
+<span class="s">export CUDA_VISIBLE_DEVICES=0</span>
+<span class="s">EOF</span>
+<span class="nb">source</span><span class="w"> </span>/work/env.sh
+</pre></div>
+</div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/work/env.sh</span></code> in every new shell.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SGLANG_OMNI_STRICT_PORT=1</span></code> makes the server fail instead of moving to another port, so the client never talks to a leftover server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CUDA_VISIBLE_DEVICES=0</span></code> is required. After each server stops, the benchmark waits for the GPU memory to be released, and it refuses to run without this variable. Inside the container the GPU is index 0.</p></li>
+<li><p>Do not set <code class="docutils literal notranslate"><span class="pre">SGLANG_OMNI_TORCH_COMPILE_DEFAULT</span></code>. Torch compile then stays on, as in a normal deployment (CI turns it off).</p></li>
+</ul>
+</section>
+<section id="install-sox-and-the-cosyvoice-sources">
+<h3>Install sox and the CosyVoice sources<a class="headerlink" href="#install-sox-and-the-cosyvoice-sources" title="Link to this heading">#</a></h3>
+<p>Fun-CosyVoice3 and Qwen3-TTS need sox. Fun-CosyVoice3 imports the CosyVoice and Matcha-TTS sources, as in <code class="docutils literal notranslate"><span class="pre">.github/scripts/prepare_omni_venv.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sox
+git<span class="w"> </span>clone<span class="w"> </span>--filter<span class="o">=</span>blob:none<span class="w"> </span>--no-checkout<span class="w"> </span>https://github.com/FunAudioLLM/CosyVoice.git<span class="w"> </span><span class="nv">$COSYVOICE_PATH</span>
+git<span class="w"> </span>-C<span class="w"> </span><span class="nv">$COSYVOICE_PATH</span><span class="w"> </span>checkout<span class="w"> </span>--detach<span class="w"> </span><span class="nv">$COSYVOICE_COMMIT</span>
+git<span class="w"> </span>-C<span class="w"> </span><span class="nv">$COSYVOICE_PATH</span><span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>third_party/Matcha-TTS
+git<span class="w"> </span>-C<span class="w"> </span><span class="nv">$COSYVOICE_PATH</span>/third_party/Matcha-TTS<span class="w"> </span>rev-parse<span class="w"> </span>HEAD
+</pre></div>
+</div>
+<p>The last line must print <code class="docutils literal notranslate"><span class="pre">dd9105b34bf2be2230f4aa1e4769fb586a3c824e</span></code>.</p>
+</section>
+<section id="check-out-and-install-sglang-omni">
+<h3>Check out and install SGLang-Omni<a class="headerlink" href="#check-out-and-install-sglang-omni" title="Link to this heading">#</a></h3>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">main</span></code> with the commit you want to measure.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sgl-project/sglang-omni.git<span class="w"> </span>/work/sglang-omni
+<span class="nb">cd</span><span class="w"> </span>/work/sglang-omni
+git<span class="w"> </span>checkout<span class="w"> </span>--detach<span class="w"> </span>main
+rm<span class="w"> </span>-rf<span class="w"> </span>.venv
+uv<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>.venv<span class="w"> </span>-p<span class="w"> </span>/usr/bin/python3.12
+<span class="nb">echo</span><span class="w"> </span><span class="s1">'import site; site.addsitedir("/opt/sglang/lib/python3.12/site-packages")'</span><span class="w"> </span>&gt;<span class="w"> </span>.venv/lib/python3.12/site-packages/sglang-image.pth
+<span class="nb">printf</span><span class="w"> </span><span class="s1">'%s\n'</span><span class="w"> </span><span class="nv">$COSYVOICE_PATH</span><span class="w"> </span><span class="nv">$COSYVOICE_PATH</span>/third_party/Matcha-TTS<span class="w"> </span>&gt;<span class="w"> </span>.venv/lib/python3.12/site-packages/cosyvoice.pth
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>.github/scripts/omni_missing_dependencies.py<span class="w"> </span>--extra<span class="w"> </span>fun-cosyvoice3<span class="w"> </span>pyproject.toml<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install
+python<span class="w"> </span>.github/scripts/omni_missing_dependencies.py<span class="w"> </span>--overrides<span class="w"> </span>pyproject.toml<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>-e<span class="w"> </span>.
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>sox<span class="w"> </span>einops
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>qwen-tts<span class="o">==</span><span class="m">0</span>.1.1
+deactivate
+</pre></div>
+</div>
+<p>This follows <code class="docutils literal notranslate"><span class="pre">.github/scripts/prepare_omni_venv.sh</span></code>, but installs only the <code class="docutils literal notranslate"><span class="pre">fun-cosyvoice3</span></code> extra. The last two install lines come from <code class="docutils literal notranslate"><span class="pre">docs/cookbook/qwen3_tts.md</span></code>. Never install them with dependencies. <code class="docutils literal notranslate"><span class="pre">qwen-tts</span></code> would replace the pinned Transformers.</p>
+</section>
+<section id="download-the-data-and-models">
+<h3>Download the data and models<a class="headerlink" href="#download-the-data-and-models" title="Link to this heading">#</a></h3>
+<p>Each model is pinned to its Hugging Face <code class="docutils literal notranslate"><span class="pre">main</span></code> commit on 2026-10-10.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/work/sglang-omni
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.dataset.prepare<span class="w"> </span>--dataset<span class="w"> </span>seedtts
+hf<span class="w"> </span>download<span class="w"> </span>Qwen/Qwen3-TTS-12Hz-1.7B-Base<span class="w"> </span>--revision<span class="w"> </span>fd4b254389122332181a7c3db7f27e918eec64e3
+hf<span class="w"> </span>download<span class="w"> </span>Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice<span class="w"> </span>--revision<span class="w"> </span>0c0e3051f131929182e2c023b9537f8b1c68adfe
+hf<span class="w"> </span>download<span class="w"> </span>OpenMOSS-Team/MOSS-TTS-v1.5<span class="w"> </span>--revision<span class="w"> </span>cdd3b911b1585e3f2dbc7775ef10f9926f58850a
+hf<span class="w"> </span>download<span class="w"> </span>OpenMOSS-Team/MOSS-Audio-Tokenizer<span class="w"> </span>--revision<span class="w"> </span>3cd226ba2947efa357ef453bcad111b6eafba782
+hf<span class="w"> </span>download<span class="w"> </span>FunAudioLLM/Fun-CosyVoice3-0.5B-2512<span class="w"> </span>--revision<span class="w"> </span>29e01c4e8d000f4bcd70751be16fa94bf3d85a18
+hf<span class="w"> </span>download<span class="w"> </span>Qwen/Qwen3-ASR-1.7B<span class="w"> </span>--revision<span class="w"> </span>7278e1e70fe206f11671096ffdd38061171dd6e5
+deactivate
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MOSS-Audio-Tokenizer</span></code> is the codec that MOSS-TTS-v1.5 loads.</p>
+<p>The dataset is pinned in code. <code class="docutils literal notranslate"><span class="pre">benchmarks/dataset/prepare.py</span></code> sets <code class="docutils literal notranslate"><span class="pre">SEEDTTS_DATASET_REVISION</span> <span class="pre">=</span> <span class="pre">&quot;27f4c1adee83b5b29b7c4b375f6b976324bda308&quot;</span></code>, and the loader uses it even though the dataset’s <code class="docutils literal notranslate"><span class="pre">main</span></code> has moved.</p>
+<p>Offline, a model name loads the commit in <code class="docutils literal notranslate"><span class="pre">refs/main</span></code>. A download by commit does not write that file, so write it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">H</span><span class="o">=</span>/root/.cache/huggingface/hub
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-TTS-12Hz-1.7B-Base/refs<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-TTS-12Hz-1.7B-CustomVoice/refs<span class="w"> </span><span class="nv">$H</span>/models--OpenMOSS-Team--MOSS-TTS-v1.5/refs<span class="w"> </span><span class="nv">$H</span>/models--OpenMOSS-Team--MOSS-Audio-Tokenizer/refs<span class="w"> </span><span class="nv">$H</span>/models--FunAudioLLM--Fun-CosyVoice3-0.5B-2512/refs<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-ASR-1.7B/refs
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>fd4b254389122332181a7c3db7f27e918eec64e3<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-TTS-12Hz-1.7B-Base/refs/main
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>0c0e3051f131929182e2c023b9537f8b1c68adfe<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-TTS-12Hz-1.7B-CustomVoice/refs/main
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>cdd3b911b1585e3f2dbc7775ef10f9926f58850a<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$H</span>/models--OpenMOSS-Team--MOSS-TTS-v1.5/refs/main
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>3cd226ba2947efa357ef453bcad111b6eafba782<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$H</span>/models--OpenMOSS-Team--MOSS-Audio-Tokenizer/refs/main
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>29e01c4e8d000f4bcd70751be16fa94bf3d85a18<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$H</span>/models--FunAudioLLM--Fun-CosyVoice3-0.5B-2512/refs/main
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>7278e1e70fe206f11671096ffdd38061171dd6e5<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-ASR-1.7B/refs/main
+</pre></div>
+</div>
+<p>Check the pins. The loop prints each model’s <code class="docutils literal notranslate"><span class="pre">refs/main</span></code> and the snapshot directories it has. The pinned revision must have a matching snapshot directory. Other cached snapshots may also be present. The last line must list <code class="docutils literal notranslate"><span class="pre">27f4c1adee83b5b29b7c4b375f6b976324bda308</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">H</span><span class="o">=</span>/root/.cache/huggingface/hub
+<span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-TTS-12Hz-1.7B-Base<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-TTS-12Hz-1.7B-CustomVoice<span class="w"> </span><span class="nv">$H</span>/models--OpenMOSS-Team--MOSS-TTS-v1.5<span class="w"> </span><span class="nv">$H</span>/models--OpenMOSS-Team--MOSS-Audio-Tokenizer<span class="w"> </span><span class="nv">$H</span>/models--FunAudioLLM--Fun-CosyVoice3-0.5B-2512<span class="w"> </span><span class="nv">$H</span>/models--Qwen--Qwen3-ASR-1.7B<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$d</span><span class="s2"> refs/main=</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$d</span>/refs/main<span class="k">)</span><span class="s2"> snapshots=</span><span class="k">$(</span>ls<span class="w"> </span><span class="nv">$d</span>/snapshots<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span><span class="s1">' '</span><span class="k">)</span><span class="s2">"</span>
+<span class="k">done</span>
+ls<span class="w"> </span><span class="nv">$H</span>/datasets--zhaochenyang20--seed-tts-eval-arrow/snapshots
+</pre></div>
+</div>
+<p>Then go offline, so no run fetches a newer revision:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s1">'export HF_HUB_OFFLINE=1'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/work/env.sh
+<span class="nb">source</span><span class="w"> </span>/work/env.sh
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HF_HUB_OFFLINE</span></code> does not cover ModelScope. Each Fun-CosyVoice3 server builds the upstream <code class="docutils literal notranslate"><span class="pre">CosyVoice3</span></code> object to load Flow and HiFT, and its constructor also loads the wetext normalizer from ModelScope. That request runs on every start, even with the files cached. If ModelScope is unreachable or rate limited, <code class="docutils literal notranslate"><span class="pre">tts_server.log</span></code> shows <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">frontend</span> <span class="pre">is</span> <span class="pre">avaliable</span></code>. SGLang-Omni never uses that normalizer. It encodes the raw text with its own tokenizer (<code class="docutils literal notranslate"><span class="pre">sglang_omni/models/fun_cosyvoice3/utils.py</span></code>), so the outputs are the same either way and the run stays valid.</p>
+</section>
+<section id="write-the-summary-script">
+<h3>Write the summary script<a class="headerlink" href="#write-the-summary-script" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">/work/summary.py</span> <span class="pre">DIR</span></code> reads <code class="docutils literal notranslate"><span class="pre">DIR/run1</span></code> to <code class="docutils literal notranslate"><span class="pre">DIR/run3</span></code> and prints, for each model and field, the three values, their mean and their sample standard deviation. It also prints a coverage line for each run.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>/work/summary.py<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<span class="s">import json</span>
+<span class="s">import statistics</span>
+<span class="s">import sys</span>
+<span class="s">from pathlib import Path</span>
+
+<span class="s">MODELS = ["qwen3_tts_base_en", "moss_tts_en", "qwen3_tts_customvoice_en", "fun_cosyvoice3_en"]</span>
+<span class="s">FIELDS = {</span>
+<span class="s">    "speed_results.json": ["throughput_qps", "latency_mean_s", "latency_median_s", "latency_p95_s",</span>
+<span class="s">                           "latency_p99_s", "rtf_mean", "rtf_median", "rtf_p95", "rtf_p99",</span>
+<span class="s">                           "max_token_hits", "finish_reason_observed", "audio_duration_mean_s"],</span>
+<span class="s">    "wer_results.json": ["wer_corpus", "n_above_50_pct_wer"],</span>
+<span class="s">}</span>
+<span class="s">EXPECTED = 1088</span>
+<span class="s">RUNS = (1, 2, 3)</span>
+
+<span class="s">root = Path(sys.argv[1])</span>
+
+
+<span class="s">def summary(run, model, file):</span>
+<span class="s">    path = root / f"run{run}" / model / file</span>
+<span class="s">    return json.loads(path.read_text())["summary"] if path.exists() else None</span>
+
+
+<span class="s">for model in MODELS:</span>
+<span class="s">    print(f"\n{model}")</span>
+<span class="s">    for run in RUNS:</span>
+<span class="s">        speed = summary(run, model, "speed_results.json")</span>
+<span class="s">        wer = summary(run, model, "wer_results.json")</span>
+<span class="s">        if speed is None or wer is None:</span>
+<span class="s">            print(f"  run{run}: INCOMPLETE, result file missing")</span>
+<span class="s">            continue</span>
+<span class="s">        counts = (speed["completed_requests"], speed["failed_requests"], wer["evaluated"], wer["skipped"])</span>
+<span class="s">        status = "complete" if counts == (EXPECTED, 0, EXPECTED, 0) else "INCOMPLETE"</span>
+<span class="s">        print(f"  run{run}: {status}, completed {counts[0]}, failed {counts[1]}, evaluated {counts[2]}, "</span>
+<span class="s">              f"skipped {counts[3]}, finish reasons {speed['finish_reason_observed']}")</span>
+<span class="s">    print(f"  {'field':24}{'run1':&gt;10}{'run2':&gt;10}{'run3':&gt;10}{'mean':&gt;10}{'std':&gt;10}")</span>
+<span class="s">    for file, fields in FIELDS.items():</span>
+<span class="s">        summaries = [summary(run, model, file) for run in RUNS]</span>
+<span class="s">        if None in summaries:</span>
+<span class="s">            continue</span>
+<span class="s">        for field in fields:</span>
+<span class="s">            values = [s[field] for s in summaries]</span>
+<span class="s">            print(f"  {field:24}" + "".join(f"{v:10.4g}" for v in values)</span>
+<span class="s">                  + f"{statistics.mean(values):10.4g}{statistics.stdev(values):10.4g}")</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="run-the-benchmark">
+<h2>Run the Benchmark<a class="headerlink" href="#run-the-benchmark" title="Link to this heading">#</a></h2>
+<section id="smoke-test">
+<h3>Smoke test<a class="headerlink" href="#smoke-test" title="Link to this heading">#</a></h3>
+<p>Run one model on 32 samples first. It catches setup problems (offline loading, GPU cleanup, ASR) in minutes. Its numbers are not comparable with full runs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/work/env.sh
+<span class="nb">cd</span><span class="w"> </span>/work/sglang-omni
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_tts_seedtts<span class="w"> </span>--meta<span class="w"> </span>zhaochenyang20/seed-tts-eval-arrow<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--model<span class="w"> </span>FunAudioLLM/Fun-CosyVoice3-0.5B-2512<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output-dir<span class="w"> </span>/work/results/smoke/fun_cosyvoice3_en<span class="w"> </span>--lang<span class="w"> </span>en<span class="w"> </span>--max-concurrency<span class="w"> </span><span class="m">16</span><span class="w"> </span>--max-samples<span class="w"> </span><span class="m">32</span>
+deactivate
+</pre></div>
+</div>
+<p>It passes when <code class="docutils literal notranslate"><span class="pre">/work/results/smoke/fun_cosyvoice3_en</span></code> holds both <code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code> and <code class="docutils literal notranslate"><span class="pre">wer_results.json</span></code>.</p>
+</section>
+<section id="write-the-run-script">
+<h3>Write the run script<a class="headerlink" href="#write-the-run-script" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">/work/run_tts.sh</span> <span class="pre">CHECKOUT</span> <span class="pre">OUT</span></code> runs the four commands once, from the checkout <code class="docutils literal notranslate"><span class="pre">CHECKOUT</span></code>, into the new directory <code class="docutils literal notranslate"><span class="pre">OUT</span></code>. It stops at the first error and refuses to reuse a directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>/work/run_tts.sh<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<span class="s">set -e</span>
+<span class="s">CHECKOUT=$1</span>
+<span class="s">OUT=$2</span>
+<span class="s">mkdir -p $(dirname $OUT)</span>
+<span class="s">mkdir $OUT</span>
+<span class="s">source /work/env.sh</span>
+<span class="s">cd $CHECKOUT</span>
+<span class="s">source .venv/bin/activate</span>
+<span class="s">git rev-parse HEAD &gt; $OUT/commit.txt</span>
+<span class="s">python -m benchmarks.eval.benchmark_tts_seedtts --meta zhaochenyang20/seed-tts-eval-arrow \</span>
+<span class="s">    --model Qwen/Qwen3-TTS-12Hz-1.7B-Base --port 8000 --ref-format references \</span>
+<span class="s">    --output-dir $OUT/qwen3_tts_base_en --lang en --max-concurrency 16</span>
+<span class="s">python -m benchmarks.eval.benchmark_tts_seedtts --meta zhaochenyang20/seed-tts-eval-arrow \</span>
+<span class="s">    --model OpenMOSS-Team/MOSS-TTS-v1.5 --port 8000 --ref-format references --token-count auto \</span>
+<span class="s">    --output-dir $OUT/moss_tts_en --lang en --max-concurrency 16</span>
+<span class="s">python -m benchmarks.eval.benchmark_tts_seedtts --meta zhaochenyang20/seed-tts-eval-arrow \</span>
+<span class="s">    --model Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice --port 8000 --no-ref-audio --voice Ryan \</span>
+<span class="s">    --output-dir $OUT/qwen3_tts_customvoice_en --lang en --max-concurrency 16</span>
+<span class="s">python -m benchmarks.eval.benchmark_tts_seedtts --meta zhaochenyang20/seed-tts-eval-arrow \</span>
+<span class="s">    --model FunAudioLLM/Fun-CosyVoice3-0.5B-2512 --port 8000 \</span>
+<span class="s">    --output-dir $OUT/fun_cosyvoice3_en --lang en --max-concurrency 16</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Each command starts and stops its own servers, so every run starts from a fresh server. To measure fewer models, delete the other commands from the script. Keep the order of the rest.</p>
+</section>
+<section id="run-one-measurement">
+<h3>Run one measurement<a class="headerlink" href="#run-one-measurement" title="Link to this heading">#</a></h3>
+<p>One measurement is RUN 0 to RUN 3. RUN 0 only warms caches and is never scored. Give each measurement a new <code class="docutils literal notranslate"><span class="pre">NAME</span></code>, for example the commit you measure.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NAME</span><span class="o">=</span>m1-<span class="k">$(</span>git<span class="w"> </span>-C<span class="w"> </span>/work/sglang-omni<span class="w"> </span>rev-parse<span class="w"> </span>--short<span class="w"> </span>HEAD<span class="k">)</span>
+<span class="k">for</span><span class="w"> </span>RUN<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>bash<span class="w"> </span>/work/run_tts.sh<span class="w"> </span>/work/sglang-omni<span class="w"> </span>/work/results/<span class="nv">$NAME</span>/run<span class="nv">$RUN</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">break</span>
+<span class="k">done</span>
+python<span class="w"> </span>/work/summary.py<span class="w"> </span>/work/results/<span class="nv">$NAME</span>
+</pre></div>
+</div>
+</section>
+<section id="coverage-checks">
+<h3>Coverage checks<a class="headerlink" href="#coverage-checks" title="Link to this heading">#</a></h3>
+<p>A run is complete only when the summary prints <code class="docutils literal notranslate"><span class="pre">complete</span></code> for it. That means, for every model:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">completed_requests</span></code> is 1088 and <code class="docutils literal notranslate"><span class="pre">failed_requests</span></code> is 0 in <code class="docutils literal notranslate"><span class="pre">speed_results.json</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evaluated</span></code> is 1088 and <code class="docutils literal notranslate"><span class="pre">skipped</span></code> is 0 in <code class="docutils literal notranslate"><span class="pre">wer_results.json</span></code>.</p></li>
+</ul>
+<p>Also check that <code class="docutils literal notranslate"><span class="pre">finish_reason_observed</span></code> equals <code class="docutils literal notranslate"><span class="pre">completed_requests</span></code>. If it is lower, <code class="docutils literal notranslate"><span class="pre">max_token_hits</span></code> undercounts.</p>
+<p>If a command exits with an error, or a run is <code class="docutils literal notranslate"><span class="pre">INCOMPLETE</span></code>, do not use that measurement. Start it again under a new <code class="docutils literal notranslate"><span class="pre">NAME</span></code>. Do not swap in a single rerun. Read <code class="docutils literal notranslate"><span class="pre">server_logs/tts_server.log</span></code> and <code class="docutils literal notranslate"><span class="pre">server_logs/asr_server.log</span></code> in the model’s output directory for the cause.</p>
+</section>
+</section>
+<section id="measuring-accurately">
+<h2>Measuring Accurately<a class="headerlink" href="#measuring-accurately" title="Link to this heading">#</a></h2>
+<p><strong>Fixed GPU and CPUs.</strong> Use the same GPU, CPU set, image and model revisions for every number you compare. The container pins the CPUs with <code class="docutils literal notranslate"><span class="pre">--cpuset-cpus</span></code> and the memory node with <code class="docutils literal notranslate"><span class="pre">--cpuset-mems</span></code>. Run <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> on the host, not in the container, to check that no other process uses the GPU. A container sees only its own processes.</p>
+<p><strong>Fresh server per run.</strong> Each command starts its own TTS server and Qwen3-ASR server, so no state carries over between runs. <code class="docutils literal notranslate"><span class="pre">--repeats</span></code> with <code class="docutils literal notranslate"><span class="pre">--generate-only</span></code> measures several passes on one server. Those passes share a warm server, so they are not independent runs.</p>
+<p><strong>Warmup.</strong> The 16 warmup requests run at full concurrency before timing starts. Cold work on the first batches then does not land in the scored window. Keep the default. <code class="docutils literal notranslate"><span class="pre">--warmup</span> <span class="pre">0</span></code> moves that work into the scored numbers.</p>
+<p><strong>Compile and cold start.</strong> Torch compile is on by default for the Qwen3-TTS and MOSS-TTS engine stages (<code class="docutils literal notranslate"><span class="pre">SGLANG_OMNI_TORCH_COMPILE_DEFAULT</span></code> in <code class="docutils literal notranslate"><span class="pre">sglang_omni/scheduling/sglang_backend/server_args_builder.py</span></code>). The Fun-CosyVoice3 engine stage never compiles, but its DiT compiles at startup. Inductor keeps compiled graphs in <code class="docutils literal notranslate"><span class="pre">/root/.cache/sglang-omni/torchinductor</span></code>, which is on the <code class="docutils literal notranslate"><span class="pre">$HOME/.cache</span></code> mount and survives the container. A changed graph compiles again, and the first run after a change pays for it. That is why RUN 0 is not scored.</p>
+<p><strong>Three scored runs.</strong> Report the mean of RUN 1 to 3 and their spread (the <code class="docutils literal notranslate"><span class="pre">std</span></code> column, or all three values). A single run can move a lot. The commands set no sampler seed, so one request that runs to the length cap can change a whole run. Check <code class="docutils literal notranslate"><span class="pre">max_token_hits</span></code> and <code class="docutils literal notranslate"><span class="pre">latency_p99_s</span></code> of each run before you trust a throughput change.</p>
+<p><strong>Run to run spread.</strong> Repeat the whole measurement under new names to see the run to run spread on your machine.</p>
+<p><strong>The scorer runs from the same checkout.</strong> The TTS client and Qwen3-ASR run from the same checkout as the server. A change to shared code (for example <code class="docutils literal notranslate"><span class="pre">sglang_omni.admission</span></code>) also changes the ASR side.</p>
+<p><strong>Audio length.</strong> Throughput and RTF depend on how much audio each request makes. Compare <code class="docutils literal notranslate"><span class="pre">audio_duration_mean_s</span></code> along with them. A faster run with shorter audio did less work.</p>
+<p>For profiling, use the skill in <code class="docutils literal notranslate"><span class="pre">.claude/skills/model-profiling</span></code>.</p>
+</section>
+<section id="reference-results">
+<h2>Reference Results<a class="headerlink" href="#reference-results" title="Link to this heading">#</a></h2>
+<p>These numbers were not measured with the setup on this page. Use them only to see whether your numbers are in a sensible range. Compare only numbers you measured yourself on one machine.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head text-right"><p><code class="docutils literal notranslate"><span class="pre">throughput_qps</span></code></p></th>
+<th class="head text-right"><p><code class="docutils literal notranslate"><span class="pre">latency_mean_s</span></code></p></th>
+<th class="head text-right"><p><code class="docutils literal notranslate"><span class="pre">rtf_mean</span></code></p></th>
+<th class="head text-right"><p><code class="docutils literal notranslate"><span class="pre">wer_corpus</span></code></p></th>
+<th class="head"><p>Source and setup</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qwen3-TTS-12Hz-1.7B-Base</p></td>
+<td class="text-right"><p>32.85</p></td>
+<td class="text-right"><p>0.484</p></td>
+<td class="text-right"><p>0.1193</p></td>
+<td class="text-right"><p>0.0113</p></td>
+<td><p>CI host reference in <code class="docutils literal notranslate"><span class="pre">tests/test_model/tts_ci_config.py</span></code> (<code class="docutils literal notranslate"><span class="pre">QWEN3_TTS_VC_NON_STREAM_P95</span></code>, <code class="docutils literal notranslate"><span class="pre">QWEN3_TTS_VC_WER_MAX_CORPUS</span></code>). H100, router over two workers, compile off, vocoder in its own process</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fun-CosyVoice3-0.5B-2512</p></td>
+<td class="text-right"><p>10.995</p></td>
+<td class="text-right"><p>1.451</p></td>
+<td class="text-right"><p>0.3256</p></td>
+<td class="text-right"><p>0.0144</p></td>
+<td><p>CI host reference in <code class="docutils literal notranslate"><span class="pre">tests/test_model/tts_ci_config.py</span></code> (<code class="docutils literal notranslate"><span class="pre">COSYVOICE3_VC_NON_STREAM_P95</span></code>, <code class="docutils literal notranslate"><span class="pre">COSYVOICE3_VC_WER_MAX_CORPUS</span></code>). H100, five full sample rounds at <code class="docutils literal notranslate"><span class="pre">c00c327</span></code>, router over two workers, compile off</p></td>
+</tr>
+<tr class="row-even"><td><p>MOSS-TTS-v1.5</p></td>
+<td class="text-right"><p>2.312</p></td>
+<td class="text-right"><p>3.449</p></td>
+<td class="text-right"><p>0.811</p></td>
+<td class="text-right"><p>0.0168</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">docs/cookbook/moss_tts.md</span></code>. One H200, concurrency 8, WER from Whisper-large-v3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Qwen3-TTS-12Hz-1.7B-CustomVoice has no reliable reference. <code class="docutils literal notranslate"><span class="pre">docs/cookbook/qwen3_tts.md</span></code> lists 14.788 qps, and <code class="docutils literal notranslate"><span class="pre">QWEN3_TTS_CUSTOM_VOICE_NON_STREAM_REFERENCE</span></code> in <code class="docutils literal notranslate"><span class="pre">tts_ci_config.py</span></code> lists 34.153 qps for the same source.</p>
+</section>
+<section id="comparing-with-tts-ci">
+<h2>Comparing with TTS CI<a class="headerlink" href="#comparing-with-tts-ci" title="Link to this heading">#</a></h2>
+<p>TTS CI (<code class="docutils literal notranslate"><span class="pre">.github/workflows/test-tts-ci.yaml</span></code>) deploys differently from this page. Do not compare numbers from this page with CI numbers.</p>
+<ul class="simple">
+<li><p>CI runs a Rust router over two workers on two H100s. This page runs one server on one GPU.</p></li>
+<li><p>CI sets <code class="docutils literal notranslate"><span class="pre">SGLANG_OMNI_TORCH_COMPILE_DEFAULT=0</span></code> (<code class="docutils literal notranslate"><span class="pre">.github/scripts/ci_env.sh</span></code>). This page keeps compile on.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">qwen3-tts</span></code> and <code class="docutils literal notranslate"><span class="pre">qwen3-tts-custom-voice</span></code> presets run the vocoder in its own process (<code class="docutils literal notranslate"><span class="pre">--vocoder.process</span> <span class="pre">vocoder</span></code>, GPU memory fractions 0.85 and 0.10). This page keeps the default colocated layout.</p></li>
+<li><p>The CI <code class="docutils literal notranslate"><span class="pre">moss</span></code> preset is MOSS-TTS-Local-Transformer-v1.5, not MOSS-TTS-v1.5. CI also runs Higgs TTS.</p></li>
+<li><p>CI scores SIM and UTMOS. This page does not.</p></li>
+<li><p>Stages 1 to 4 run through <code class="docutils literal notranslate"><span class="pre">.github/scripts/run_flaky_pytest.sh</span></code>, which makes up to three attempts, so a green stage can hide a failed attempt. The latency stage makes one attempt.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>SeedTTS EN is a public set.</strong> Its 1088 samples are not a sample of real traffic. Concurrency 16 non streaming is one operating point.</p></li>
+<li><p><strong>MOSS-TTS-v1.5 runs here at concurrency 16.</strong> Its cookbook measures it at 8 and reports higher WER above that.</p></li>
+<li><p><strong>WER depends on the ASR model.</strong> Numbers scored with Whisper-large-v3 (as in some cookbook tables) do not compare with Qwen3-ASR numbers.</p></li>
+<li><p><strong>Some samples run away.</strong> A few utterances loop until the length cap. They raise <code class="docutils literal notranslate"><span class="pre">wer_corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">max_token_hits</span></code>, <code class="docutils literal notranslate"><span class="pre">latency_p99_s</span></code> and <code class="docutils literal notranslate"><span class="pre">audio_duration_mean_s</span></code> together. Check <code class="docutils literal notranslate"><span class="pre">n_above_50_pct_wer</span></code> and the <code class="docutils literal notranslate"><span class="pre">per_sample</span></code> entries when one run differs from the others.</p></li>
+<li><p><strong>Changing the client changes the workload.</strong> The dataset, concurrency, warmup, <code class="docutils literal notranslate"><span class="pre">--ref-format</span></code>, <code class="docutils literal notranslate"><span class="pre">--voice</span></code>, <code class="docutils literal notranslate"><span class="pre">--token-count</span></code>, <code class="docutils literal notranslate"><span class="pre">--response-format</span></code> and <code class="docutils literal notranslate"><span class="pre">--seed</span></code> all change what is measured. Keep them fixed across everything you compare.</p></li>
+<li><p><strong>Use GPU index 0 inside the container.</strong> After each server stops, the GPU cleanup scans for orphan processes on the visible GPU. With a host GPU other than 0 it may miss them, but the memory wait still works.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="full_duplex_metrics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Full-Duplex-Bench v1.0 unified metrics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="asr_bench.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ASR benchmark runbook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-measured">What is Measured</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-time-setup">One Time Setup</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-gpu-and-cpus">Choose the GPU and CPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-container">Start the container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-variables-file">Write the variables file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-sox-and-the-cosyvoice-sources">Install sox and the CosyVoice sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-out-and-install-sglang-omni">Check out and install SGLang-Omni</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data-and-models">Download the data and models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-summary-script">Write the summary script</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-benchmark">Run the Benchmark</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smoke-test">Smoke test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-run-script">Write the run script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-one-measurement">Run one measurement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage-checks">Coverage checks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-accurately">Measuring Accurately</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-results">Reference Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-with-tts-ci">Comparing with TTS CI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By SGLang-Omni Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025-2026, SGLang-Omni.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Oct 20, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

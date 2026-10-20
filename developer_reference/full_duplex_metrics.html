@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Full-Duplex-Bench v1.0 unified metrics &#8212; SGLang</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ccdb6887"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer_reference/full_duplex_metrics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
+    <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TTS benchmark runbook" href="tts_bench.html" />
+    <link rel="prev" title="Full-Duplex-Bench runbook" href="full_duplex_bench.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.8" />
+    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-light" alt="SGLang - Home"/>
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-dark pst-js-only" alt="SGLang - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3 TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/qwen3_omni.html">Omni Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_chat_stage.html">Native Chat Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/audio_translations.html">Audio Translations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts.html">TTS Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiserver_design.html">API Server Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pipeline Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_parameters.html">Adding a Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference_encode_service.html">Reference Encode Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Request-level profiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_bench.html">ASR benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rl_admin_control.html">RL Admin Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlx.html">MLX Path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ci_labels.html">CI Workflows and Labels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump_version.html">Bumping the SGLang Pin</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/blob/main/docs/developer_reference/full_duplex_metrics.md?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/edit/main/docs/developer_reference/full_duplex_metrics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/issues/new?title=Issue%20on%20page%20%2Fdeveloper_reference/full_duplex_metrics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/developer_reference/full_duplex_metrics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Full-Duplex-Bench v1.0 unified metrics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-official-numbers-are-only-a-reference">Why the official numbers are only a reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs-and-checks">Inputs and checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pause-handling">Pause handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-turn-taking">Smooth turn-taking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interruption">User interruption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backchannel">Backchannel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speech-detection">Speech detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-them-together">Reading them together</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#denominators-and-intervals">Denominators and intervals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run">Run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-measured">Not measured</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="full-duplex-bench-v1-0-unified-metrics">
+<h1>Full-Duplex-Bench v1.0 unified metrics<a class="headerlink" href="#full-duplex-bench-v1-0-unified-metrics" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">unified-score</span></code> scores a Full-Duplex-Bench v1.0 reference tree with turn-taking metrics that do not depend on how a system decides to speak. It reads the same Parakeet transcripts and dataset annotations as the official evaluator, and for user interruption it also runs Silero VAD on the exported audio, so native full-duplex, turn-based and cascade systems are scored by the same rules. It needs no GPU, LLM or network access.</p>
+<section id="why-the-official-numbers-are-only-a-reference">
+<h2>Why the official numbers are only a reference<a class="headerlink" href="#why-the-official-numbers-are-only-a-reference" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">reference-evaluate</span></code> runs the pinned official evaluator unchanged, and its numbers stay in the report as the reference column. Four of its rules measure something other than their names suggest:</p>
+<ol class="arabic simple">
+<li><p><strong>Talking over the user gives the best latency.</strong> <code class="docutils literal notranslate"><span class="pre">eval_smooth_turn_taking.py</span></code> sets a negative latency, a reply that starts before the user’s turn ends, to 0. On one 119-sample capture of a native full-duplex model, 39 latencies were clamped this way.</p></li>
+<li><p><strong>Pause takeover does not look at the pauses.</strong> <code class="docutils literal notranslate"><span class="pre">eval_pause_handling.py</span></code> never reads <code class="docutils literal notranslate"><span class="pre">pause.json</span></code>. It counts a takeover in every nonempty transcript of the whole window except one that both spans less than 1 s and has at most 3 words. Speech before the user’s first pause counts, and an output of at most 3 words within 1 s, such as a takeover that the user’s resumed speech cuts off, does not. On Candor pause handling, the official rule found a takeover in 30 samples of a turn-based system that answers after 500 ms of silence, while that system’s transcript contained a word onset at or after the first annotated pause in 67.</p></li>
+<li><p><strong>Non-responders leave the latency average.</strong> Latency is averaged only over samples that took the turn, so a model too slow to answer inside the window drops out and can look faster.</p></li>
+<li><p><strong>Not every interruption interrupts.</strong> <code class="docutils literal notranslate"><span class="pre">eval_user_interruption.py</span></code> scores every sample alike, whether or not the model was speaking when the user cut in. On one 200-sample capture of a native full-duplex model, no speech was detected at the interruption onset in 87 samples, and a reply after R in those samples still enters the official takeover rate, latency and judge rating.</p></li>
+</ol>
+</section>
+<section id="inputs-and-checks">
+<h2>Inputs and checks<a class="headerlink" href="#inputs-and-checks" title="Link to this heading">#</a></h2>
+<p>Run it on a tree written by <code class="docutils literal notranslate"><span class="pre">reference-export</span></code> and transcribed by <code class="docutils literal notranslate"><span class="pre">reference-asr</span></code> (see the <a class="reference internal" href="full_duplex_bench.html"><span class="std std-doc">runbook</span></a>). All times are seconds on the input window <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">T]</span></code>, where T is the input length recorded in <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code>. Each transcript word has a start and an end from <code class="docutils literal notranslate"><span class="pre">output.json</span></code>; a word with a null end counts as zero-length at its start. Times are rounded to the microsecond before any comparison. This removes float noise in the files (an annotation at 6.32000000000005 against a word at 6.32), not ASR alignment error.</p>
+<p>Loading a sample checks its times and stops with the sample id and the problem if any check fails: every word starts in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">T]</span></code>; the reference times E, S and R defined below lie in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">T]</span></code> with <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;=</span> <span class="pre">R</span></code>; <code class="docutils literal notranslate"><span class="pre">pause.json</span></code> lists at least one pause, each <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> inside <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">T]</span></code>, sorted and not overlapping; and no interruption word starts before R.</p>
+<p>These annotations do not reliably label backchannels versus aborted turn starts; we therefore count every word onset, including a one-word “yeah”. The rules are a strict word-timing proxy that also penalizes acknowledgments a listener might accept.</p>
+</section>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h2>
+<section id="pause-handling">
+<h3>Pause handling<a class="headerlink" href="#pause-handling" title="Link to this heading">#</a></h3>
+<p>Subsets <code class="docutils literal notranslate"><span class="pre">synthetic_pause_handling</span></code> and <code class="docutils literal notranslate"><span class="pre">candor_pause_handling</span></code>, reported separately. The official evaluator scores the whole window as one user turn, and we operationally treat the window as a non-yielding user turn. From the start of the first annotated pause to T the user is pausing or speaking again, so a model word starting in that region takes the floor too early. Each pause owns the time from its start to the next pause start, and the last pause owns the time to T.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Better</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pause_intrusion_rate</span></code></p></td>
+<td><p>Samples with a model word starting at or after the first pause start</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pause_intrusion_per_pause</span></code></p></td>
+<td><p>Pauses whose owned time contains a model word start, over all pauses</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">intrusion_s_per_pause_s</span></code></p></td>
+<td><p>Annotated pause seconds covered by ASR word spans, over all annotated pause seconds</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inside_pause_onset_rate</span></code></p></td>
+<td><p>Samples with a model word starting inside an annotated pause <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b)</span></code></p></td>
+<td><p>Context</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pre_pause_speech_rate</span></code></p></td>
+<td><p>Samples with a model word starting before the first pause start</p></td>
+<td><p>Context</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">carry_in_rate</span></code></p></td>
+<td><p>Samples with a model word that starts before the first pause start and ends after it</p></td>
+<td><p>Context</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">any_speech_rate</span></code></p></td>
+<td><p>Samples with any model word in the window</p></td>
+<td><p>Context</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pause_intrusion_rate</span></code> is the headline. It counts onsets up to T, not only inside the pauses, because a model whose reaction time exceeds a pause replies after the user has resumed; this needs no added reaction-time parameter. <code class="docutils literal notranslate"><span class="pre">inside_pause_onset_rate</span></code> is the narrower count of onsets inside the pauses.</p>
+<p>Onsets before the first pause are outside this pause-conditioned observation region: they cannot react to a pause that has not started. Their samples stay in the denominator, and a model still talking at the first pause counts once it starts another word. This is a scope restriction, not a judgment that early talk is harmless; <code class="docutils literal notranslate"><span class="pre">pre_pause_speech_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">carry_in_rate</span></code> report it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">intrusion_s_per_pause_s</span></code> measures coverage of annotated pause time by ASR word spans, not acoustic occupancy. Any word overlapping a pause adds that overlap, including one that started before the first pause, and a zero-length word adds nothing. <code class="docutils literal notranslate"><span class="pre">pause_intrusion_per_pause</span></code> is an owned-interval diagnostic, not a per-pause takeover probability: one continuing utterance can place words in several owned intervals, the intervals differ in length, and the last one runs to T. <code class="docutils literal notranslate"><span class="pre">intrusion_words</span></code> in <code class="docutils literal notranslate"><span class="pre">unified-samples.jsonl</span></code> counts the intruding word onsets, not utterances or seconds.</p>
+</section>
+<section id="smooth-turn-taking">
+<h3>Smooth turn-taking<a class="headerlink" href="#smooth-turn-taking" title="Link to this heading">#</a></h3>
+<p>Subset <code class="docutils literal notranslate"><span class="pre">candor_turn_taking</span></code>. The reference time E is <code class="docutils literal notranslate"><span class="pre">turn_taking.json[0].timestamp[0]</span></code>, the time the official evaluator uses as the end of the user’s turn. Each sample has exactly one outcome:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">early_start</span></code>: a model word starts before E.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response</span></code>: no word starts before E and at least one starts at or after it. The latency is the start of the first word minus E.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no_response</span></code>: no transcribed word in the window.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Better</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">early_start_rate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">early_start</span></code> samples</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">response_rate_1s</span></code>, <code class="docutils literal notranslate"><span class="pre">_2s</span></code>, <code class="docutils literal notranslate"><span class="pre">_5s</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">response</span></code> samples with a latency of at most 1, 2 or 5 s</p></td>
+<td><p>Higher</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">no_response_rate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">no_response</span></code> samples</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">response_latency_s</span></code></p></td>
+<td><p>Median with its interval, and p90, of the latency, where a sample without a <code class="docutils literal notranslate"><span class="pre">response</span></code> never responds</p></td>
+<td><p>Lower</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>An early start never counts as a response, so talking through the end of the user’s turn cannot buy a short latency, and an early acknowledgment followed by a good answer is an early start. <code class="docutils literal notranslate"><span class="pre">no_response</span></code> means no transcribed word, not every failed sample, so a system can have no silent samples and still not reach its p90.</p>
+<p>Let F(t) be the share of samples with a <code class="docutils literal notranslate"><span class="pre">response</span></code> latency of at most t. Then <code class="docutils literal notranslate"><span class="pre">response_rate_ks</span></code> is F(k), and a latency quantile is Q(q) = inf{t : F(t) &gt;= q}, the ceil(qN)-th smallest latency with no interpolation. The quantiles and the response rates are one curve: Q(q) is at most k exactly when <code class="docutils literal notranslate"><span class="pre">response_rate_ks</span></code> is at least q, so the median is the time by which half of all samples have responded. A quantile that falls on a sample without a <code class="docutils literal notranslate"><span class="pre">response</span></code> is reported as not reached. Placing those samples at infinity is a scoring convention for a valid response within the window, not an estimate of when a silent system would answer.</p>
+</section>
+<section id="user-interruption">
+<h3>User interruption<a class="headerlink" href="#user-interruption" title="Link to this heading">#</a></h3>
+<p>Subset <code class="docutils literal notranslate"><span class="pre">synthetic_user_interruption</span></code>. <code class="docutils literal notranslate"><span class="pre">interrupt.json[0].timestamp</span></code> gives the onset S and the end R of the user’s interruption. <code class="docutils literal notranslate"><span class="pre">reference-asr</span></code> cuts the audio at R before transcribing, so the transcript holds only words from R on and cannot show whether the model stopped. Silero VAD on the full <code class="docutils literal notranslate"><span class="pre">output.wav</span></code> supplies that (see <a class="reference internal" href="#speech-detection"><span class="std std-ref">Speech detection</span></a>). Each sample records whether detected speech covers S (<code class="docutils literal notranslate"><span class="pre">speech_at_onset</span></code>, a segment with start &lt;= S &lt; end) and whether speech that began before R carries over it (<code class="docutils literal notranslate"><span class="pre">speech_at_end</span></code>, start &lt; R &lt; end; a reply that begins exactly at R does not). The outcome is decided in this order:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">not_exercised</span></code>: no detected speech at S, so the interruption did not cut into detected speech. The sample keeps <code class="docutils literal notranslate"><span class="pre">speech_at_end</span></code>, so a model that starts talking during the interruption and talks past R stays visible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speaking_at_end</span></code>: speech at S and at R. The words after R may continue the interrupted answer, so the sample has no latency. A model that stopped and then started a reply before R lands here too, the interruption counterpart of an early start.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response</span></code>: speech at S, none carried over R, and a transcribed word starts at or after R. The latency is the start of the first word minus R.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no_response</span></code>: speech at S, none carried over R, and no transcribed word after R.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Better</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exercised_rate</span></code></p></td>
+<td><p>Eligible samples with speech at S</p></td>
+<td><p>Context</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">speaking_at_end_rate</span></code></p></td>
+<td><p>Exercised samples that are <code class="docutils literal notranslate"><span class="pre">speaking_at_end</span></code></p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">response_rate_1s</span></code>, <code class="docutils literal notranslate"><span class="pre">_2s</span></code>, <code class="docutils literal notranslate"><span class="pre">_5s</span></code></p></td>
+<td><p>Exercised samples with a <code class="docutils literal notranslate"><span class="pre">response</span></code> within 1, 2 or 5 s</p></td>
+<td><p>Higher</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">no_response_rate</span></code></p></td>
+<td><p>Exercised samples that are <code class="docutils literal notranslate"><span class="pre">no_response</span></code></p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">response_latency_s</span></code></p></td>
+<td><p>Median with its interval, and p90, over exercised samples, as for turn-taking</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stop_latency_s</span></code></p></td>
+<td><p>Median with its interval, and p90, of the time from S to the end of the segment covering S; a segment that runs to T has no observed stop</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speech_s_per_interruption_s</span></code></p></td>
+<td><p>Detected speech seconds inside [S, R] over interruption seconds, pooled over exercised samples</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">restart_rate</span></code></p></td>
+<td><p>Exercised samples with a segment starting inside (S, R)</p></td>
+<td><p>Lower</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The outcome only checks the endpoint R. A model can keep talking through most of the interruption, stop just before R and still get a <code class="docutils literal notranslate"><span class="pre">response</span></code>; <code class="docutils literal notranslate"><span class="pre">stop_latency_s</span></code>, <code class="docutils literal notranslate"><span class="pre">speech_s_per_interruption_s</span></code> and <code class="docutils literal notranslate"><span class="pre">restart_rate</span></code> show that. None of them tells a reactive stop from an answer that ended on its own, which would need a matched run with the interruption muted.</p>
+<p>Every metric except <code class="docutils literal notranslate"><span class="pre">exercised_rate</span></code> is over exercised samples. Whether a sample is exercised depends on the system as well as the dataset, because S is fixed in input time: a model that answers briefly or late is silent at S more often. A <code class="docutils literal notranslate"><span class="pre">not_exercised</span></code> sample therefore counts as an unknown outcome in the selected bounds of those metrics, like an ineligible one; for <code class="docutils literal notranslate"><span class="pre">exercised_rate</span></code> itself it is a known no. A model silent at every S gets bounds of <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> and is visibly unmeasured, and a terse model’s lower bound drops. The bounds are worst-case completions under this fixed-onset protocol, not a bound on how a model would handle an interruption timed while it speaks. Read <code class="docutils literal notranslate"><span class="pre">exercised_rate</span></code> and the bounds with every interruption number.</p>
+</section>
+<section id="backchannel">
+<h3>Backchannel<a class="headerlink" href="#backchannel" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">icc_backchannel</span></code> has no unified metric; the official frequency and JSD are the reference. <code class="docutils literal notranslate"><span class="pre">eval_backchannel.py</span></code> has known problems. Fixing them needs new definitions with their own validation, so they are only listed here:</p>
+<ul class="simple">
+<li><p>It adds every VAD segment up to 3 s to the backchannel list, including the ones it classified as a takeover.</p></li>
+<li><p>Its takeover flag is overwritten by each segment, and the loop stops at the first segment over 3 s, which also drops the later segments from frequency and timing.</p></li>
+<li><p>The timing score is SciPy’s Jensen-Shannon distance with the natural log, at most about 0.83, while a sample without backchannels is given 1. The average therefore mixes the share of samples without backchannels with the timing distance of the rest.</p></li>
+</ul>
+</section>
+<section id="speech-detection">
+<h3>Speech detection<a class="headerlink" href="#speech-detection" title="Link to this heading">#</a></h3>
+<p>The scorer runs the Silero model that <code class="docutils literal notranslate"><span class="pre">load_silero_vad()</span></code> loads, with Silero’s default threshold 0.5, minimum speech 250 ms and minimum silence 100 ms, and no padding. The default 30 ms of padding widens each segment on both sides and can move a reply that starts just after R to before it. <code class="docutils literal notranslate"><span class="pre">output.wav</span></code> must hold exactly T seconds of samples. Segments come from the whole file, so near S they can depend on audio after S. A pause longer than 100 ms ends a segment, so a model pausing between sentences exactly at S counts as <code class="docutils literal notranslate"><span class="pre">not_exercised</span></code>. On one 200-sample capture of a native full-duplex model, thresholds from 0.3 to 0.7 and minimum silences from 50 to 500 ms moved <code class="docutils literal notranslate"><span class="pre">not_exercised</span></code> between 85 and 95 samples, <code class="docutils literal notranslate"><span class="pre">response_rate_2s</span></code> between 0.952 and 0.957 and the median <code class="docutils literal notranslate"><span class="pre">stop_latency_s</span></code> between 1.04 and 1.27 s, and left <code class="docutils literal notranslate"><span class="pre">speaking_at_end</span></code> at 4. <code class="docutils literal notranslate"><span class="pre">restart_rate</span></code> ran from 0.05 to 0.27, because a shorter minimum silence splits speech into more segments, so it is a diagnostic and does not rank systems.</p>
+<p>The audio is the received output played in order. For the turn-based realtime protocol the playout drops queued audio when the server reports that the user started speaking while interruptions are on; native full-duplex traces have no such event, so audio a system has already sent plays out, and the outcome describes the system as delivered.</p>
+</section>
+<section id="reading-them-together">
+<h3>Reading them together<a class="headerlink" href="#reading-them-together" title="Link to this heading">#</a></h3>
+<p>Silence scores perfectly on pause handling, and one canned word right after E counts as a response. Read pause restraint and response rates together, from the same system configuration; neither is enough alone.</p>
+</section>
+</section>
+<section id="denominators-and-intervals">
+<h2>Denominators and intervals<a class="headerlink" href="#denominators-and-intervals" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Sample shares and latency quantiles are over the subset’s eligible samples, and for interruption over its exercised ones. Eligible samples are those whose capture passed the <code class="docutils literal notranslate"><span class="pre">reference-export</span></code> checks (input pacing, an error-free observation window, dataset hashes that match the run). The pooled ratios divide by the pauses and the pause seconds of the eligible samples. <code class="docutils literal notranslate"><span class="pre">declared</span></code> is the full subset size.</p></li>
+<li><p>Ineligible samples are counted under <code class="docutils literal notranslate"><span class="pre">counts</span></code>, never dropped silently. A sample can have several reasons, so the counts in <code class="docutils literal notranslate"><span class="pre">counts.ineligible_reasons</span></code> need not sum to <code class="docutils literal notranslate"><span class="pre">ineligible</span></code>.</p></li>
+<li><p>An ineligible sample’s outcome is unknown, and a capture failure can depend on the system. Every sample share therefore also has <code class="docutils literal notranslate"><span class="pre">selected_bounds</span></code>, <code class="docutils literal notranslate"><span class="pre">[count</span> <span class="pre">/</span> <span class="pre">selected,</span> <span class="pre">(count</span> <span class="pre">+</span> <span class="pre">unknown)</span> <span class="pre">/</span> <span class="pre">selected]</span></code>: its value over all selected samples with each unknown outcome taken as no, then as yes. The unknown samples are the ineligible ones, plus the <code class="docutils literal notranslate"><span class="pre">not_exercised</span></code> ones for every interruption metric except <code class="docutils literal notranslate"><span class="pre">exercised_rate</span></code>. <code class="docutils literal notranslate"><span class="pre">coverage</span></code> is eligible over selected for each subset.</p></li>
+<li><p>A share of samples has a 95% Wilson interval, whose endpoints are exactly 0 at a count of 0 and exactly 1 at a count of n. The pooled ratios and the median latency have a 95% percentile bootstrap interval that resamples whole samples (2000 resamples, seed 0), because the pauses of one sample are not independent. Each resample’s median and the interval endpoints use the same quantile rule as above. A resample with no pause time has no <code class="docutils literal notranslate"><span class="pre">intrusion_s_per_pause_s</span></code> and is skipped. The output is deterministic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_observable_s</span></code> is the shortest time from the reference to T. T is the dataset input length, so every system has the same horizon on a sample. A response after T is not observed, so <code class="docutils literal notranslate"><span class="pre">response_rate_ks</span></code> is a lower bound when <code class="docutils literal notranslate"><span class="pre">min_observable_s</span></code> is below k. Candor turn-taking windows end about 5 s after E, so there <code class="docutils literal notranslate"><span class="pre">response_rate_5s</span></code> is close to the share that responded inside the window.</p></li>
+<li><p>The intervals cover dataset sampling only, not repeated generations or ASR errors. To compare two systems, pair their rows in <code class="docutils literal notranslate"><span class="pre">unified-samples.jsonl</span></code> by <code class="docutils literal notranslate"><span class="pre">sample_id</span></code> over the samples eligible in both, and for interruption exercised in both. Pairing does not remove selection bias, so report coverage, <code class="docutils literal notranslate"><span class="pre">exercised_rate</span></code> and the selected bounds as well, and for interruption how many samples eligible in both were exercised in both, only in one system, or in neither.</p></li>
+</ul>
+</section>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_duplex_v10<span class="w"> </span>unified-score<span class="w"> </span>--tree<span class="w"> </span><span class="s2">"</span><span class="nv">$OUT</span><span class="s2">/reference"</span>
+</pre></div>
+</div>
+<p>It refuses a tree without <code class="docutils literal notranslate"><span class="pre">asr.json</span></code>, stops if the transcript or annotation of an eligible sample, or the <code class="docutils literal notranslate"><span class="pre">output.wav</span></code> of an interruption sample, differs from <code class="docutils literal notranslate"><span class="pre">asr.json</span></code> or <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code>, and stops on a time that fails the checks above. It writes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unified.json</span></code>: per subset, the counts, <code class="docutils literal notranslate"><span class="pre">coverage</span></code> and every metric with its interval, plus <code class="docutils literal notranslate"><span class="pre">selected_bounds</span></code> for sample shares and <code class="docutils literal notranslate"><span class="pre">min_observable_s</span></code> for turn-taking and interruption. Only the median latency has an interval, not p90. At the top are the definitions version (<code class="docutils literal notranslate"><span class="pre">fdb-v1.0-unified-4</span></code>), the hashes of <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code> and <code class="docutils literal notranslate"><span class="pre">asr.json</span></code>, and the silero-vad version, model file hash and settings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unified-samples.jsonl</span></code>: one row per selected sample of the four scored subsets (<code class="docutils literal notranslate"><span class="pre">icc_backchannel</span></code> has no rows) with every per-sample quantity, including the pause flags <code class="docutils literal notranslate"><span class="pre">pause_intrusion</span></code>, <code class="docutils literal notranslate"><span class="pre">inside_pause_onset</span></code>, <code class="docutils literal notranslate"><span class="pre">pre_pause_speech</span></code>, <code class="docutils literal notranslate"><span class="pre">carry_in</span></code> and <code class="docutils literal notranslate"><span class="pre">any_speech</span></code>, and for interruption the outcome, S, <code class="docutils literal notranslate"><span class="pre">speech_at_onset</span></code>, <code class="docutils literal notranslate"><span class="pre">speech_at_end</span></code>, <code class="docutils literal notranslate"><span class="pre">speech_before_onset</span></code>, <code class="docutils literal notranslate"><span class="pre">stop_s</span></code>, <code class="docutils literal notranslate"><span class="pre">speech_in_interruption_s</span></code> and <code class="docutils literal notranslate"><span class="pre">restarts</span></code>. Ineligible rows keep their sample id, subset and task and add their reasons.</p></li>
+</ul>
+<p>It prints each subset’s metrics as value, interval and count, with the bounds over all selected samples for each share. When <code class="docutils literal notranslate"><span class="pre">reference-evaluate</span></code> has written <code class="docutils literal notranslate"><span class="pre">summary.json</span></code> from the same <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code> and <code class="docutils literal notranslate"><span class="pre">asr.json</span></code>, its numbers are printed below them as the reference column; if either hash differs, the column is left out and a line says which input changed. Interruption numbers rated by a judge other than the official one are labeled with that judge’s model instead of <code class="docutils literal notranslate"><span class="pre">official</span></code>. <code class="docutils literal notranslate"><span class="pre">summary.json</span></code> is never written or used for scoring. Rerunning on the same tree writes the same bytes.</p>
+</section>
+<section id="not-measured">
+<h2>Not measured<a class="headerlink" href="#not-measured" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Why the model stops after an interruption.</strong> <code class="docutils literal notranslate"><span class="pre">stop_latency_s</span></code> says when the speech covering S ends, not whether the model stopped because of the interruption; that needs a matched run with the interruption muted.</p></li>
+<li><p><strong>The end of the user’s speech in a pause sample.</strong> The window is treated as a non-yielding user turn. The official evaluator reads output chunks, not a user-end annotation, so it does not establish the true turn end either. A reply that starts in a short trailing silence counts as an intrusion, so not every counted onset is premature.</p></li>
+<li><p><strong>Relevance of a reply.</strong> Neither these metrics nor the official turn-taking score check that a reply answers the user. Only the official interruption judge rating covers it, and that rating depends on the judge model the run configured.</p></li>
+<li><p><strong>ASR errors.</strong> A missed or invented word changes the metrics it falls in. All systems share the pinned Parakeet checkpoint, which does not mean they share the same recognition error.</p></li>
+<li><p><strong>Acoustic latency.</strong> The output is a simulated playout of the received audio.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="full_duplex_bench.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Full-Duplex-Bench runbook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tts_bench.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TTS benchmark runbook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-official-numbers-are-only-a-reference">Why the official numbers are only a reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs-and-checks">Inputs and checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pause-handling">Pause handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-turn-taking">Smooth turn-taking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interruption">User interruption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backchannel">Backchannel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speech-detection">Speech detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-them-together">Reading them together</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#denominators-and-intervals">Denominators and intervals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run">Run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-measured">Not measured</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By SGLang-Omni Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025-2026, SGLang-Omni.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Oct 20, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

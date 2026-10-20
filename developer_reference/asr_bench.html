@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ASR benchmark runbook &#8212; SGLang</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ccdb6887"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer_reference/asr_bench';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
+    <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MiniCPM-o offline benchmark runbook" href="omni_offline_bench.html" />
+    <link rel="prev" title="TTS benchmark runbook" href="tts_bench.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.8" />
+    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-light" alt="SGLang - Home"/>
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-dark pst-js-only" alt="SGLang - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3 TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/qwen3_omni.html">Omni Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_chat_stage.html">Native Chat Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/audio_translations.html">Audio Translations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts.html">TTS Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiserver_design.html">API Server Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pipeline Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_parameters.html">Adding a Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference_encode_service.html">Reference Encode Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Request-level profiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ASR benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rl_admin_control.html">RL Admin Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlx.html">MLX Path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ci_labels.html">CI Workflows and Labels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump_version.html">Bumping the SGLang Pin</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/blob/main/docs/developer_reference/asr_bench.md?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/edit/main/docs/developer_reference/asr_bench.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/issues/new?title=Issue%20on%20page%20%2Fdeveloper_reference/asr_bench.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/developer_reference/asr_bench.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ASR benchmark runbook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-measured">What is Measured</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-start-the-container-on-the-host">Step 1: Start the container (on the host)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-build-the-venv">Step 2: Build the venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-download-data-and-models">Step 3: Download data and models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-start-a-run">Step 4: Start a run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-run-seedtts-asr">Step 5: Run SeedTTS ASR</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qwen3-asr-1-7b">Qwen3-ASR-1.7B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whisper-large-v3">Whisper-large-v3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fun-asr-nano">Fun-ASR-Nano</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-run-moss-transcribe-diarize">Step 6: Run MOSS-Transcribe-Diarize</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-summarize">Step 7: Summarize</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-each-metric-lives">Where each metric lives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-accurately">Measuring accurately</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-results">Reference results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-ci-tests">Run the CI tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats">Caveats</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="asr-benchmark-runbook">
+<h1>ASR benchmark runbook<a class="headerlink" href="#asr-benchmark-runbook" title="Link to this heading">#</a></h1>
+<p>This page runs the ASR benchmarks of SGLang-Omni on one GPU and explains how to measure them accurately. Audio goes in and text comes out. Correctness is WER, or CER and cpCER for MOSS-Transcribe-Diarize. Performance is throughput, latency and RTF.</p>
+<p>The workloads are the ones in the ASR CI (<code class="docutils literal notranslate"><span class="pre">.github/workflows/test-asr-ci.yaml</span></code>). Run every command in <code class="docutils literal notranslate"><span class="pre">bash</span></code>, in order. The only values you set yourself are in <a class="reference internal" href="#variables"><span class="std std-ref">Variables</span></a>.</p>
+<section id="what-is-measured">
+<h2>What is Measured<a class="headerlink" href="#what-is-measured" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>CI stage</p></th>
+<th class="head"><p>Model</p></th>
+<th class="head"><p>Data</p></th>
+<th class="head"><p>Concurrency</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>MOSS-Transcribe-Diarize, multiple speakers</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">movies800times</span></code> (800 samples, run once without and once with streaming), <code class="docutils literal notranslate"><span class="pre">aishell4_long</span></code> (20), <code class="docutils literal notranslate"><span class="pre">googletime</span></code> (25)</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Qwen3-ASR-1.7B, Whisper-large-v3 or Fun-ASR-Nano</p></td>
+<td><p>SeedTTS EN (1088) and ZH (2020)</p></td>
+<td><p>32</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>CI stage 1 also has <code class="docutils literal notranslate"><span class="pre">aishell4_long90</span></code>, one 90 minute sample stitched together from three <code class="docutils literal notranslate"><span class="pre">aishell4_long</span></code> clips. It only runs through pytest (see <a class="reference internal" href="#run-the-ci-tests"><span class="std std-ref">Run the CI tests</span></a>). CI stage 2 runs one of the three models per CI run, picked at random unless a <code class="docutils literal notranslate"><span class="pre">run-asr-fun-asr-nano-2512</span></code>, <code class="docutils literal notranslate"><span class="pre">run-asr-qwen3-asr-1.7b</span></code> or <code class="docutils literal notranslate"><span class="pre">run-asr-whisper-large-v3</span></code> label is set with <code class="docutils literal notranslate"><span class="pre">run-asr-ci</span></code> or <code class="docutils literal notranslate"><span class="pre">run-all-ci</span></code>.</p>
+<p>This page uses one server on one GPU, with the same datasets, concurrency and request settings as CI.</p>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<p>Run the host block on the host before Step 1, and again in every new host shell. Change only <code class="docutils literal notranslate"><span class="pre">GPU</span></code> and <code class="docutils literal notranslate"><span class="pre">HF_TOKEN</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GPU</span><span class="o">=</span><span class="m">0</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HF_TOKEN</span><span class="o">=</span>hf_your_token_here
+<span class="nb">export</span><span class="w"> </span><span class="nv">IMAGE</span><span class="o">=</span>hongccc/sglang-omni@sha256:ebe4239e29a764ee3a2806385c061c5fd438a26f01458e503d3822dcba5790df
+<span class="nb">export</span><span class="w"> </span><span class="nv">CPUSET</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/sys/bus/pci/devices/<span class="k">$(</span>nvidia-smi<span class="w"> </span>-i<span class="w"> </span><span class="nv">$GPU</span><span class="w"> </span>--query-gpu<span class="o">=</span>pci.bus_id<span class="w"> </span>--format<span class="o">=</span>csv,noheader<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-c<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>A-F<span class="w"> </span>a-f<span class="k">)</span>/local_cpulist<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$CPUSET</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">GPU</span></code> is the GPU under test. No other job may use it. <code class="docutils literal notranslate"><span class="pre">HF_TOKEN</span></code> needs access to the three private MOSS-Transcribe-Diarize datasets. <code class="docutils literal notranslate"><span class="pre">IMAGE</span></code> is the CI image. <code class="docutils literal notranslate"><span class="pre">CPUSET</span></code> is the CPUs on the NUMA node of <code class="docutils literal notranslate"><span class="pre">GPU</span></code>, such as <code class="docutils literal notranslate"><span class="pre">0-55,112-167</span></code>.</p>
+<p>Run the container block inside the container after Step 1, and again after every <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code>. Change only <code class="docutils literal notranslate"><span class="pre">COMMIT</span></code> (the commit to measure) and <code class="docutils literal notranslate"><span class="pre">NAME</span></code> (a label for its results):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">COMMIT</span><span class="o">=</span>origin/main
+<span class="nb">export</span><span class="w"> </span><span class="nv">NAME</span><span class="o">=</span>main
+<span class="nb">export</span><span class="w"> </span><span class="nv">SEEDTTS_REV</span><span class="o">=</span>27f4c1adee83b5b29b7c4b375f6b976324bda308
+<span class="nb">export</span><span class="w"> </span><span class="nv">HF_HUB</span><span class="o">=</span>/root/.cache/huggingface/hub
+<span class="nb">export</span><span class="w"> </span><span class="nv">QWEN3_ASR</span><span class="o">=</span><span class="nv">$HF_HUB</span>/models--Qwen--Qwen3-ASR-1.7B/snapshots/7278e1e70fe206f11671096ffdd38061171dd6e5
+<span class="nb">export</span><span class="w"> </span><span class="nv">WHISPER</span><span class="o">=</span><span class="nv">$HF_HUB</span>/models--openai--whisper-large-v3/snapshots/06f233fe06e710322aca913c1bc4249a0d71fce1
+<span class="nb">export</span><span class="w"> </span><span class="nv">FUN_ASR</span><span class="o">=</span><span class="nv">$HF_HUB</span>/models--FunAudioLLM--Fun-ASR-Nano-2512-hf/snapshots/7ef6cafdc445b5beff0b730cbeb51952c793ca6e
+<span class="nb">export</span><span class="w"> </span><span class="nv">MOSS_TD</span><span class="o">=</span><span class="nv">$HF_HUB</span>/models--OpenMOSS-Team--MOSS-Transcribe-Diarize/snapshots/704aa4a9c304e8520be88901e0d1960158ef5b15
+</pre></div>
+</div>
+<p>CI loads these models by repo id without a revision. The SHAs above are what the 2026-10-09 CI runners had cached. Each server here loads its model from these snapshot directories, so the revision cannot drift.</p>
+</section>
+<section id="step-1-start-the-container-on-the-host">
+<h2>Step 1: Start the container (on the host)<a class="headerlink" href="#step-1-start-the-container-on-the-host" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/asr-bench
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>asr-bench<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--gpus<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="nv">$GPU</span><span class="w"> </span>--cpuset-cpus<span class="w"> </span><span class="nv">$CPUSET</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/dev/shm:/dev/shm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.cache/huggingface:/root/.cache/huggingface<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$HOME</span>/asr-bench:/work<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span>HF_TOKEN<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">$IMAGE</span><span class="w"> </span>sleep<span class="w"> </span>infinity
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>asr-bench<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>Every command after this runs inside the container. Run the container block of <a class="reference internal" href="#variables"><span class="std std-ref">Variables</span></a>. Then <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">-L</span></code> must print exactly one GPU.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code> shell closes, the variables are lost and a running client stops. Run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">asr-bench</span> <span class="pre">bash</span></code> on the host, the container block and the <code class="docutils literal notranslate"><span class="pre">RUN</span></code> line of the cut off run. Then run that run again from Step 4.</p>
+</section>
+<section id="step-2-build-the-venv">
+<h2>Step 2: Build the venv<a class="headerlink" href="#step-2-build-the-venv" title="Link to this heading">#</a></h2>
+<p>These lines follow <code class="docutils literal notranslate"><span class="pre">.github/scripts/prepare_omni_venv.sh</span></code>, without the extras and the CosyVoice checkout that other models need. So <code class="docutils literal notranslate"><span class="pre">freeze.txt</span></code> will not match a CI venv exactly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span>/work/sglang-omni<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sgl-project/sglang-omni.git<span class="w"> </span>/work/sglang-omni
+<span class="nb">cd</span><span class="w"> </span>/work/sglang-omni
+git<span class="w"> </span>fetch<span class="w"> </span>origin
+git<span class="w"> </span>checkout<span class="w"> </span>--detach<span class="w"> </span><span class="nv">$COMMIT</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>.venv
+uv<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>.venv<span class="w"> </span>-p<span class="w"> </span>/usr/bin/python3.12
+<span class="nb">echo</span><span class="w"> </span><span class="s1">'import site; site.addsitedir("/opt/sglang/lib/python3.12/site-packages")'</span><span class="w"> </span>&gt;<span class="w"> </span>.venv/lib/python3.12/site-packages/sglang-image.pth
+.<span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>.github/scripts/omni_missing_dependencies.py<span class="w"> </span>pyproject.toml<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install
+python<span class="w"> </span>.github/scripts/omni_missing_dependencies.py<span class="w"> </span>--overrides<span class="w"> </span>pyproject.toml<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>-e<span class="w"> </span>.
+python<span class="w"> </span>.github/scripts/verify_omni_installed_pins.py<span class="w"> </span>.venv/bin/python<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The last line must print <code class="docutils literal notranslate"><span class="pre">Verified</span> <span class="pre">&lt;N&gt;</span> <span class="pre">exact</span> <span class="pre">dependency</span> <span class="pre">pins</span></code>. Run this block again whenever <code class="docutils literal notranslate"><span class="pre">COMMIT</span></code> changes. For a pull request, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span> <span class="pre">pull/&lt;N&gt;/head</span></code> first and set <code class="docutils literal notranslate"><span class="pre">COMMIT</span></code> to its SHA.</p>
+</section>
+<section id="step-3-download-data-and-models">
+<h2>Step 3: Download data and models<a class="headerlink" href="#step-3-download-data-and-models" title="Link to this heading">#</a></h2>
+<p>Download the SeedTTS dataset and the four models at their pinned revisions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/work/sglang-omni<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.dataset.prepare<span class="w"> </span>--dataset<span class="w"> </span>seedtts<span class="w"> </span>--revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen3-ASR-1.7B', revision='7278e1e70fe206f11671096ffdd38061171dd6e5')"</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"from huggingface_hub import snapshot_download; snapshot_download('openai/whisper-large-v3', revision='06f233fe06e710322aca913c1bc4249a0d71fce1')"</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"from huggingface_hub import snapshot_download; snapshot_download('FunAudioLLM/Fun-ASR-Nano-2512-hf', revision='7ef6cafdc445b5beff0b730cbeb51952c793ca6e')"</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"from huggingface_hub import snapshot_download; snapshot_download('OpenMOSS-Team/MOSS-Transcribe-Diarize', revision='704aa4a9c304e8520be88901e0d1960158ef5b15')"</span>
+ls<span class="w"> </span><span class="nv">$QWEN3_ASR</span>/config.json<span class="w"> </span><span class="nv">$WHISPER</span>/config.json<span class="w"> </span><span class="nv">$FUN_ASR</span>/config.json<span class="w"> </span><span class="nv">$MOSS_TD</span>/config.json
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> line must print four paths and no error. If it fails, run <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$HF_HOME</span></code>. If that prints a path, set <code class="docutils literal notranslate"><span class="pre">HF_HUB</span></code> to <code class="docutils literal notranslate"><span class="pre">$HF_HOME/hub</span></code> and rerun the container block with that value.</p>
+<p>The three MOSS-Transcribe-Diarize datasets are private. Download them once with <code class="docutils literal notranslate"><span class="pre">HF_TOKEN</span></code> set. An access error means the token cannot read them:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import datasets; datasets.load_dataset('zhaochenyang20/movies800time', split='validation')"</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import datasets; datasets.load_dataset('zhaochenyang20/AISHELL4', split='validation')"</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import datasets; datasets.load_dataset('zhaochenyang20/googletime', split='validation')"</span>
+</pre></div>
+</div>
+<p>The client cannot pin these datasets. Record the loaded dataset fingerprints and the remote repository heads right after the download, while still online. The remote head alone does not identify the cached rows. Compare both values between machines or dates before comparing numbers:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/work/results
+python<span class="w"> </span>-<span class="w"> </span>&gt;<span class="w"> </span>/work/results/moss_dataset_revisions.txt<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<span class="s">from huggingface_hub import HfApi</span>
+<span class="s">from datasets import load_dataset</span>
+<span class="s">for r in ("zhaochenyang20/movies800time", "zhaochenyang20/AISHELL4", "zhaochenyang20/googletime"):</span>
+<span class="s">    dataset = load_dataset(r, split="validation")</span>
+<span class="s">    print(r, "remote_head=" + HfApi().dataset_info(r).sha, "loaded_fingerprint=" + dataset._fingerprint)</span>
+<span class="s">EOF</span>
+cat<span class="w"> </span>/work/results/moss_dataset_revisions.txt
+</pre></div>
+</div>
+<p>Every run sets <code class="docutils literal notranslate"><span class="pre">HF_HUB_OFFLINE=1</span></code> (Step 4), so the datasets stay at the cached revisions. Check that every dataset loads offline. The last line must print <code class="docutils literal notranslate"><span class="pre">1088</span> <span class="pre">2020</span> <span class="pre">800</span> <span class="pre">20</span> <span class="pre">25</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span>
+<span class="s2">from benchmarks.dataset.seedtts import load_seedtts_samples as s, SEEDTTS_DATASET_ID as d</span>
+<span class="s2">from benchmarks.tasks.transcribe_diarize import load_movies800_samples as m</span>
+<span class="s2">a = dict(split='validation', audio_column='audio', expected_column='transcription', expected_sample_count=None)</span>
+<span class="s2">print(len(s(d, split='en', revision='</span><span class="nv">$SEEDTTS_REV</span><span class="s2">')), len(s(d, split='zh', revision='</span><span class="nv">$SEEDTTS_REV</span><span class="s2">')), len(m('zhaochenyang20/movies800time', **a)), len(m('zhaochenyang20/AISHELL4', **a)), len(m('zhaochenyang20/googletime', **a)))"</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-start-a-run">
+<h2>Step 4: Start a run<a class="headerlink" href="#step-4-start-a-run" title="Link to this heading">#</a></h2>
+<p>A run measures <code class="docutils literal notranslate"><span class="pre">COMMIT</span></code> once, with a fresh server for each model. Pick the run name first. <code class="docutils literal notranslate"><span class="pre">warm</span></code> is the unscored first run (see <a class="reference internal" href="#measuring-accurately"><span class="std std-ref">Measuring accurately</span></a>), then <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">RUN</span><span class="o">=</span>warm
+</pre></div>
+</div>
+<p>Then:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/work/sglang-omni<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>.venv/bin/activate
+<span class="nb">export</span><span class="w"> </span><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">SGLANG_OMNI_STRICT_PORT</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">SGLANG_OMNI_TORCH_COMPILE_DEFAULT</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">SGLANG_OMNI_STARTUP_TIMEOUT</span><span class="o">=</span><span class="m">1800</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TORCHINDUCTOR_CACHE_DIR</span><span class="o">=</span>/work/torchinductor
+find<span class="w"> </span>/work/results<span class="w"> </span>-name<span class="w"> </span>server.pid<span class="w"> </span>-exec<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'kill -9 -- -$(cat "$1") 2&gt;/dev/null'</span><span class="w"> </span>_<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+timeout<span class="w"> </span><span class="m">600</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until [ $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) -lt 1024 ]; do sleep 5; done'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>GPU_FREE
+<span class="nb">export</span><span class="w"> </span><span class="nv">OUT</span><span class="o">=</span>/work/results/<span class="nv">$NAME</span>/run<span class="nv">$RUN</span>
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$OUT</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$OUT</span>
+git<span class="w"> </span>rev-parse<span class="w"> </span>HEAD<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$OUT</span>/commit.txt
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>freeze<span class="w"> </span>--exclude-editable<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$OUT</span>/freeze.txt
+</pre></div>
+</div>
+<p>CI sets <code class="docutils literal notranslate"><span class="pre">SGLANG_OMNI_TORCH_COMPILE_DEFAULT=0</span></code>. Without it, every model that does not set compile itself (Qwen3-ASR, Whisper, Fun-ASR) runs <code class="docutils literal notranslate"><span class="pre">torch.compile</span></code>. MOSS-Transcribe-Diarize turns compile on itself. <code class="docutils literal notranslate"><span class="pre">TORCHINDUCTOR_CACHE_DIR</span></code> keeps its compile cache on the <code class="docutils literal notranslate"><span class="pre">/work</span></code> mount, so it survives a new container. Delete that directory to measure a cold start. <code class="docutils literal notranslate"><span class="pre">SGLANG_OMNI_STARTUP_TIMEOUT=1800</span></code> raises the server’s own startup limit from 600 s. On a host with few CPU cores, a cold Whisper start can spend more than 600 s capturing CUDA graphs.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">find</span></code> line stops every server left over from an earlier run. The block must print <code class="docutils literal notranslate"><span class="pre">GPU_FREE</span></code>. If it does not, run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">restart</span> <span class="pre">asr-bench</span></code> on the host, reattach as in Step 1, and run this step again. The block deletes earlier results of the same run, so a run is always redone whole.</p>
+</section>
+<section id="step-5-run-seedtts-asr">
+<h2>Step 5: Run SeedTTS ASR<a class="headerlink" href="#step-5-run-seedtts-asr" title="Link to this heading">#</a></h2>
+<p>Each block starts a server for one model, runs EN and ZH, then stops the server. Run the blocks one at a time.</p>
+<p>In every block, the <code class="docutils literal notranslate"><span class="pre">curl</span></code> line must print <code class="docutils literal notranslate"><span class="pre">PORT_FREE</span></code>, the <code class="docutils literal notranslate"><span class="pre">timeout</span> <span class="pre">1800</span></code> line <code class="docutils literal notranslate"><span class="pre">SERVER_READY</span></code> and the last line <code class="docutils literal notranslate"><span class="pre">GPU_FREE</span></code>. The <code class="docutils literal notranslate"><span class="pre">timeout</span> <span class="pre">1800</span></code> line stops waiting as soon as the server process exits, and then prints the end of <code class="docutils literal notranslate"><span class="pre">server.log</span></code> instead of <code class="docutils literal notranslate"><span class="pre">SERVER_READY</span></code>. If <code class="docutils literal notranslate"><span class="pre">GPU_FREE</span></code> does not print, some server processes survived the <code class="docutils literal notranslate"><span class="pre">kill</span></code>. Restart the container as in Step 4 and redo the run. The <code class="docutils literal notranslate"><span class="pre">setsid</span></code> line starts the server in its own process group, so <code class="docutils literal notranslate"><span class="pre">kill</span></code> stops all of it. Each client run prints a line ending with <code class="docutils literal notranslate"><span class="pre">evaluated=1088/1088</span></code> (EN) or <code class="docutils literal notranslate"><span class="pre">evaluated=2020/2020</span></code> (ZH). The client exits with code 0 even when it skipped samples, so check <a class="reference internal" href="#coverage"><span class="std std-ref">coverage</span></a> after the run.</p>
+<section id="qwen3-asr-1-7b">
+<h3>Qwen3-ASR-1.7B<a class="headerlink" href="#qwen3-asr-1-7b" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$OUT</span>/qwen3
+curl<span class="w"> </span>-sf<span class="w"> </span>localhost:8000/health<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>PORT_FREE
+setsid<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo $$ &gt; "$1"; shift; exec "$@"'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/qwen3/server.pid<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>.venv/bin/sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span><span class="nv">$QWEN3_ASR</span><span class="w"> </span>--model-name<span class="w"> </span>Qwen/Qwen3-ASR-1.7B<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&gt;<span class="w"> </span><span class="nv">$OUT</span>/qwen3/server.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+timeout<span class="w"> </span><span class="m">1800</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until curl -sf localhost:8000/health &gt; /dev/null; do sleep 5; grep -q "^State:[[:space:]]*[A-Y]" /proc/$(cat "$1")/status 2&gt;/dev/null || exit 1; done'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/qwen3/server.pid<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>SERVER_READY<span class="w"> </span><span class="o">||</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="nv">$OUT</span>/qwen3/server.log
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_seedtts<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--model-path<span class="w"> </span>Qwen/Qwen3-ASR-1.7B<span class="w"> </span>--lang<span class="w"> </span>en<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--concurrencies<span class="w"> </span><span class="m">32</span><span class="w"> </span>--repeats<span class="w"> </span><span class="m">1</span><span class="w"> </span>--warmup<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset-revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/qwen3/asr_en.json
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_seedtts<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--model-path<span class="w"> </span>Qwen/Qwen3-ASR-1.7B<span class="w"> </span>--lang<span class="w"> </span>zh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--concurrencies<span class="w"> </span><span class="m">32</span><span class="w"> </span>--repeats<span class="w"> </span><span class="m">1</span><span class="w"> </span>--warmup<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset-revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/qwen3/asr_zh.json
+<span class="nb">kill</span><span class="w"> </span>--<span class="w"> </span>-<span class="k">$(</span>cat<span class="w"> </span><span class="nv">$OUT</span>/qwen3/server.pid<span class="k">)</span>
+timeout<span class="w"> </span><span class="m">600</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until [ $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) -lt 1024 ]; do sleep 5; done'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>GPU_FREE
+</pre></div>
+</div>
+</section>
+<section id="whisper-large-v3">
+<h3>Whisper-large-v3<a class="headerlink" href="#whisper-large-v3" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$OUT</span>/whisper
+curl<span class="w"> </span>-sf<span class="w"> </span>localhost:8000/health<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>PORT_FREE
+setsid<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo $$ &gt; "$1"; shift; exec "$@"'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/whisper/server.pid<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>.venv/bin/sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span><span class="nv">$WHISPER</span><span class="w"> </span>--model-name<span class="w"> </span>openai/whisper-large-v3<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&gt;<span class="w"> </span><span class="nv">$OUT</span>/whisper/server.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+timeout<span class="w"> </span><span class="m">1800</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until curl -sf localhost:8000/health &gt; /dev/null; do sleep 5; grep -q "^State:[[:space:]]*[A-Y]" /proc/$(cat "$1")/status 2&gt;/dev/null || exit 1; done'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/whisper/server.pid<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>SERVER_READY<span class="w"> </span><span class="o">||</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="nv">$OUT</span>/whisper/server.log
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_seedtts<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--model-path<span class="w"> </span>openai/whisper-large-v3<span class="w"> </span>--lang<span class="w"> </span>en<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--concurrencies<span class="w"> </span><span class="m">32</span><span class="w"> </span>--repeats<span class="w"> </span><span class="m">1</span><span class="w"> </span>--warmup<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset-revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/whisper/asr_en.json
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_seedtts<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--model-path<span class="w"> </span>openai/whisper-large-v3<span class="w"> </span>--lang<span class="w"> </span>zh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--concurrencies<span class="w"> </span><span class="m">32</span><span class="w"> </span>--repeats<span class="w"> </span><span class="m">1</span><span class="w"> </span>--warmup<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset-revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/whisper/asr_zh.json
+<span class="nb">kill</span><span class="w"> </span>--<span class="w"> </span>-<span class="k">$(</span>cat<span class="w"> </span><span class="nv">$OUT</span>/whisper/server.pid<span class="k">)</span>
+timeout<span class="w"> </span><span class="m">600</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until [ $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) -lt 1024 ]; do sleep 5; done'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>GPU_FREE
+</pre></div>
+</div>
+</section>
+<section id="fun-asr-nano">
+<h3>Fun-ASR-Nano<a class="headerlink" href="#fun-asr-nano" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$OUT</span>/fun
+curl<span class="w"> </span>-sf<span class="w"> </span>localhost:8000/health<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>PORT_FREE
+setsid<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo $$ &gt; "$1"; shift; exec "$@"'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/fun/server.pid<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>.venv/bin/sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span><span class="nv">$FUN_ASR</span><span class="w"> </span>--model-name<span class="w"> </span>FunAudioLLM/Fun-ASR-Nano-2512-hf<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&gt;<span class="w"> </span><span class="nv">$OUT</span>/fun/server.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+timeout<span class="w"> </span><span class="m">1800</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until curl -sf localhost:8000/health &gt; /dev/null; do sleep 5; grep -q "^State:[[:space:]]*[A-Y]" /proc/$(cat "$1")/status 2&gt;/dev/null || exit 1; done'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/fun/server.pid<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>SERVER_READY<span class="w"> </span><span class="o">||</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="nv">$OUT</span>/fun/server.log
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_seedtts<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--model-path<span class="w"> </span>FunAudioLLM/Fun-ASR-Nano-2512-hf<span class="w"> </span>--lang<span class="w"> </span>en<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--concurrencies<span class="w"> </span><span class="m">32</span><span class="w"> </span>--repeats<span class="w"> </span><span class="m">1</span><span class="w"> </span>--warmup<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset-revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/fun/asr_en.json
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_seedtts<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--model-path<span class="w"> </span>FunAudioLLM/Fun-ASR-Nano-2512-hf<span class="w"> </span>--lang<span class="w"> </span>zh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--concurrencies<span class="w"> </span><span class="m">32</span><span class="w"> </span>--repeats<span class="w"> </span><span class="m">1</span><span class="w"> </span>--warmup<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset-revision<span class="w"> </span><span class="nv">$SEEDTTS_REV</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/fun/asr_zh.json
+<span class="nb">kill</span><span class="w"> </span>--<span class="w"> </span>-<span class="k">$(</span>cat<span class="w"> </span><span class="nv">$OUT</span>/fun/server.pid<span class="k">)</span>
+timeout<span class="w"> </span><span class="m">600</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until [ $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) -lt 1024 ]; do sleep 5; done'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>GPU_FREE
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-6-run-moss-transcribe-diarize">
+<h2>Step 6: Run MOSS-Transcribe-Diarize<a class="headerlink" href="#step-6-run-moss-transcribe-diarize" title="Link to this heading">#</a></h2>
+<p>The server arguments and request settings match the CI test (<code class="docutils literal notranslate"><span class="pre">tests/test_model/test_asr_ci_multi_speaker.py</span></code>). Like CI, one server serves all four datasets. The checks are the same as in Step 5. Each client line must also print <code class="docutils literal notranslate"><span class="pre">CLIENT_OK</span></code>. The client exits with code 0, and so prints <code class="docutils literal notranslate"><span class="pre">CLIENT_OK</span></code>, only when every request succeeded. Otherwise it prints an error or an <code class="docutils literal notranslate"><span class="pre">Evaluation</span> <span class="pre">failed</span></code> line.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">movies800times</span></code> CI sends no <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code>, so the server picks a budget scaled to the audio length, and the request timeout is 300 s. The client CLI always sends <code class="docutils literal notranslate"><span class="pre">--max-new-tokens</span></code> (default 65536) and has no flag to send none. So the two <code class="docutils literal notranslate"><span class="pre">movies800times</span></code> lines below call the client with that default set to <code class="docutils literal notranslate"><span class="pre">None</span></code>. The <code class="docutils literal notranslate"><span class="pre">aishell4_long</span></code> and <code class="docutils literal notranslate"><span class="pre">googletime</span></code> lines use the CLI defaults (65536 tokens, 1800 s), as CI does.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$OUT</span>/moss_td
+curl<span class="w"> </span>-sf<span class="w"> </span>localhost:8000/health<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>PORT_FREE
+setsid<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo $$ &gt; "$1"; shift; exec "$@"'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/moss_td/server.pid<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>.venv/bin/sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span><span class="nv">$MOSS_TD</span><span class="w"> </span>--model-name<span class="w"> </span>OpenMOSS-Team/MOSS-Transcribe-Diarize<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--asr.engine.max_running_requests<span class="w"> </span><span class="m">16</span><span class="w"> </span>--asr.engine.cuda_graph_max_bs<span class="w"> </span><span class="m">16</span><span class="w"> </span>--mem-fraction-static<span class="w"> </span><span class="m">0</span>.8<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&gt;<span class="w"> </span><span class="nv">$OUT</span>/moss_td/server.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+timeout<span class="w"> </span><span class="m">1800</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until curl -sf localhost:8000/health &gt; /dev/null; do sleep 5; grep -q "^State:[[:space:]]*[A-Y]" /proc/$(cat "$1")/status 2&gt;/dev/null || exit 1; done'</span><span class="w"> </span>_<span class="w"> </span><span class="nv">$OUT</span>/moss_td/server.pid<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>SERVER_READY<span class="w"> </span><span class="o">||</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="nv">$OUT</span>/moss_td/server.log
+python<span class="w"> </span>-c<span class="w"> </span><span class="s1">'import sys, benchmarks.eval.benchmark_asr_transcribe_diarize as b; b.DEFAULT_MAX_NEW_TOKENS = None; sys.exit(b.main(sys.argv[1:]))'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--use-existing-server<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--dataset<span class="w"> </span>movies800times<span class="w"> </span>--max-concurrency<span class="w"> </span><span class="m">16</span><span class="w"> </span>--request-timeout-s<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output-dir<span class="w"> </span><span class="nv">$OUT</span>/moss_td/movies800times<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>CLIENT_OK
+python<span class="w"> </span>-c<span class="w"> </span><span class="s1">'import sys, benchmarks.eval.benchmark_asr_transcribe_diarize as b; b.DEFAULT_MAX_NEW_TOKENS = None; sys.exit(b.main(sys.argv[1:]))'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--use-existing-server<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--dataset<span class="w"> </span>movies800times<span class="w"> </span>--stream<span class="w"> </span>--max-concurrency<span class="w"> </span><span class="m">16</span><span class="w"> </span>--request-timeout-s<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output-dir<span class="w"> </span><span class="nv">$OUT</span>/moss_td/movies800times_stream<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>CLIENT_OK
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_transcribe_diarize<span class="w"> </span>--use-existing-server<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset<span class="w"> </span>aishell4_long<span class="w"> </span>--max-concurrency<span class="w"> </span><span class="m">16</span><span class="w"> </span>--output-dir<span class="w"> </span><span class="nv">$OUT</span>/moss_td/aishell4_long<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>CLIENT_OK
+python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmark_asr_transcribe_diarize<span class="w"> </span>--use-existing-server<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dataset<span class="w"> </span>googletime<span class="w"> </span>--max-concurrency<span class="w"> </span><span class="m">16</span><span class="w"> </span>--output-dir<span class="w"> </span><span class="nv">$OUT</span>/moss_td/googletime<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>CLIENT_OK
+<span class="nb">kill</span><span class="w"> </span>--<span class="w"> </span>-<span class="k">$(</span>cat<span class="w"> </span><span class="nv">$OUT</span>/moss_td/server.pid<span class="k">)</span>
+timeout<span class="w"> </span><span class="m">600</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'until [ $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) -lt 1024 ]; do sleep 5; done'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>GPU_FREE
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">config.max_new_tokens</span></code> stored in each <code class="docutils literal notranslate"><span class="pre">transcribe_diarize_speed_results.json</span></code> shows what was sent. It must be <code class="docutils literal notranslate"><span class="pre">null</span></code> for both <code class="docutils literal notranslate"><span class="pre">movies800times</span></code> directories.</p>
+<p>Then go back to Step 4 with the next <code class="docutils literal notranslate"><span class="pre">RUN</span></code> (<code class="docutils literal notranslate"><span class="pre">warm</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>). To measure only one model, run Step 4 and only that model’s block, the same way in every run.</p>
+</section>
+<section id="step-7-summarize">
+<h2>Step 7: Summarize<a class="headerlink" href="#step-7-summarize" title="Link to this heading">#</a></h2>
+<p>Save this script once. For one result directory it reads the three scored runs (<code class="docutils literal notranslate"><span class="pre">run1</span></code>, <code class="docutils literal notranslate"><span class="pre">run2</span></code> and <code class="docutils literal notranslate"><span class="pre">run3</span></code>, never <code class="docutils literal notranslate"><span class="pre">runwarm</span></code>), checks coverage, and prints the mean, min and max of each metric:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>/work/results/summarize.py<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<span class="s">import glob, json, os, statistics, sys</span>
+<span class="s">SEED = ("corpus_wer", "throughput_samples_per_s", "latency_mean_s", "latency_p95_s", "rtf_mean")</span>
+<span class="s">MOSS = ("cer", "cp_cer", "cer_valid_samples", "cp_cer_valid_samples", "speaker_timestamp_der")</span>
+<span class="s">SPEED = ("throughput_qps", "latency_mean_s", "latency_p95_s", "rtf_mean")</span>
+<span class="s">EXPECTED = {"asr_en.json": 1088, "asr_zh.json": 2020, "movies800times": 800,</span>
+<span class="s">            "movies800times_stream": 800, "aishell4_long": 20, "googletime": 25}</span>
+<span class="s">runs = [f"{sys.argv[1]}/run{i}" for i in (1, 2, 3)]</span>
+<span class="s">expected_keys = {f"{model}/{name}" for model in ("qwen3", "whisper", "fun") for name in ("asr_en.json", "asr_zh.json")}</span>
+<span class="s">expected_keys |= {f"moss_td/{name}" for name in EXPECTED if not name.endswith(".json")}</span>
+<span class="s">rows = {}</span>
+<span class="s">for run in runs:</span>
+<span class="s">    for path in glob.glob(f"{run}/*/asr_*.json"):</span>
+<span class="s">        r = json.load(open(path))["results"][0]</span>
+<span class="s">        ok = r["evaluated"] == r["total"] == EXPECTED[os.path.basename(path)] and r["skipped"] == 0</span>
+<span class="s">        rows.setdefault(os.path.relpath(path, run), []).append((ok, {k: r[k]["mean"] for k in SEED}))</span>
+<span class="s">    for path in glob.glob(f"{run}/moss_td/*/transcribe_diarize_results.json"):</span>
+<span class="s">        p = json.load(open(path))</span>
+<span class="s">        s = json.load(open(path.replace("_results.json", "_speed_results.json")))["speed"]</span>
+<span class="s">        name = os.path.basename(os.path.dirname(path))</span>
+<span class="s">        ok = p["summary"]["evaluated"] == p["summary"]["total_samples"] == EXPECTED[name] and s.get("failed_requests") == 0</span>
+<span class="s">        d = p["diarization_metrics"]</span>
+<span class="s">        rows.setdefault("moss_td/" + name, []).append((ok, {k: d.get(k) for k in MOSS} | {k: s.get(k) for k in SPEED}))</span>
+<span class="s">print(f"scored runs: {[os.path.basename(r) for r in runs]}")</span>
+<span class="s">print(f"missing workloads: {sorted(expected_keys - rows.keys())}")</span>
+<span class="s">print(f"coverage complete: {rows.keys() == expected_keys and all(len(rs) == 3 and all(ok for ok, _ in rs) for rs in rows.values())}")</span>
+<span class="s">for key, rs in sorted(rows.items()):</span>
+<span class="s">    print(f"{key}  runs={len(rs)} complete={len(rs) == len(runs) and all(ok for ok, _ in rs)}")</span>
+<span class="s">    for k in rs[0][1]:</span>
+<span class="s">        v = [m[k] for _, m in rs]</span>
+<span class="s">        if None in v:</span>
+<span class="s">            print(f"  {k:26} missing in a run: {v}")</span>
+<span class="s">        else:</span>
+<span class="s">            print(f"  {k:26} mean {statistics.mean(v):.6f}  min {min(v):.6f}  max {max(v):.6f}")</span>
+<span class="s">EOF</span>
+python<span class="w"> </span>/work/results/summarize.py<span class="w"> </span>/work/results/<span class="nv">$NAME</span>
+</pre></div>
+</div>
+<p>Report the mean with the min and max of the three scored runs. <code class="docutils literal notranslate"><span class="pre">coverage</span> <span class="pre">complete:</span> <span class="pre">True</span></code> requires all ten workloads in all three runs with the expected sample counts. If you intentionally measured one model, its workload lines should each show <code class="docutils literal notranslate"><span class="pre">runs=3</span> <span class="pre">complete=True</span></code>, while coverage of the full suite remains incomplete. An incomplete workload can still print partial means, so report its missing coverage instead of presenting those means as three full runs.</p>
+</section>
+<section id="where-each-metric-lives">
+<h2>Where each metric lives<a class="headerlink" href="#where-each-metric-lives" title="Link to this heading">#</a></h2>
+<p>SeedTTS, in <code class="docutils literal notranslate"><span class="pre">$OUT/&lt;model&gt;/asr_en.json</span></code> and <code class="docutils literal notranslate"><span class="pre">$OUT/&lt;model&gt;/asr_zh.json</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;model&gt;</span></code> is <code class="docutils literal notranslate"><span class="pre">qwen3</span></code>, <code class="docutils literal notranslate"><span class="pre">whisper</span></code> or <code class="docutils literal notranslate"><span class="pre">fun</span></code>. With <code class="docutils literal notranslate"><span class="pre">--repeats</span> <span class="pre">1</span></code> each <code class="docutils literal notranslate"><span class="pre">mean</span></code> is the single measured value.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results[0].corpus_wer.mean</span></code></p></td>
+<td><p>fraction (0.0120 is 1.20%)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Throughput</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results[0].throughput_samples_per_s.mean</span></code></p></td>
+<td><p>samples per second</p></td>
+</tr>
+<tr class="row-even"><td><p>Latency mean, p95</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results[0].latency_mean_s.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">results[0].latency_p95_s.mean</span></code></p></td>
+<td><p>seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTF mean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results[0].rtf_mean.mean</span></code></p></td>
+<td><p>ratio</p></td>
+</tr>
+<tr class="row-even"><td><p>Coverage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results[0].evaluated</span></code>, <code class="docutils literal notranslate"><span class="pre">results[0].total</span></code>, <code class="docutils literal notranslate"><span class="pre">results[0].skipped</span></code></p></td>
+<td><p>sample counts</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>MOSS-Transcribe-Diarize, in <code class="docutils literal notranslate"><span class="pre">$OUT/moss_td/&lt;dataset&gt;/</span></code>. The first five rows are in <code class="docutils literal notranslate"><span class="pre">transcribe_diarize_results.json</span></code>, the rest in <code class="docutils literal notranslate"><span class="pre">transcribe_diarize_speed_results.json</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Coverage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">summary.evaluated</span></code>, <code class="docutils literal notranslate"><span class="pre">summary.total_samples</span></code></p></td>
+<td><p>sample counts</p></td>
+</tr>
+<tr class="row-odd"><td><p>CER, cpCER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diarization_metrics.cer</span></code>, <code class="docutils literal notranslate"><span class="pre">diarization_metrics.cp_cer</span></code></p></td>
+<td><p>fraction</p></td>
+</tr>
+<tr class="row-even"><td><p>Valid sample counts</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diarization_metrics.cer_valid_samples</span></code>, <code class="docutils literal notranslate"><span class="pre">diarization_metrics.cp_cer_valid_samples</span></code></p></td>
+<td><p>sample counts</p></td>
+</tr>
+<tr class="row-odd"><td><p>Valid samples</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">per_sample[].id</span></code> with <code class="docutils literal notranslate"><span class="pre">per_sample[].cer_valid</span></code> and <code class="docutils literal notranslate"><span class="pre">per_sample[].cp_cer_valid</span></code></p></td>
+<td><p>IDs</p></td>
+</tr>
+<tr class="row-even"><td><p>Speaker timestamp DER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diarization_metrics.speaker_timestamp_der</span></code>, <code class="docutils literal notranslate"><span class="pre">diarization_metrics.speaker_timestamp_der_skipped_parse_error</span></code></p></td>
+<td><p>fraction, count</p></td>
+</tr>
+<tr class="row-odd"><td><p>Failed requests</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed.failed_requests</span></code></p></td>
+<td><p>request count</p></td>
+</tr>
+<tr class="row-even"><td><p>Throughput</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed.throughput_qps</span></code></p></td>
+<td><p>requests per second</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latency mean, p95</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed.latency_mean_s</span></code>, <code class="docutils literal notranslate"><span class="pre">speed.latency_p95_s</span></code></p></td>
+<td><p>seconds</p></td>
+</tr>
+<tr class="row-even"><td><p>RTF mean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speed.rtf_mean</span></code></p></td>
+<td><p>ratio</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The printed client output uses <code class="docutils literal notranslate"><span class="pre">diarization_metrics_percent</span></code>, the same values times 100. The <code class="docutils literal notranslate"><span class="pre">speed</span></code> values are stored rounded: throughput and latency to 3 decimals, RTF to 4. When every request of a run fails, <code class="docutils literal notranslate"><span class="pre">speed</span></code> has no throughput, latency or RTF fields.</p>
+</section>
+<section id="coverage">
+<h2>Coverage<a class="headerlink" href="#coverage" title="Link to this heading">#</a></h2>
+<p>A run is complete only when every workload you ran has all its samples and no failures:</p>
+<ul class="simple">
+<li><p>SeedTTS: <code class="docutils literal notranslate"><span class="pre">evaluated</span></code> equals <code class="docutils literal notranslate"><span class="pre">total</span></code> (1088 for EN, 2020 for ZH) and <code class="docutils literal notranslate"><span class="pre">skipped</span></code> is 0.</p></li>
+<li><p>MOSS-Transcribe-Diarize: <code class="docutils literal notranslate"><span class="pre">summary.evaluated</span></code> equals <code class="docutils literal notranslate"><span class="pre">summary.total_samples</span></code> (800, 800, 20 and 25) and <code class="docutils literal notranslate"><span class="pre">speed.failed_requests</span></code> is 0.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">summarize.py</span></code> prints <code class="docutils literal notranslate"><span class="pre">complete=True</span></code> only when this holds for every scored run. If a check line in Step 5 or Step 6 prints nothing, or a key shows <code class="docutils literal notranslate"><span class="pre">complete=False</span></code>, read that <code class="docutils literal notranslate"><span class="pre">server.log</span></code> and redo the run from Step 4.</p>
+</section>
+<section id="measuring-accurately">
+<h2>Measuring accurately<a class="headerlink" href="#measuring-accurately" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Fixed GPU and CPU set.</strong> Step 1 gives the container one GPU and the CPUs of its NUMA node. Keep the same GPU and <code class="docutils literal notranslate"><span class="pre">CPUSET</span></code> for every run you compare. No other job may use that GPU.</p></li>
+<li><p><strong>Fresh server per run.</strong> Every model block starts and stops its own server, so no state carries over from an earlier run.</p></li>
+<li><p><strong>Warmup.</strong> The SeedTTS client sends the full dataset once, unscored, before the timed pass (<code class="docutils literal notranslate"><span class="pre">--warmup</span></code>). This fills CUDA graphs, compile caches and allocator pools. The MOSS-Transcribe-Diarize client has no warmup pass (<code class="docutils literal notranslate"><span class="pre">--warmup</span></code> defaults to 0, and CI uses 0 too).</p></li>
+<li><p><strong>Compile and cold start.</strong> Step 4 turns compile off for the models that do not set it, as CI does. The first run after a new container, a new commit or an empty <code class="docutils literal notranslate"><span class="pre">/work/torchinductor</span></code> can be much slower (see <a class="reference internal" href="#caveats"><span class="std std-ref">Caveats</span></a>). So the <code class="docutils literal notranslate"><span class="pre">warm</span></code> run is never scored.</p></li>
+<li><p><strong>Three runs.</strong> Score <code class="docutils literal notranslate"><span class="pre">run1</span></code>, <code class="docutils literal notranslate"><span class="pre">run2</span></code> and <code class="docutils literal notranslate"><span class="pre">run3</span></code>, and report the mean with the min and max. One run is not enough to tell a change from noise.</p></li>
+<li><p><strong>Noise floor.</strong> To learn the spread of your machine, measure the same commit twice under two names and compare the two summaries.</p></li>
+<li><p><strong>Comparing two commits.</strong> Use the same container, GPU, <code class="docutils literal notranslate"><span class="pre">CPUSET</span></code>, models and datasets. Alternate the commits run by run, for example A, B, B, A, A, B, so slow drift hits both. Set <code class="docutils literal notranslate"><span class="pre">COMMIT</span></code> and <code class="docutils literal notranslate"><span class="pre">NAME</span></code> and rebuild the venv (Step 2) at each switch. Check that <code class="docutils literal notranslate"><span class="pre">freeze.txt</span></code> is the same for both, or the comparison includes a dependency change.</p></li>
+<li><p><strong>Not CI numbers.</strong> CI runs two H100s behind the Rust router (DP 2), pins CPUs through <code class="docutils literal notranslate"><span class="pre">OMNI_CI_CPUSET</span></code>, and warms SeedTTS with only 64 requests. Numbers from this page are comparable only with other runs of this page, never with the CI gates.</p></li>
+</ul>
+</section>
+<section id="reference-results">
+<h2>Reference results<a class="headerlink" href="#reference-results" title="Link to this heading">#</a></h2>
+<p>These are for orientation only.</p>
+<ul class="simple">
+<li><p>One H100, concurrency 32 (docstring of <code class="docutils literal notranslate"><span class="pre">benchmarks/eval/benchmark_asr_seedtts.py</span></code>): Qwen3-ASR EN reaches 97.9 samples/s with WER 0.0122. Fun-ASR EN reaches about 127.5 samples/s with WER 0.0171. Fun-ASR ZH reaches 167.4 samples/s with WER 0.0135. These numbers come from an older commit, with unknown compile settings, and may not match current code.</p></li>
+<li><p>Two H100s in CI (the second pytest attempt inside CI job 113922224972): MOSS-Transcribe-Diarize on <code class="docutils literal notranslate"><span class="pre">movies800times</span></code> gave CER 5.82%, cpCER 13.13%, 784 CER valid samples and 58.167 req/s.</p></li>
+<li><p>Run to run variation in CI: the first and second pytest attempts inside CI job 113922224972 gave <code class="docutils literal notranslate"><span class="pre">movies800times</span></code> CER of 5.87% and 5.82%.</p></li>
+</ul>
+</section>
+<section id="run-the-ci-tests">
+<h2>Run the CI tests<a class="headerlink" href="#run-the-ci-tests" title="Link to this heading">#</a></h2>
+<p>The CI tests need two GPUs. Pick two GPUs other than <code class="docutils literal notranslate"><span class="pre">$GPU</span></code> (here 2 and 3), or run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">-f</span> <span class="pre">asr-bench</span></code> first. On the host, start a second container with the same checkout:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>asr-ci<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/dev/shm:/dev/shm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.cache/huggingface:/root/.cache/huggingface<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$HOME</span>/asr-bench:/work<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span>HF_TOKEN<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">$IMAGE</span><span class="w"> </span>sleep<span class="w"> </span>infinity
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>asr-ci<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>Inside it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvidia-smi<span class="w"> </span>-L
+<span class="nb">cd</span><span class="w"> </span>/work/sglang-omni<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>.venv/bin/activate
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PWD</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMNI_CI_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/omni_ci
+<span class="nb">export</span><span class="w"> </span><span class="nv">SGLANG_OMNI_TORCH_COMPILE_DEFAULT</span><span class="o">=</span><span class="m">0</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TORCHINDUCTOR_CACHE_DIR</span><span class="o">=</span><span class="nv">$OMNI_CI_HOME</span>/.torchinductor
+<span class="nb">export</span><span class="w"> </span><span class="nv">SGLANG_OMNI_ROUTER_BIN</span><span class="o">=</span><span class="k">$(</span>bash<span class="w"> </span>.github/scripts/prepare_rust_router.sh<span class="w"> </span>build<span class="k">)</span>
+<span class="nv">ASR_CI_MODEL</span><span class="o">=</span>qwen3<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_model/test_asr_ci_seedtts.py<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span>-x
+<span class="nv">ASR_CI_MODEL</span><span class="o">=</span>fun<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_model/test_asr_ci_seedtts.py<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span>-x
+<span class="nv">ASR_CI_MODEL</span><span class="o">=</span>whisper<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_model/test_asr_ci_seedtts.py<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span>-x
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_model/test_asr_ci_multi_speaker.py<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span>-x
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">-L</span></code> must print exactly two GPUs. <code class="docutils literal notranslate"><span class="pre">prepare_rust_router.sh</span></code> needs network access, <code class="docutils literal notranslate"><span class="pre">curl</span></code> and a C linker to install rustup and build the router under <code class="docutils literal notranslate"><span class="pre">$HOME/rust-router</span></code>. The CI tests load models by repo id at their latest revision, so they do not use the pins in <a class="reference internal" href="#variables"><span class="std std-ref">Variables</span></a>. Do not wrap local runs in <code class="docutils literal notranslate"><span class="pre">run_flaky_pytest.sh</span></code>. It reruns a failing test up to three times, so a green result can hide a failure. Remove the container with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">-f</span> <span class="pre">asr-ci</span></code> when done.</p>
+</section>
+<section id="caveats">
+<h2>Caveats<a class="headerlink" href="#caveats" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Private datasets.</strong> <code class="docutils literal notranslate"><span class="pre">movies800time</span></code>, <code class="docutils literal notranslate"><span class="pre">AISHELL4</span></code> and <code class="docutils literal notranslate"><span class="pre">googletime</span></code> are private and cannot be pinned by the client. Compare the loaded fingerprints and remote heads in <code class="docutils literal notranslate"><span class="pre">moss_dataset_revisions.txt</span></code> before comparing MOSS-Transcribe-Diarize numbers from different machines or dates.</p></li>
+<li><p><strong>Known flaky stage.</strong> On 2026-10-09, 5 sampled CI stage 1 jobs reached only 43.2 to 44.7 req/s on <code class="docutils literal notranslate"><span class="pre">movies800times</span></code> in their first pytest attempt. After the server restarted for the second attempt, they reached 57.0 to 59.1 req/s. The cause is not known. A compile or file cache on disk is the likely suspect. CI sets <code class="docutils literal notranslate"><span class="pre">TORCHINDUCTOR_CACHE_DIR</span></code> to <code class="docutils literal notranslate"><span class="pre">$OMNI_CI_HOME/.torchinductor</span></code>. Outside CI, SGLang-Omni uses <code class="docutils literal notranslate"><span class="pre">~/.cache/sglang-omni/torchinductor</span></code> unless <code class="docutils literal notranslate"><span class="pre">TORCHINDUCTOR_CACHE_DIR</span></code> is set, as Step 4 does.</p></li>
+<li><p><strong>Token budget on movies800times.</strong> Sending a fixed 65536 token budget instead of none lets a clip that loops run far past the duration scaled budget. That changes throughput and latency a lot. Check <code class="docutils literal notranslate"><span class="pre">config.max_new_tokens</span></code> in <code class="docutils literal notranslate"><span class="pre">transcribe_diarize_speed_results.json</span></code> before comparing with CI.</p></li>
+<li><p><strong>Warmup sees the scored audio.</strong> <code class="docutils literal notranslate"><span class="pre">--warmup</span></code> sends the same audio as the timed pass. Any cache keyed on audio content, file path or sample ID would hit on every timed request and make throughput meaningless.</p></li>
+<li><p><strong>Stage 2 is one model per CI run.</strong> A CI run measures only the model it picked. Run all three blocks of Step 5 here to see all of them.</p></li>
+</ul>
+<p>For a profile of where the time goes, see the model profiling skill in <code class="docutils literal notranslate"><span class="pre">.claude/skills/model-profiling/</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tts_bench.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TTS benchmark runbook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="omni_offline_bench.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MiniCPM-o offline benchmark runbook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-measured">What is Measured</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-start-the-container-on-the-host">Step 1: Start the container (on the host)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-build-the-venv">Step 2: Build the venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-download-data-and-models">Step 3: Download data and models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-start-a-run">Step 4: Start a run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-run-seedtts-asr">Step 5: Run SeedTTS ASR</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qwen3-asr-1-7b">Qwen3-ASR-1.7B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whisper-large-v3">Whisper-large-v3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fun-asr-nano">Fun-ASR-Nano</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-run-moss-transcribe-diarize">Step 6: Run MOSS-Transcribe-Diarize</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-summarize">Step 7: Summarize</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-each-metric-lives">Where each metric lives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-accurately">Measuring accurately</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-results">Reference results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-ci-tests">Run the CI tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats">Caveats</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By SGLang-Omni Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025-2026, SGLang-Omni.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Oct 20, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

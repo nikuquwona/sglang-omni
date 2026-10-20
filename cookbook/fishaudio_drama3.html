@@ -1,0 +1,1089 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fish Audio Drama 3 &#8212; SGLang</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ccdb6887"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cookbook/fishaudio_drama3';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
+    <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
+    <link rel="icon" href="../_static/logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Qwen3 TTS" href="qwen3_tts.html" />
+    <link rel="prev" title="Fish Audio S2-Pro" href="fishaudio_s2_pro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.8" />
+    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-light" alt="SGLang - Home"/>
+    <img src="../_static/sgl-omni-logo.svg" class="logo__image only-dark pst-js-only" alt="SGLang - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fish Audio Drama 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qwen3_tts.html">Qwen3 TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auk.html">AuK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/qwen3_omni.html">Omni Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_chat_stage.html">Native Chat Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/audio_translations.html">Audio Translations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts.html">TTS Model Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/blob/main/docs/cookbook/fishaudio_drama3.md?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/edit/main/docs/cookbook/fishaudio_drama3.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sgl-project/sglang-omni/issues/new?title=Issue%20on%20page%20%2Fcookbook/fishaudio_drama3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cookbook/fishaudio_drama3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fish Audio Drama 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-startup">Installation and Startup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesize-speech">Synthesize Speech</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-usage">Example Usage</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-tags">Point tags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-as-continuation">Editing as continuation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serving-limits">Serving Limits</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-audio-length">Reference Audio Length</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-length">Prompt Length</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attention-backend">Attention Backend</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int4-checkpoint">Int4 Checkpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-performance">Deployment Performance</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-concurrency">High Concurrency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-serving">Production Serving</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-streaming-requests">Non-Streaming Requests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defaults-parameters">Defaults Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fish-audio-drama-3">
+<h1>Fish Audio Drama 3<a class="headerlink" href="#fish-audio-drama-3" title="Link to this heading">#</a></h1>
+<p><strong>Fish Audio Drama 3</strong> is Fish Audio’s new-generation text-to-speech model, built for multi-character scenes and long-form content. It supports multi-speaker generation, voice cloning and natural-language control.</p>
+<ul class="simple">
+<li><p><strong>35B parameters, 3B active per token</strong>: MoE text backbone with hybrid (full + linear) attention</p></li>
+<li><p><strong>Codebook-MTP audio decoder</strong>: 10 codebooks decoded causally over the whole sequence</p></li>
+<li><p><strong>FP8 MoE experts</strong> with the remaining weights in bf16; an <a class="reference internal" href="#int4-checkpoint"><span class="std std-ref">int4 checkpoint</span></a> cuts the weight memory from 37.0 GB to 20.8 GB</p></li>
+<li><p><strong>Speaker tags</strong> <code class="docutils literal notranslate"><span class="pre">&lt;|speaker:0|&gt;</span></code> … <code class="docutils literal notranslate"><span class="pre">&lt;|speaker:15|&gt;</span></code> — one text can carry up to 16 characters</p></li>
+<li><p><strong>Long text</strong> is chunked automatically and can be streamed per chunk</p></li>
+</ul>
+<section id="installation-and-startup">
+<h2>Installation and Startup<a class="headerlink" href="#installation-and-startup" title="Link to this heading">#</a></h2>
+<p>Detailed instructions are in <a class="reference internal" href="../get_started/installation.html"><span class="std std-doc">Installation</span></a>. From the repository root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--prerelease<span class="o">=</span>allow<span class="w"> </span>-v<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[fishaudio]"</span>
+</pre></div>
+</div>
+<p>Download the checkpoint, then start the server. This command places preprocessing, the engine, and the vocoder on GPU 0. A stage moves to another GPU only when its <code class="docutils literal notranslate"><span class="pre">--&lt;stage&gt;.gpu</span></code> flag says so; see Deployment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hf<span class="w"> </span>download<span class="w"> </span>fishaudio/drama-3
+
+sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>fishaudio/drama-3<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+</section>
+<section id="synthesize-speech">
+<h2>Synthesize Speech<a class="headerlink" href="#synthesize-speech" title="Link to this heading">#</a></h2>
+<p>The server supports plain text-to-speech, optionally cloning a voice from reference audio, returned as one response or
+as a stream.</p>
+<p>Plain TTS:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "input": "Hello, how are you?"</span>
+<span class="s1">  }'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>output.wav
+</pre></div>
+</div>
+<p>Voice cloning, with a reference clip and its transcript:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "input": "Get the trust fund to the bank early.",</span>
+<span class="s1">    "references": [{</span>
+<span class="s1">      "audio_path": "https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval-mini/resolve/main/en/prompt-wavs/common_voice_en_10119832.wav",</span>
+<span class="s1">      "text": "We asked over twenty different people, and they all said it was his."</span>
+<span class="s1">    }]</span>
+<span class="s1">  }'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>output_voice_cloning.wav
+</pre></div>
+</div>
+<p>Streaming:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-N<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "input": "Get the trust fund to the bank early.",</span>
+<span class="s1">    "stream": true,</span>
+<span class="s1">    "response_format": "pcm"</span>
+<span class="s1">  }'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>output_streaming.pcm
+</pre></div>
+</div>
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading">#</a></h2>
+<p>The reference clip the samples below clone, unmodified:</p>
+<p>The reference, <code class="docutils literal notranslate"><span class="pre">en0</span></code> — a 3.9 s clip, the same <code class="docutils literal notranslate"><span class="pre">common_voice_en_10119832.wav</span></code> the cloning example above uses, with the transcript <code class="docutils literal notranslate"><span class="pre">We</span> <span class="pre">asked</span> <span class="pre">over</span> <span class="pre">twenty</span> <span class="pre">different</span> <span class="pre">people,</span> <span class="pre">and</span> <span class="pre">they</span> <span class="pre">all</span> <span class="pre">said</span> <span class="pre">it</span> <span class="pre">was</span> <span class="pre">his.</span></code>:</p>
+<audio controls>
+  <source src="https://github.com/user-attachments/files/33393249/en0.wav" type="audio/wav">
+</audio>
+<section id="point-tags">
+<h3>Point tags<a class="headerlink" href="#point-tags" title="Link to this heading">#</a></h3>
+<p>A plain <code class="docutils literal notranslate"><span class="pre">/v1/tts</span></code> request: one reference (<code class="docutils literal notranslate"><span class="pre">en0</span></code>), no history, and the tags written into the text at the position where the event should land.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[sighs] Fine. If we miss it, it's on you. [laughs] Well, maybe that's fair."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"audio_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval-mini/resolve/main/en/prompt-wavs/common_voice_en_10119832.wav"</span><span class="p">,</span><span class="w"> </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We asked over twenty different people, and they all said it was his."</span><span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<audio controls>
+  <source src="https://github.com/user-attachments/files/33393205/A1_point_tags.wav" type="audio/wav">
+</audio>
+</section>
+<section id="editing-as-continuation">
+<h3>Editing as continuation<a class="headerlink" href="#editing-as-continuation" title="Link to this heading">#</a></h3>
+<p>Just send the previous VQ tokens and sent it as normal language models do.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The quarterly report is due on Thursday, so please finish it by noon."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"audio_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval-mini/resolve/main/en/prompt-wavs/common_voice_en_10119832.wav"</span><span class="p">,</span><span class="w"> </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We asked over twenty different people, and they all said it was his."</span><span class="p">}],</span>
+<span class="w">  </span><span class="nt">"previous_takes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"The quarterly report is due on Wednesday, so please finish it by noon."</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<audio controls>
+  <source src="https://github.com/user-attachments/files/33393156/K1_edit_word_with_context.wav" type="audio/wav">
+</audio>
+<p>A second edit chained onto the result of the first:</p>
+<p>K5 chains a second edit: <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">noon</span></code> becomes <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">five</span></code>, with both earlier takes in the context.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The quarterly report is due on Thursday, so please finish it by five."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"audio_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval-mini/resolve/main/en/prompt-wavs/common_voice_en_10119832.wav"</span><span class="p">,</span><span class="w"> </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We asked over twenty different people, and they all said it was his."</span><span class="p">}],</span>
+<span class="w">  </span><span class="nt">"previous_takes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"The quarterly report is due on Wednesday, so please finish it by noon."</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"The quarterly report is due on Thursday, so please finish it by noon."</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<audio controls>
+  <source src="https://github.com/user-attachments/files/33393164/K5_second_edit_chained.wav" type="audio/wav">
+</audio>
+</section>
+</section>
+<section id="serving-limits">
+<h2>Serving Limits<a class="headerlink" href="#serving-limits" title="Link to this heading">#</a></h2>
+<section id="reference-audio-length">
+<h3>Reference Audio Length<a class="headerlink" href="#reference-audio-length" title="Link to this heading">#</a></h3>
+<p>Each reference given as audio may be at most 60 seconds long. The limit applies to every reference in the request separately, and a longer one fails the request with HTTP 400 before it is encoded:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Drama 3 request: references.1: reference audio lasts 75.3 s, longer than the 60 s limit; shorten it or raise max_reference_audio_seconds
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">references.N</span></code> names the reference by its position in the request’s <code class="docutils literal notranslate"><span class="pre">references</span></code> list, counted from 0.</p>
+<p>Shorten that reference, or raise the limit when you start the server, for example to 90 seconds:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>&lt;checkpoint&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--preprocessing.factory.max_reference_audio_seconds<span class="w"> </span><span class="m">90</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--preprocessing.total_reserve_bytes<span class="w"> </span>9GiB
+</pre></div>
+</div>
+<p>or in a config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">stages</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">preprocessing</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">factory</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">max_reference_audio_seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
+<span class="w">    </span><span class="nt">total_reserve_bytes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9GiB</span>
+</pre></div>
+</div>
+<p>The GPU memory the preprocessing stage needs grows with the length of the reference it encodes, and the stage is capped at <code class="docutils literal notranslate"><span class="pre">total_reserve_bytes</span></code> (6 GiB by default, sized for the 60-second limit). When you raise the limit, raise the reserve with it, measured on your GPU; a reference that does not fit the reserve fails with an out-of-memory error in
+the preprocessing stage. The budgets of all stages on the GPU must still fit the card, which the server checks at startup.</p>
+</section>
+<section id="prompt-length">
+<h3>Prompt Length<a class="headerlink" href="#prompt-length" title="Link to this heading">#</a></h3>
+<p>A prompt holds the tokens of the prompt template, the input text and the reference transcripts, plus one row for every codec frame of its reference audio, about 21.5 rows per second of audio (the codec turns 44.1 kHz audio into frames of 2048 samples). A prompt may have at most 8192 rows; a longer one fails the request with HTTP 400:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Drama 3 request: a prompt of 8193 rows exceeds the maximum allowed length of 8192 rows
+</pre></div>
+</div>
+<p>Change the cap with <code class="docutils literal notranslate"><span class="pre">--tts_engine.factory.max_prompt_rows</span></code>. A prompt and its <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code> must also fit the engine’s context length.</p>
+</section>
+</section>
+<section id="attention-backend">
+<h2>Attention Backend<a class="headerlink" href="#attention-backend" title="Link to this heading">#</a></h2>
+<p>Drama 3 runs its attention on the <code class="docutils literal notranslate"><span class="pre">triton</span></code> backend only. The server refuses to start with any other attention backend, for example <code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.attention_backend</span> <span class="pre">fa3</span></code>.</p>
+</section>
+<section id="int4-checkpoint">
+<h2>Int4 Checkpoint<a class="headerlink" href="#int4-checkpoint" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://huggingface.co/fishaudio/drama-3-int4"><code class="docutils literal notranslate"><span class="pre">fishaudio/drama-3-int4</span></code></a> is a 4-bit GPTQ quantization of Drama 3. Thanks so much to <a class="reference external" href="https://x.com/_akhaliq">AK</a> for the quantization! The server reads its quantization from the checkpoint, so it starts with the same command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hf<span class="w"> </span>download<span class="w"> </span>fishaudio/drama-3-int4
+
+sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>fishaudio/drama-3-int4<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+<p>The routed MoE experts and the attention projections (<code class="docutils literal notranslate"><span class="pre">q/k/v/o_proj</span></code> of the full attention layers, <code class="docutils literal notranslate"><span class="pre">in_proj_qkv</span></code>, <code class="docutils literal notranslate"><span class="pre">in_proj_z</span></code> and <code class="docutils literal notranslate"><span class="pre">out_proj</span></code> of the linear attention layers) hold symmetric 4-bit weights with one scale per 128 input channels, and run on GPTQ-Marlin kernels. The shared expert, the router, the linear attention’s <code class="docutils literal notranslate"><span class="pre">in_proj_a/b</span></code>, the output head and the codebook-MTP audio decoder stay in bf16. The engine’s weights take 20.8 GB of GPU memory instead of 37.0 GB, which leaves more of the engine’s share for the KV cache. GPTQ-Marlin needs compute capability 8.0 or newer.</p>
+<p>Table 3 compares the two checkpoints on one H200 with the default server settings: the 1,088 Seed-TTS English prompts, each cloning the voice of its own reference clip, sent as non-streaming requests at concurrency 8. WER is computed on the generated audio transcribed by Qwen3-ASR-1.7B.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Checkpoint</p></th>
+<th class="head text-right"><p>Weights</p></th>
+<th class="head text-right"><p>Latency mean</p></th>
+<th class="head text-right"><p>Latency p95</p></th>
+<th class="head text-right"><p>RTF mean</p></th>
+<th class="head text-right"><p>Throughput (req/s)</p></th>
+<th class="head text-right"><p>WER (corpus)</p></th>
+<th class="head text-right"><p>WER without samples above 50%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fishaudio/drama-3</span></code> (FP8 experts)</p></td>
+<td class="text-right"><p>37.0 GB</p></td>
+<td class="text-right"><p>1.235 s</p></td>
+<td class="text-right"><p>1.902 s</p></td>
+<td class="text-right"><p>0.281</p></td>
+<td class="text-right"><p>6.47</p></td>
+<td class="text-right"><p>1.99%</p></td>
+<td class="text-right"><p>1.32%</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fishaudio/drama-3-int4</span></code></p></td>
+<td class="text-right"><p>20.8 GB</p></td>
+<td class="text-right"><p>1.334 s</p></td>
+<td class="text-right"><p>2.178 s</p></td>
+<td class="text-right"><p>0.320</p></td>
+<td class="text-right"><p>5.99</p></td>
+<td class="text-right"><p>1.63%</p></td>
+<td class="text-right"><p>1.42%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Table 3. Drama 3 FP8 and int4 checkpoints on Seed-TTS English, concurrency 8, one H200.</em></p>
+<p>The int4 checkpoint is about 8% slower per request and its WER stays at the FP8 level: the gap between the two is about as large as the run-to-run spread of one checkpoint (a second FP8 run measured 1.365 s mean latency and 2.02% WER).</p>
+</section>
+<section id="deployment-performance">
+<h2>Deployment Performance<a class="headerlink" href="#deployment-performance" title="Link to this heading">#</a></h2>
+<p>On one GPU the default placement works as is: every stage runs on GPU 0, with the vocoder in its own process. With two GPUs, put the vocoder on the second one, so its decoding no longer shares a GPU with the engine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>&lt;checkpoint&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts_engine.gpu<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vocoder.gpu<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>When the engine and the vocoder share one GPU, <code class="docutils literal notranslate"><span class="pre">--mps</span> <span class="pre">on</span></code> lets their processes share it through CUDA MPS (see <a class="reference internal" href="../basic_usage/mps_dp.html"><span class="std std-doc">Same-GPU Data Parallelism with CUDA MPS</span></a>). It can raise throughput under high concurrency but may make a single stream slower; measure it with your own load before you keep it.</p>
+<section id="high-concurrency">
+<h3>High Concurrency<a class="headerlink" href="#high-concurrency" title="Link to this heading">#</a></h3>
+<p>The defaults run at most 16 requests at a time on the engine and give it 0.70 of the GPU’s memory. For more streams at once, raise the request cap; the measurements below also raise the engine’s share:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>&lt;checkpoint&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts_engine.gpu_memory_fraction<span class="w"> </span><span class="m">0</span>.85<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts_engine.factory.max_running_requests<span class="w"> </span><span class="m">256</span>
+</pre></div>
+</div>
+<p>These values are sized for an H200: the engine’s and the vocoder’s shares and the preprocessing reserve must fit one GPU together, which the server checks at startup.</p>
+</section>
+<section id="production-serving">
+<h3>Production Serving<a class="headerlink" href="#production-serving" title="Link to this heading">#</a></h3>
+<p>All numbers below were measured on NVIDIA H200 GPUs with streaming requests on Seed-TTS English prompts. Each request clones a voice from one pre-encoded reference (<code class="docutils literal notranslate"><span class="pre">vq_codes</span></code> with its transcript) and uses <code class="docutils literal notranslate"><span class="pre">temperature</span></code> 1.0, <code class="docutils literal notranslate"><span class="pre">top_p</span></code> 0.9, <code class="docutils literal notranslate"><span class="pre">top_k</span></code> 30 and <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code> 500. Throughput counts generated acoustic frames per second. TTFA is the time to first audio. RTF is the time from sending a request to its last audio chunk, divided by the duration of the returned audio.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Concurrency</p></th>
+<th class="head text-right"><p>Throughput (frames/s)</p></th>
+<th class="head text-right"><p>TTFA p50</p></th>
+<th class="head text-right"><p>TTFA p95</p></th>
+<th class="head text-right"><p>RTF (mean)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p>166.7</p></td>
+<td class="text-right"><p>88.9 ms</p></td>
+<td class="text-right"><p>90.8 ms</p></td>
+<td class="text-right"><p>0.131</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p>287.0</p></td>
+<td class="text-right"><p>96.2 ms</p></td>
+<td class="text-right"><p>130.1 ms</p></td>
+<td class="text-right"><p>0.152</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>467.6</p></td>
+<td class="text-right"><p>108.2 ms</p></td>
+<td class="text-right"><p>156.4 ms</p></td>
+<td class="text-right"><p>0.186</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>678.1</p></td>
+<td class="text-right"><p>153.2 ms</p></td>
+<td class="text-right"><p>210.9 ms</p></td>
+<td class="text-right"><p>0.256</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>16</p></td>
+<td class="text-right"><p>927.6</p></td>
+<td class="text-right"><p>210.1 ms</p></td>
+<td class="text-right"><p>287.2 ms</p></td>
+<td class="text-right"><p>0.373</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>32</p></td>
+<td class="text-right"><p>1,244.7</p></td>
+<td class="text-right"><p>304.6 ms</p></td>
+<td class="text-right"><p>396.1 ms</p></td>
+<td class="text-right"><p>0.551</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>64</p></td>
+<td class="text-right"><p>1,687.3</p></td>
+<td class="text-right"><p>450.9 ms</p></td>
+<td class="text-right"><p>1,020.1 ms</p></td>
+<td class="text-right"><p>0.801</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Table 1. Drama 3 streaming performance on one H200. Each cell is the mean of four runs.</em></p>
+<p>A single stream gets its first audio in under 100 ms. At concurrency 16, audio is still generated about 2.7× faster than it plays back, and at concurrency 64 mean RTF stays at 0.80. In SGLang-Omni, how the pipeline stages are grouped into processes and placed on GPUs is deployment-time configuration rather than per-model code. Table 2 uses this to compare two vocoder placements at higher concurrency, with the vocoder’s default GPU share, 1,088 requests per concurrency level, and the average of six server starts. Its throughput also counts the end-of-speech frame that ends each stream.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Vocoder placement</p></th>
+<th class="head text-right"><p>Concurrency</p></th>
+<th class="head text-right"><p>Throughput (frames/s)</p></th>
+<th class="head text-right"><p>TTFA p50</p></th>
+<th class="head text-right"><p>TTFA p95</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Engine’s GPU</p></td>
+<td class="text-right"><p>128</p></td>
+<td class="text-right"><p>2,177</p></td>
+<td class="text-right"><p>685 ms</p></td>
+<td class="text-right"><p>1,412 ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>Engine’s GPU</p></td>
+<td class="text-right"><p>256</p></td>
+<td class="text-right"><p>2,422</p></td>
+<td class="text-right"><p>3,403 ms</p></td>
+<td class="text-right"><p>4,255 ms</p></td>
+</tr>
+<tr class="row-even"><td><p>Second GPU</p></td>
+<td class="text-right"><p>128</p></td>
+<td class="text-right"><p>3,692</p></td>
+<td class="text-right"><p>401 ms</p></td>
+<td class="text-right"><p>995 ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>Second GPU</p></td>
+<td class="text-right"><p>256</p></td>
+<td class="text-right"><p>4,160</p></td>
+<td class="text-right"><p>2,146 ms</p></td>
+<td class="text-right"><p>2,469 ms</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Table 2. Drama 3 streaming performance by vocoder placement. Each cell is the mean of six server starts.</em></p>
+<p>With the vocoder on the engine’s GPU, at 256 streams the vocoder is fully loaded and each new stream’s first audio waits in its queue. Moving it to a second GPU, as described under <a class="reference external" href="https://sgl-project.github.io/sglang-omni/cookbook/fishaudio_drama3.html#deployment">Deployment</a>, gave about 72% more throughput and a 37% lower median TTFA at 256 streams. Use this layout when you need many concurrent streams and a short time to first audio together.</p>
+</section>
+<section id="non-streaming-requests">
+<h3>Non-Streaming Requests<a class="headerlink" href="#non-streaming-requests" title="Link to this heading">#</a></h3>
+<p>The vocoder decodes a non-streaming request’s audio in one piece after the engine finishes it, batching requests that
+finish together up to a frame limit it sets at startup from its memory share (<code class="docutils literal notranslate"><span class="pre">--vocoder.gpu_memory_fraction</span></code>, 0.10
+by default) and logs:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Drama 3 vocoder: a non-streaming decode takes up to &lt;frames&gt; padded frames of &lt;bytes&gt; bytes each; share &lt;share&gt; GiB, held &lt;held&gt; GiB
+</pre></div>
+</div>
+<p>The limit does not count the memory the vocoder process holds outside PyTorch’s allocator, so it cannot guarantee that the process stays within its share. With the engine’s share raised to 0.85 on the same GPU, concurrent non-streaming requests can run out of GPU memory. To avoid that, stream those requests (<code class="docutils literal notranslate"><span class="pre">&quot;stream&quot;:</span> <span class="pre">true</span></code>), keep the engine’s default share of 0.70 on the GPU that runs the vocoder, or put the vocoder on a second GPU, as under Deployment.</p>
+</section>
+</section>
+<section id="defaults-parameters">
+<h2>Defaults Parameters<a class="headerlink" href="#defaults-parameters" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Default</p></th>
+<th class="head"><p>What it does</p></th>
+<th class="head"><p>Change it with</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Decode CUDA graph</p></td>
+<td><p>Replays decode steps as CUDA graphs.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.cuda_graph_backend_decode</span> <span class="pre">disabled</span></code>; <code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.disable_cuda_graph</span> <span class="pre">true</span></code> turns off every engine CUDA graph</p></td>
+</tr>
+<tr class="row-odd"><td><p>Breakable prefill CUDA graph, up to 2048 tokens</p></td>
+<td><p>Replays prefill batches of up to 2048 tokens, backbone and codebook tower together, as one breakable CUDA graph; larger batches run eagerly. Shortens the time to the first audio at the cost of startup time and GPU memory; the KV cache keeps its size.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.cuda_graph_backend_prefill</span> <span class="pre">disabled</span></code>; the token cap with <code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.cuda_graph_max_bs_prefill</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>First-frame CUDA graphs, up to 16 requests</p></td>
+<td><p>Replays the step that samples each request’s first frame as a CUDA graph for prefills of up to 16 requests (at most the decode CUDA graph’s largest batch); larger prefills sample eagerly. Needs the decode CUDA graph; shortens each prefill at the cost of startup time and GPU memory.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--tts_engine.factory.first_frame_cuda_graphs</span> <span class="pre">false</span></code>; the request cap with <code class="docutils literal notranslate"><span class="pre">--tts_engine.factory.first_frame_cuda_graph_max_requests</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">prefill_decode_interval</span></code> 4</p></td>
+<td><p>After a prefill, new prefills wait for the next 4 scheduling rounds, so running streams keep decoding.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.prefill_decode_interval</span> <span class="pre">0</span></code> schedules prefills without the wait</p></td>
+</tr>
+<tr class="row-even"><td><p>Sampling: <code class="docutils literal notranslate"><span class="pre">temperature</span></code> 1.0, <code class="docutils literal notranslate"><span class="pre">top_p</span></code> 0.9, no <code class="docutils literal notranslate"><span class="pre">top_k</span></code> cap</p></td>
+<td><p>Without a request <code class="docutils literal notranslate"><span class="pre">top_k</span></code>, the main token is drawn with no top-k cap; a cap of 30 there lets a stream fall silent after its first phrase. The codebook heads draw with top-k 30 at most whatever the request asks, since wider caps there cost speaker similarity.</p></td>
+<td><p>The request’s <code class="docutils literal notranslate"><span class="pre">temperature</span></code>, <code class="docutils literal notranslate"><span class="pre">top_p</span></code> and <code class="docutils literal notranslate"><span class="pre">top_k</span></code>; a request <code class="docutils literal notranslate"><span class="pre">top_k</span></code> caps the main token, and the codebook heads up to 30</p></td>
+</tr>
+<tr class="row-odd"><td><p>Triton sampling</p></td>
+<td><p>Samples each frame’s main token and codes with Triton kernels instead of the PyTorch sampler, under the same top-k, top-p and repetition-aware rules. Using the same seed does not guarantee the same tokens as the PyTorch sampler. Rounding can keep or drop a candidate whose cumulative probability lies at top_p.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--tts_engine.factory.triton_sampling</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Fused codebook tower layers, up to 16 rows</p></td>
+<td><p>Runs the codebook tower layers of decode and first-frame steps of up to 16 rows as fused Triton kernels, eagerly or inside the CUDA graphs; larger steps and the tower’s prefill keep the module path. The kernels add in a different order, so the tower’s outputs can differ in the last bits and the sampled frames can differ.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--tts_engine.factory.tower_fused_layers</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Vocoder window CUDA graphs</p></td>
+<td><p>Replays the decode of each streaming window length at batch 1 as a CUDA graph; batches and longer windows decode eagerly.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--vocoder.factory.window_cuda_graphs</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Vocoder fp16 decoding</p></td>
+<td><p>Decodes frames into audio in fp16.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--vocoder.factory.decode_dtype</span> <span class="pre">float32</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The same settings in a config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">stages</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tts_engine</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">engine</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">cuda_graph_backend_prefill</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">disabled</span>
+<span class="w">      </span><span class="nt">prefill_decode_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">vocoder</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">factory</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">window_cuda_graphs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">decode_dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float32</span>
+</pre></div>
+</div>
+<p>Triton sampling and the fused codebook tower layers have been validated on Hopper GPUs only, so they run only on compute capability 9.0; on any other GPU no setting turns them on. Both also fall back without Triton or a CUDA device. Triton sampling falls back to the PyTorch sampler when its kernels do not cover the codebook size or the main-token candidate count, and the fused layers fall back to the module path with deterministic inference or when their kernels do not cover the tower weights or the KV cache. The startup log names the path each one takes and, for a fallback, the reason, for example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Drama 3 codebook sampling: PyTorch, untested GPU sm_120
+Drama 3 tower fused layers: off, untested GPU sm_120
+</pre></div>
+</div>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fish.audio">Fish Audio Playground</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fishaudio/fish-speech">Fish Speech GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fishaudio/fish-speech/tree/main/docs/assets/Fish_Audio_Drama_3_Technical_Report.pdf">Technical Report</a></p></li>
+<li><p><a class="reference external" href="https://sgl-project.github.io/sglang-omni/cookbook/fishaudio_drama3.html">Fish Audio Drama 3 SGLang Omni Cookbook</a></p></li>
+<li><p><a class="reference external" href="https://sgl-project.github.io/sglang-omni/">SGLang Omni</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fishaudio_s2_pro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fish Audio S2-Pro</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="qwen3_tts.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Qwen3 TTS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-startup">Installation and Startup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesize-speech">Synthesize Speech</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-usage">Example Usage</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-tags">Point tags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-as-continuation">Editing as continuation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serving-limits">Serving Limits</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-audio-length">Reference Audio Length</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-length">Prompt Length</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attention-backend">Attention Backend</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int4-checkpoint">Int4 Checkpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-performance">Deployment Performance</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-concurrency">High Concurrency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-serving">Production Serving</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-streaming-requests">Non-Streaming Requests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defaults-parameters">Defaults Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By SGLang-Omni Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025-2026, SGLang-Omni.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Oct 20, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
