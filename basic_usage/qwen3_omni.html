@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,17 +51,18 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'basic_usage/qwen3_omni';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Native Chat Stage" href="native_chat_stage.html" />
-    <link rel="prev" title="Cosmos3 Nano serving" href="../cookbook/cosmos3_nano.html" />
+    <link rel="prev" title="dots.tts" href="../cookbook/dots_tts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="current nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer_reference/mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer_reference/mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -587,6 +645,7 @@ run it on a thread pool when CPU preprocessing is the bottleneck under
 concurrent load. Threaded preprocessing changes how requests arrive at the
 thinker, so greedy outputs of the bf16 MoE can differ from the serial default;
 keep the default when comparing accuracy across runs.</p>
+<p>Each preprocessing worker decodes a request’s videos on parallel decoders that share min(16, the stage’s CPUs divided by its workers) FFmpeg threads, split evenly among the request’s videos. Set <code class="docutils literal notranslate"><span class="pre">--preprocessing.factory.video_decode_threads</span> <span class="pre">N</span></code> to choose that count. A value at or below the video reader’s own threads (<code class="docutils literal notranslate"><span class="pre">TORCHCODEC_NUM_THREADS</span></code>, 8 by default) decodes each video on the reader alone.</p>
 <p>For MMSU-style audio-input / text-output benchmarks with short requests, use
 the fused text-path config so the full text path stays inside one worker
 process:</p>
@@ -1007,7 +1066,7 @@ patience; <code class="docutils literal notranslate"><span class="pre">silence_d
 to its path (file or containing directory). The server never downloads it and
 verifies its SHA-256 on load. If the model is missing or invalid, the
 endpoint still works — semantic requests just fall back to <code class="docutils literal notranslate"><span class="pre">server_vad</span></code>.</p>
-<p>On the Session graph (<code class="docutils literal notranslate"><span class="pre">examples/qwen3_omni/session_h200.yaml</span></code>), <code class="docutils literal notranslate"><span class="pre">semantic_vad</span></code> is a node: declare <code class="docutils literal notranslate"><span class="pre">turn_detection:</span> <span class="pre">{stages:</span> <span class="pre">[turn_detection],</span> <span class="pre">inputs:</span> <span class="pre">[&quot;input:pcm16&quot;,</span> <span class="pre">&quot;input:session&quot;,</span> <span class="pre">&quot;vad:session&quot;]}</span></code> beside <code class="docutils literal notranslate"><span class="pre">vad</span></code>, let <code class="docutils literal notranslate"><span class="pre">dialog</span></code> read <code class="docutils literal notranslate"><span class="pre">turn_detection:session</span></code> in place of <code class="docutils literal notranslate"><span class="pre">vad:session</span></code> and publish <code class="docutils literal notranslate"><span class="pre">turn_detection:</span> <span class="pre">[session]</span></code> in place of <code class="docutils literal notranslate"><span class="pre">vad:</span> <span class="pre">[session]</span></code>; the stage loads the model from <code class="docutils literal notranslate"><span class="pre">pipecat-ai/smart-turn-v3</span></code> unless <code class="docutils literal notranslate"><span class="pre">factory.model_path</span></code> names a local copy. See <a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html#turn-detection-node"><span class="std std-ref">Turn detection node</span></a>.</p>
+<p>On the Session graph (<code class="docutils literal notranslate"><span class="pre">examples/qwen3_omni/session_h200.yaml</span></code>), <code class="docutils literal notranslate"><span class="pre">semantic_vad</span></code> is a node: declare <code class="docutils literal notranslate"><span class="pre">turn_detection:</span> <span class="pre">{stages:</span> <span class="pre">[turn_detection],</span> <span class="pre">inputs:</span> <span class="pre">[&quot;input:pcm16&quot;,</span> <span class="pre">&quot;input:session&quot;,</span> <span class="pre">&quot;vad:session&quot;]}</span></code> beside <code class="docutils literal notranslate"><span class="pre">vad</span></code>, let <code class="docutils literal notranslate"><span class="pre">dialog</span></code> read <code class="docutils literal notranslate"><span class="pre">turn_detection:session</span></code> in place of <code class="docutils literal notranslate"><span class="pre">vad:session</span></code> and publish <code class="docutils literal notranslate"><span class="pre">turn_detection:</span> <span class="pre">[session]</span></code> in place of <code class="docutils literal notranslate"><span class="pre">vad:</span> <span class="pre">[session]</span></code>; the stage loads the model from <code class="docutils literal notranslate"><span class="pre">pipecat-ai/smart-turn-v3</span></code> unless <code class="docutils literal notranslate"><span class="pre">factory.model_path</span></code> names a local copy. See <a class="reference internal" href="../developer_reference/full_duplex_guide.html#turn-detection-node"><span class="std std-ref">Turn detection node</span></a>.</p>
 <p>Text arrives in <code class="docutils literal notranslate"><span class="pre">response.text.delta</span></code> events; spoken output arrives as
 base64-encoded mono 24 kHz PCM16 in <code class="docutils literal notranslate"><span class="pre">response.audio.delta</span></code> events, followed by
 <code class="docutils literal notranslate"><span class="pre">response.audio.done</span></code> and <code class="docutils literal notranslate"><span class="pre">response.done</span></code>.</p>
@@ -1333,12 +1392,12 @@ with the AutoRound checkpoint:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../cookbook/cosmos3_nano.html"
+       href="../cookbook/dots_tts.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cosmos3 Nano serving</p>
+        <p class="prev-next-title">dots.tts</p>
       </div>
     </a>
     <a class="right-next"
@@ -1425,7 +1484,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>

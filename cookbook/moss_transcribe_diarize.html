@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,17 +51,18 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cookbook/moss_transcribe_diarize';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Whisper ASR" href="whisper_asr.html" />
-    <link rel="prev" title="Nemotron 3.5 ASR" href="nemotron3_5_asr.html" />
+    <link rel="next" title="OpenAI" href="companies/openai.html" />
+    <link rel="prev" title="MOSS-TTS-Local" href="moss_tts_local.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer_reference/mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer_reference/mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -525,6 +583,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-commands">Launching Commands</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-requests">Sending Requests</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters">Request Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speculative-decoding">Speculative Decoding</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">Benchmarking</a></li>
@@ -728,7 +787,7 @@ Transcriptions support <code class="docutils literal notranslate"><span class="p
 <section id="launching-commands">
 <h3>Launching Commands<a class="headerlink" href="#launching-commands" title="Link to this heading">#</a></h3>
 <p>Install <code class="docutils literal notranslate"><span class="pre">sglang-omni</span></code> with <a class="reference internal" href="../get_started/installation.html"><span class="std std-doc">Installation</span></a> on CUDA or
-<a class="reference internal" href="../get_started/installation_xpu.html"><span class="std std-doc">Intel XPU installation</span></a> on Intel GPUs, then download the model:</p>
+<a class="reference internal" href="../other_platforms/installation_xpu.html"><span class="std std-doc">Intel XPU installation</span></a> on Intel GPUs, then download the model:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hf<span class="w"> </span>download<span class="w"> </span>OpenMOSS-Team/MOSS-Transcribe-Diarize
 </pre></div>
 </div>
@@ -847,7 +906,7 @@ ready without it.</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
 <td><p>float</p></td>
 <td><p>model default (<code class="docutils literal notranslate"><span class="pre">0.0</span></code>)</p></td>
-<td><p>Sampling temperature</p></td>
+<td><p>Sampling temperature. A negative value returns HTTP 422</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code></p></td>
 <td><p>int</p></td>
@@ -865,6 +924,84 @@ ready without it.</p>
 <p><code class="docutils literal notranslate"><span class="pre">verbose_json</span></code> parses the model markup into OpenAI-style <code class="docutils literal notranslate"><span class="pre">segments</span></code> with
 <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, and speaker-prefixed <code class="docutils literal notranslate"><span class="pre">text</span></code> (for example <code class="docutils literal notranslate"><span class="pre">[S01]...</span></code>).
 <code class="docutils literal notranslate"><span class="pre">json</span></code> / <code class="docutils literal notranslate"><span class="pre">text</span></code> return the full transcript string without segment parsing.</p>
+</section>
+<section id="speculative-decoding">
+<h3>Speculative Decoding<a class="headerlink" href="#speculative-decoding" title="Link to this heading">#</a></h3>
+<p>The decoder can verify tokens proposed by the DFlash draft <a class="reference external" href="https://huggingface.co/wilsonzheng0327/MOSS-Transcribe-Diarize-dflash"><code class="docutils literal notranslate"><span class="pre">wilsonzheng0327/MOSS-Transcribe-Diarize-dflash</span></code></a> on one CUDA GPU.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>OpenMOSS-Team/MOSS-Transcribe-Diarize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--asr.engine.speculative_algorithm<span class="w"> </span>DFLASH<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--asr.engine.speculative_draft_model_path<span class="w"> </span>wilsonzheng0327/MOSS-Transcribe-Diarize-dflash<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Acceptance length.</strong> Send the form field <code class="docutils literal notranslate"><span class="pre">return_spec_tokens_details=true</span></code> to get <code class="docutils literal notranslate"><span class="pre">sglext.spec_tokens_details</span></code> (<code class="docutils literal notranslate"><span class="pre">spec_accept_length</span></code>, <code class="docutils literal notranslate"><span class="pre">spec_accept_rate</span></code>, the draft counts and the per-verify histogram) on <code class="docutils literal notranslate"><span class="pre">json</span></code> and <code class="docutils literal notranslate"><span class="pre">verbose_json</span></code> responses and on the streamed <code class="docutils literal notranslate"><span class="pre">transcript.text.done</span></code> event. Audio long enough to be transcribed in chunks returns none. <code class="docutils literal notranslate"><span class="pre">spec_accept_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">spec_num_proposed_drafts</span></code> are left out when no drafts were proposed or the draft width is adaptive.</p></li>
+<li><p><strong>Transcripts.</strong> The target verifies every proposed token, so accuracy stays at the target’s level, but the text is not byte-identical to a run without the draft: MOSS-TD has many near-tied decisions, mostly timestamp hundredths, which any numeric change, including batching, can flip.</p></li>
+<li><p><strong>Context.</strong> The duration-scaled budget leaves room for the few tokens each step reserves. An explicit <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code> that leaves no such room is rejected instead of clamped.</p></li>
+<li><p><strong>Capacity.</strong> The draft’s KV shares the pool, so one H100 80GB at <code class="docutils literal notranslate"><span class="pre">mem_fraction_static=0.80</span></code> holds about 480k tokens instead of 570k. Long audio at high concurrency fills it, and the scheduler then retracts requests and finishes them later: every <code class="docutils literal notranslate"><span class="pre">aishell4_long</span></code> file still completed at concurrency 16 and 32.</p></li>
+<li><p><strong>Compilation.</strong> Torch compile is turned off under the draft: on SGLang 0.5.23 the compiled path makes each verify step about four times slower. Without a draft it stays on.</p></li>
+<li><p><strong>Sampling.</strong> Requests with <code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code>, <code class="docutils literal notranslate"><span class="pre">frequency_penalty</span></code>, <code class="docutils literal notranslate"><span class="pre">presence_penalty</span></code>, <code class="docutils literal notranslate"><span class="pre">min_p</span></code> or logprobs are rejected, because the draft worker applies penalties once per verify block, drops <code class="docutils literal notranslate"><span class="pre">min_p</span></code>, and skips the sampler that records logprobs.</p></li>
+<li><p><strong>Scheduling.</strong> Scheduling is synchronous by default. Add <code class="docutils literal notranslate"><span class="pre">--asr.factory.enable_async_decode</span> <span class="pre">true</span></code> to overlap each verify round with host work, which is faster at every load below. Async prefill stays off under the draft. Setting <code class="docutils literal notranslate"><span class="pre">enable_mixed_chunk</span></code> is rejected.</p></li>
+</ul>
+<p>Gain over the same server without a draft, on one H200 with SGLang 0.5.23, the default server config and the prefix cache off (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">benchmarks.eval.speculative_sweep</span></code>):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Scheduling</p></th>
+<th class="head text-right"><p>Concurrency 1</p></th>
+<th class="head text-right"><p>4</p></th>
+<th class="head text-right"><p>16</p></th>
+<th class="head text-right"><p>64</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">movies800times</span></code></p></td>
+<td><p>Synchronous</p></td>
+<td class="text-right"><p>1.68x</p></td>
+<td class="text-right"><p>1.54x</p></td>
+<td class="text-right"><p>1.34x</p></td>
+<td class="text-right"><p>1.15x</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">movies800times</span></code></p></td>
+<td><p>Overlapped</p></td>
+<td class="text-right"><p>1.90x</p></td>
+<td class="text-right"><p>1.72x</p></td>
+<td class="text-right"><p>1.56x</p></td>
+<td class="text-right"><p>1.42x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">aishell4_long</span></code></p></td>
+<td><p>Synchronous</p></td>
+<td class="text-right"><p>2.50x</p></td>
+<td class="text-right"><p>3.17x</p></td>
+<td class="text-right"><p>3.56x</p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">aishell4_long</span></code></p></td>
+<td><p>Overlapped</p></td>
+<td class="text-right"><p>3.19x</p></td>
+<td class="text-right"><p>3.64x</p></td>
+<td class="text-right"><p>3.89x</p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">googletime</span></code></p></td>
+<td><p>Synchronous</p></td>
+<td class="text-right"><p>2.97x</p></td>
+<td class="text-right"><p>4.14x</p></td>
+<td class="text-right"><p>4.27x</p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">googletime</span></code></p></td>
+<td><p>Overlapped</p></td>
+<td class="text-right"><p>3.73x</p></td>
+<td class="text-right"><p>4.68x</p></td>
+<td class="text-right"><p>4.57x</p></td>
+<td class="text-right"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Neither mode is slower than the server without a draft at any load measured, and CER and DER do not change.</p>
 </section>
 </section>
 <section id="benchmarking">
@@ -921,7 +1058,7 @@ pass every worker serve URL with a comma-separated <code class="docutils literal
 </section>
 <section id="benchmark-results">
 <h2>Benchmark Results<a class="headerlink" href="#benchmark-results" title="Link to this heading">#</a></h2>
-<p>Here we provide the benchmark results of movies800times and aishell4_long on a single H100 80GB GPU. Each row is the <strong>mean of 3 runs</strong> against a server with <code class="docutils literal notranslate"><span class="pre">max_running_requests=16</span></code>, <code class="docutils literal notranslate"><span class="pre">cuda_graph_max_bs=16</span></code>, and <code class="docutils literal notranslate"><span class="pre">mem_fraction_static=0.80</span></code>.</p>
+<p>Here we provide the benchmark results of movies800times on a single H200 141GB GPU with SGLang 0.5.23, and of aishell4_long on a single H100 80GB GPU. Each row is the <strong>mean of 3 runs</strong> against a server with <code class="docutils literal notranslate"><span class="pre">max_running_requests=16</span></code>, <code class="docutils literal notranslate"><span class="pre">cuda_graph_max_bs=16</span></code>, and <code class="docutils literal notranslate"><span class="pre">mem_fraction_static=0.80</span></code>.</p>
 <section id="movies800times">
 <h3>movies800times<a class="headerlink" href="#movies800times" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -935,34 +1072,34 @@ pass every worker serve URL with a comma-separated <code class="docutils literal
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-right"><p>1</p></td>
-<td class="text-right"><p>2.57</p></td>
-<td class="text-right"><p>0.388</p></td>
-<td class="text-right"><p>0.0612</p></td>
-<td class="text-right"><p>29.76</p></td>
+<td class="text-right"><p>7.75</p></td>
+<td class="text-right"><p>0.129</p></td>
+<td class="text-right"><p>0.0120</p></td>
+<td class="text-right"><p>89.73</p></td>
 </tr>
 <tr class="row-odd"><td class="text-right"><p>2</p></td>
-<td class="text-right"><p>4.89</p></td>
-<td class="text-right"><p>0.409</p></td>
-<td class="text-right"><p>0.0659</p></td>
-<td class="text-right"><p>56.55</p></td>
+<td class="text-right"><p>12.98</p></td>
+<td class="text-right"><p>0.154</p></td>
+<td class="text-right"><p>0.0149</p></td>
+<td class="text-right"><p>150.15</p></td>
 </tr>
 <tr class="row-even"><td class="text-right"><p>4</p></td>
-<td class="text-right"><p>6.62</p></td>
-<td class="text-right"><p>0.513</p></td>
-<td class="text-right"><p>0.0790</p></td>
-<td class="text-right"><p>76.64</p></td>
+<td class="text-right"><p>24.19</p></td>
+<td class="text-right"><p>0.165</p></td>
+<td class="text-right"><p>0.0160</p></td>
+<td class="text-right"><p>279.93</p></td>
 </tr>
 <tr class="row-odd"><td class="text-right"><p>8</p></td>
-<td class="text-right"><p>6.80</p></td>
-<td class="text-right"><p>0.533</p></td>
-<td class="text-right"><p>0.0810</p></td>
-<td class="text-right"><p>78.70</p></td>
+<td class="text-right"><p>43.79</p></td>
+<td class="text-right"><p>0.182</p></td>
+<td class="text-right"><p>0.0175</p></td>
+<td class="text-right"><p>506.76</p></td>
 </tr>
 <tr class="row-even"><td class="text-right"><p>16</p></td>
-<td class="text-right"><p>7.08</p></td>
-<td class="text-right"><p>0.659</p></td>
-<td class="text-right"><p>0.0922</p></td>
-<td class="text-right"><p>81.98</p></td>
+<td class="text-right"><p>73.78</p></td>
+<td class="text-right"><p>0.215</p></td>
+<td class="text-right"><p>0.0207</p></td>
+<td class="text-right"><p>853.73</p></td>
 </tr>
 </tbody>
 </table>
@@ -1043,20 +1180,20 @@ pass every worker serve URL with a comma-separated <code class="docutils literal
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="nemotron3_5_asr.html"
+       href="moss_tts_local.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Nemotron 3.5 ASR</p>
+        <p class="prev-next-title">MOSS-TTS-Local</p>
       </div>
     </a>
     <a class="right-next"
-       href="whisper_asr.html"
+       href="companies/openai.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Whisper ASR</p>
+        <p class="prev-next-title">OpenAI</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1089,6 +1226,7 @@ pass every worker serve URL with a comma-separated <code class="docutils literal
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-commands">Launching Commands</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-requests">Sending Requests</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters">Request Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speculative-decoding">Speculative Decoding</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">Benchmarking</a></li>
@@ -1131,7 +1269,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>

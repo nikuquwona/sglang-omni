@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,6 +51,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'basic_usage/tts';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
@@ -60,8 +61,8 @@
     <link rel="prev" title="Audio Translations" href="audio_translations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="current nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer_reference/mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer_reference/mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -519,6 +577,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-the-server">Launch the Server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-curl">Use Curl</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fish-speech-voice-cloning">Fish Speech Voice Cloning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sse-event-framing">SSE Event Framing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-speech">Batch Speech</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#websocket-speech-streaming">WebSocket Speech Streaming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploaded-voices">Uploaded Voices</a></li>
@@ -557,7 +616,7 @@
 <a class="reference internal" href="../cookbook/fishaudio_s2_pro.html#prerequisites"><span class="std std-ref">Fish Audio S2-Pro prerequisites</span></a>
 before starting the server.</p>
 <p>Qwen3-TTS uses the upstream <code class="docutils literal notranslate"><span class="pre">qwen-tts</span></code> package. Install it without dependencies
-so the SGLang-Omni Transformers 5.12 / SGLang 0.5.21 stack remains in place:</p>
+so the SGLang-Omni Transformers 5.19 / SGLang 0.5.23 stack remains in place:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sox
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>sox<span class="w"> </span>einops
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>qwen-tts<span class="o">==</span><span class="m">0</span>.1.1
@@ -592,7 +651,7 @@ for details.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../cookbook/qwen3_tts.html"><span class="std std-doc">Qwen3-TTS Base</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">examples/configs/qwen3_tts_0_6b.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">examples/configs/qwen3_tts_1_7b.yaml</span></code></p></td>
-<td><p>Requires reference audio through <code class="docutils literal notranslate"><span class="pre">ref_audio</span></code> or <code class="docutils literal notranslate"><span class="pre">references[0].audio_path</span></code>. <code class="docutils literal notranslate"><span class="pre">language</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">auto</span></code></p></td>
+<td><p>Requires reference audio through <code class="docutils literal notranslate"><span class="pre">ref_audio</span></code> or <code class="docutils literal notranslate"><span class="pre">references[0].audio_path</span></code>, or the reference’s x-vector through <code class="docutils literal notranslate"><span class="pre">references[0].speaker_embedding</span></code>. <code class="docutils literal notranslate"><span class="pre">language</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">auto</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../cookbook/qwen3_tts.html#customvoice-checkpoints"><span class="std std-ref">Qwen3-TTS CustomVoice</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">examples/configs/qwen3_tts_0_6b_customvoice.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">examples/configs/qwen3_tts_1_7b_customvoice.yaml</span></code></p></td>
@@ -788,6 +847,19 @@ Qwen3-TTS CustomVoice, Voxtral, and S2-Pro. It is not valid for Qwen3-TTS Base.<
 <span class="w">  </span>--output<span class="w"> </span>output.wav
 </pre></div>
 </div>
+<p>A Qwen3-TTS Base reference can also be given as its speaker embedding instead of its audio, so a deployment that stores each voice’s embedding sends no audio and keeps no voice state on the server. Here <code class="docutils literal notranslate"><span class="pre">speaker_embedding.json</span></code> holds one stored embedding as a JSON list:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">"{</span>
+<span class="s2">    \"model\": \"Qwen/Qwen3-TTS-12Hz-0.6B-Base\",</span>
+<span class="s2">    \"voice\": \"default\",</span>
+<span class="s2">    \"input\": \"Get the trust fund to the bank early.\",</span>
+<span class="s2">    \"references\": [{\"speaker_embedding\": </span><span class="k">$(</span>cat<span class="w"> </span>speaker_embedding.json<span class="k">)</span><span class="s2">}]</span>
+<span class="s2">  }"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>output.wav
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">references[0].speaker_embedding</span></code> is the x-vector the same checkpoint’s speaker encoder computes from a reference clip: 1024 numbers for 0.6B Base, 2048 for 1.7B Base, each finite in the model’s dtype, so an embedding from one size does not fit the other. That reference must be the only one, without audio and without <code class="docutils literal notranslate"><span class="pre">ref_audio</span></code>, and it implies <code class="docutils literal notranslate"><span class="pre">x_vector_only_mode</span></code>, so a transcript is neither required nor used. See <a class="reference internal" href="../cookbook/qwen3_tts.html#precomputed-speaker-embedding"><span class="std std-ref">Precomputed speaker embedding</span></a> for how to compute one.</p>
 <p>Qwen3-TTS CustomVoice uses a built-in speaker without reference audio:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
@@ -854,8 +926,7 @@ for four flow steps:</p>
 <ol class="arabic simple" start="2">
 <li><p>Streaming</p></li>
 </ol>
-<p>Enable streaming to receive raw PCM audio chunks in real time. HTTP streaming
-requires both <code class="docutils literal notranslate"><span class="pre">&quot;stream&quot;:</span> <span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;response_format&quot;:</span> <span class="pre">&quot;pcm&quot;</span></code>:</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">&quot;stream&quot;:</span> <span class="pre">true</span></code> to receive raw audio chunks in real time. <code class="docutils literal notranslate"><span class="pre">stream_format</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">&quot;audio&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">response_format</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">&quot;wav&quot;</span></code> in every HTTP mode:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-N<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
@@ -866,29 +937,18 @@ requires both <code class="docutils literal notranslate"><span class="pre">&quot
 <span class="s1">      "audio_path": "https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval-mini/resolve/main/en/prompt-wavs/common_voice_en_10119832.wav",</span>
 <span class="s1">      "text": "We asked over twenty different people, and they all said it was his."</span>
 <span class="s1">    }],</span>
-<span class="s1">    "stream": true,</span>
-<span class="s1">    "response_format": "pcm"</span>
+<span class="s1">    "stream": true</span>
 <span class="s1">  }'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>output.pcm
+<span class="w">  </span>--output<span class="w"> </span>output.wav
 </pre></div>
 </div>
-<p>Streaming returns 16-bit mono PCM bytes (<code class="docutils literal notranslate"><span class="pre">audio/pcm</span></code>) with sample-rate metadata
-in response headers. It does not include in-band JSON events, final usage, or a
-terminal sentinel. Set <code class="docutils literal notranslate"><span class="pre">&quot;stream_format&quot;:</span> <span class="pre">&quot;sse&quot;</span></code> to receive the same PCM as
-Server-Sent Events instead; <code class="docutils literal notranslate"><span class="pre">sse</span></code> streams even when <code class="docutils literal notranslate"><span class="pre">stream</span></code> is omitted. Each
-<code class="docutils literal notranslate"><span class="pre">speech.audio.delta</span></code> event carries base64 PCM in <code class="docutils literal notranslate"><span class="pre">audio</span></code>, and the stream ends
-with one <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code> event carrying <code class="docutils literal notranslate"><span class="pre">usage</span></code> and <code class="docutils literal notranslate"><span class="pre">finish_reason</span></code>, or with an <code class="docutils literal notranslate"><span class="pre">error</span></code> event if
-generation fails mid-stream. The sample-rate headers are the same for both
-formats. <code class="docutils literal notranslate"><span class="pre">usage</span></code> reports the model’s own token counts, so what <code class="docutils literal notranslate"><span class="pre">input_tokens</span></code>
-covers depends on the model: Qwen3-TTS counts reference-audio codec frames, not
-text tokens.</p>
-<p>For raw PCM, use the response’s <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Speech-Id</span></code> with
-<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/audio/speech/{request_id}</span></code> after the stream ends to retrieve its
-<code class="docutils literal notranslate"><span class="pre">finish_reason</span></code> and <code class="docutils literal notranslate"><span class="pre">usage</span></code>. This generated speech ID is independent of the
-<code class="docutils literal notranslate"><span class="pre">X-Request-Id</span></code> correlation header. Behind a router, also echo the response’s
-<code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Worker</span></code> as <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Route-Worker</span></code> on the GET.
-Only the most recent outcomes are retained; missing outcomes do not establish
-a natural stop or a cap hit.</p>
+<p>Raw WAV streaming returns <code class="docutils literal notranslate"><span class="pre">audio/wav</span></code> with one file header followed by 16-bit mono PCM chunks. Set <code class="docutils literal notranslate"><span class="pre">&quot;response_format&quot;:</span> <span class="pre">&quot;pcm&quot;</span></code> to receive the same PCM bytes without a file header (<code class="docutils literal notranslate"><span class="pre">audio/pcm</span></code>). Both formats include sample-rate metadata in response headers and carry no in-band JSON events, final usage, or terminal sentinel.</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">&quot;stream_format&quot;:</span> <span class="pre">&quot;sse&quot;</span></code> to receive Server-Sent Events; <code class="docutils literal notranslate"><span class="pre">sse</span></code> streams even when <code class="docutils literal notranslate"><span class="pre">stream</span></code> is omitted. SSE accepts <code class="docutils literal notranslate"><span class="pre">response_format=&quot;pcm&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;wav&quot;</span></code> (the default) and supports the same <code class="docutils literal notranslate"><span class="pre">speed</span></code> range as raw audio streaming. Each <code class="docutils literal notranslate"><span class="pre">speech.audio.delta</span></code> event carries base64 audio in <code class="docutils literal notranslate"><span class="pre">audio</span></code> and its <code class="docutils literal notranslate"><span class="pre">response_format</span></code>. WAV sends one file header before the PCM chunks. Both transports keep <code class="docutils literal notranslate"><span class="pre">X-Request-Id</span></code>, <code class="docutils literal notranslate"><span class="pre">X-Sample-Rate</span></code>, <code class="docutils literal notranslate"><span class="pre">X-Channels</span></code>, and <code class="docutils literal notranslate"><span class="pre">X-Bit-Depth</span></code> response headers.</p>
+<p>See <a class="reference internal" href="#sse-event-framing"><span class="std std-ref">SSE Event Framing</span></a> for response examples, client event listeners, and the server option that enables named events.</p>
+<p>Omitting both <code class="docutils literal notranslate"><span class="pre">stream</span></code> and <code class="docutils literal notranslate"><span class="pre">stream_format</span></code> keeps the response non-streaming, with WAV as the default audio format. An explicit <code class="docutils literal notranslate"><span class="pre">response_format</span></code> overrides the format default in every mode.</p>
+<p>The stream ends with one <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code> event carrying <code class="docutils literal notranslate"><span class="pre">finish_reason</span></code>, emitted audio <code class="docutils literal notranslate"><span class="pre">duration</span></code> in seconds after speed adjustment, and <code class="docutils literal notranslate"><span class="pre">usage</span></code>. Missing usage remains <code class="docutils literal notranslate"><span class="pre">null</span></code>; actual zero counts remain zero. Qwen3-TTS counts target text tokens, nonblank instructions, and reference audio frames used for in-context cloning as input, and generated Talker steps including EOS as output. Other models use their reported prompt and completion counts. SSE does not include a <code class="docutils literal notranslate"><span class="pre">[DONE]</span></code> sentinel.</p>
+<p>Request validation and generation failures before the first audio chunk remain HTTP JSON errors. Failures after SSE starts emit an error event instead of <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code>, using the mode-specific framing and JSON <code class="docutils literal notranslate"><span class="pre">type</span></code> in the <a class="reference internal" href="#sse-event-framing"><span class="std std-ref">SSE Event Framing table</span></a>. Both modes carry the failure details in <code class="docutils literal notranslate"><span class="pre">error</span></code>. An error after any audio delta includes <code class="docutils literal notranslate"><span class="pre">partial_audio=true</span></code> and <code class="docutils literal notranslate"><span class="pre">action=&quot;discard&quot;</span></code>.</p>
+<p>For raw WAV or PCM, use the response’s <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Speech-Id</span></code> with <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/audio/speech/{request_id}</span></code> after the stream ends to retrieve its <code class="docutils literal notranslate"><span class="pre">finish_reason</span></code> and <code class="docutils literal notranslate"><span class="pre">usage</span></code>. This generated speech ID is independent of the <code class="docutils literal notranslate"><span class="pre">X-Request-Id</span></code> correlation header. Behind a router, also echo the response’s <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Worker</span></code> as <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Route-Worker</span></code> on the GET. Only the most recent outcomes are retained; missing outcomes do not establish a natural stop or a cap hit.</p>
 <p>The SeedTTS benchmark collects raw PCM outcomes over a separate connection pool.
 Collection still consumes server resources during generation. Use
 <code class="docutils literal notranslate"><span class="pre">--no-collect-stream-outcomes</span></code> for an instrumentation control, and keep the setting
@@ -901,6 +961,55 @@ to override that default, or set it to <code class="docutils literal notranslate
 from the start. Ming-Omni-TTS is the only model that rejects the field: its
 initial and steady cadence are the audio_decode stage’s <code class="docutils literal notranslate"><span class="pre">factory</span></code> settings, so a
 request that sets it fails.</p>
+</section>
+<section id="sse-event-framing">
+<h3>SSE Event Framing<a class="headerlink" href="#sse-event-framing" title="Link to this heading">#</a></h3>
+<p>SSE responses use data-only frames by default to preserve clients that listen for the default <code class="docutils literal notranslate"><span class="pre">message</span></code> event. The client reads the JSON <code class="docutils literal notranslate"><span class="pre">type</span></code> to distinguish audio chunks, completion, and errors.</p>
+<p>To enable named events, add <code class="docutils literal notranslate"><span class="pre">--enable-speech-sse-named-events</span></code> when starting the server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>Qwen/Qwen3-TTS-12Hz-1.7B-Base<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--enable-speech-sse-named-events<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+<p>This is a server startup flag, rather than a JSON request field. It applies to every SSE speech response from that server. Requests still select SSE with <code class="docutils literal notranslate"><span class="pre">&quot;stream_format&quot;:</span> <span class="pre">&quot;sse&quot;</span></code>; <code class="docutils literal notranslate"><span class="pre">response_format</span></code> independently selects WAV or PCM. Requests using the raw <code class="docutils literal notranslate"><span class="pre">audio</span></code> transport keep their binary response format.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Server startup option</p></th>
+<th class="head"><p>SSE framing</p></th>
+<th class="head"><p>Client event listener</p></th>
+<th class="head"><p>JSON error <code class="docutils literal notranslate"><span class="pre">type</span></code> after streaming starts</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Flag omitted (default)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data:</span></code> only</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">message</span></code>; dispatch using JSON <code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">error</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--enable-speech-sse-named-events</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">event:</span></code> followed by <code class="docutils literal notranslate"><span class="pre">data:</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speech.audio.delta</span></code>, <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code>, and <code class="docutils literal notranslate"><span class="pre">speech.audio.error</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">speech.audio.error</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For the same request with <code class="docutils literal notranslate"><span class="pre">&quot;stream_format&quot;:</span> <span class="pre">&quot;sse&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;response_format&quot;:</span> <span class="pre">&quot;pcm&quot;</span></code>, a successful response without the flag has this form. Audio is abbreviated and duration is illustrative; generation may produce multiple audio delta frames:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data: {"type":"speech.audio.delta","audio":"&lt;base64 PCM&gt;","response_format":"pcm"}
+
+data: {"type":"speech.audio.done","duration":0.2,"usage":null,"finish_reason":"stop"}
+</pre></div>
+</div>
+<p>With the flag enabled, the same events include explicit SSE event names:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>event: speech.audio.delta
+data: {"type":"speech.audio.delta","audio":"&lt;base64 PCM&gt;","response_format":"pcm"}
+
+event: speech.audio.done
+data: {"type":"speech.audio.done","duration":0.2,"usage":null,"finish_reason":"stop"}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">event:</span></code> line controls SSE event dispatch; it is separate from the <code class="docutils literal notranslate"><span class="pre">type</span></code> field inside JSON. A client that subscribes only to <code class="docutils literal notranslate"><span class="pre">message</span></code> will not receive these named events. Enable the flag when clients subscribe to the named events or their parser handles both framing styles.</p>
 </section>
 <section id="batch-speech">
 <h3>Batch Speech<a class="headerlink" href="#batch-speech" title="Link to this heading">#</a></h3>
@@ -1197,7 +1306,7 @@ the SGLang-Omni server:</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">response_format</span></code></p></td>
 <td><p>string</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;wav&quot;</span></code></p></td>
-<td><p>Output audio format: <code class="docutils literal notranslate"><span class="pre">wav</span></code>, <code class="docutils literal notranslate"><span class="pre">mp3</span></code>, <code class="docutils literal notranslate"><span class="pre">flac</span></code>, <code class="docutils literal notranslate"><span class="pre">pcm</span></code>, <code class="docutils literal notranslate"><span class="pre">aac</span></code>, or <code class="docutils literal notranslate"><span class="pre">opus</span></code></p></td>
+<td><p>Output audio format: <code class="docutils literal notranslate"><span class="pre">wav</span></code>, <code class="docutils literal notranslate"><span class="pre">mp3</span></code>, <code class="docutils literal notranslate"><span class="pre">flac</span></code>, <code class="docutils literal notranslate"><span class="pre">pcm</span></code>, <code class="docutils literal notranslate"><span class="pre">aac</span></code>, or <code class="docutils literal notranslate"><span class="pre">opus</span></code>. Explicit values override the default in every mode. HTTP streaming accepts only <code class="docutils literal notranslate"><span class="pre">wav</span></code> or <code class="docutils literal notranslate"><span class="pre">pcm</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speed</span></code></p></td>
 <td><p>float</p></td>
@@ -1207,12 +1316,12 @@ the SGLang-Omni server:</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stream</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
-<td><p>Enable raw PCM streaming. When true, <code class="docutils literal notranslate"><span class="pre">response_format</span></code> must be <code class="docutils literal notranslate"><span class="pre">pcm</span></code></p></td>
+<td><p>Enable raw WAV streaming by default. Set <code class="docutils literal notranslate"><span class="pre">response_format=&quot;pcm&quot;</span></code> for raw PCM, or <code class="docutils literal notranslate"><span class="pre">stream_format=&quot;sse&quot;</span></code> for SSE events</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stream_format</span></code></p></td>
 <td><p>string</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;audio&quot;</span></code></p></td>
-<td><p>Streaming transport: <code class="docutils literal notranslate"><span class="pre">audio</span></code> for raw PCM bytes, <code class="docutils literal notranslate"><span class="pre">sse</span></code> for <code class="docutils literal notranslate"><span class="pre">speech.audio.delta</span></code> / <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code> events. <code class="docutils literal notranslate"><span class="pre">sse</span></code> streams without <code class="docutils literal notranslate"><span class="pre">stream=true</span></code> and requires <code class="docutils literal notranslate"><span class="pre">response_format=&quot;pcm&quot;</span></code></p></td>
+<td><p>Streaming transport: <code class="docutils literal notranslate"><span class="pre">audio</span></code> returns raw WAV or PCM bytes when streaming is enabled; <code class="docutils literal notranslate"><span class="pre">sse</span></code> enables SSE even when <code class="docutils literal notranslate"><span class="pre">stream</span></code> is omitted or false. SSE uses data-only <code class="docutils literal notranslate"><span class="pre">message</span></code> events by default. The server startup flag <code class="docutils literal notranslate"><span class="pre">--enable-speech-sse-named-events</span></code> selects the framing and error type shown in the <a class="reference internal" href="#sse-event-framing"><span class="std std-ref">SSE Event Framing table</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initial_codec_chunk_frames</span></code></p></td>
 <td><p>int</p></td>
@@ -1232,7 +1341,7 @@ the SGLang-Omni server:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">references</span></code></p></td>
 <td><p>list</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
-<td><p>Reference audio for voice cloning. Each item has <code class="docutils literal notranslate"><span class="pre">audio_path</span></code> (local path / file URL / data URL / remote URL) and <code class="docutils literal notranslate"><span class="pre">text</span></code></p></td>
+<td><p>Reference audio for voice cloning. Each item has <code class="docutils literal notranslate"><span class="pre">audio_path</span></code> (local path / file URL / data URL / remote URL) and <code class="docutils literal notranslate"><span class="pre">text</span></code>. For Qwen3-TTS Base, the only item may instead carry <code class="docutils literal notranslate"><span class="pre">speaker_embedding</span></code>: the x-vector the same checkpoint’s speaker encoder computes from the clip, 1024 numbers for 0.6B and 2048 for 1.7B, each finite in the model’s dtype, which implies x-vector-only mode</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ref_audio</span></code></p></td>
 <td><p>string</p></td>
@@ -1252,7 +1361,7 @@ the SGLang-Omni server:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">task_type</span></code></p></td>
 <td><p>string</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
-<td><p>Qwen3-TTS task type: <code class="docutils literal notranslate"><span class="pre">Base</span></code>, <code class="docutils literal notranslate"><span class="pre">CustomVoice</span></code>, or <code class="docutils literal notranslate"><span class="pre">VoiceDesign</span></code>. Inferred as <code class="docutils literal notranslate"><span class="pre">Base</span></code> when reference audio/text is present, otherwise <code class="docutils literal notranslate"><span class="pre">CustomVoice</span></code></p></td>
+<td><p>Qwen3-TTS task type: <code class="docutils literal notranslate"><span class="pre">Base</span></code>, <code class="docutils literal notranslate"><span class="pre">CustomVoice</span></code>, or <code class="docutils literal notranslate"><span class="pre">VoiceDesign</span></code>. Inferred as <code class="docutils literal notranslate"><span class="pre">Base</span></code> when reference audio/text or a reference’s <code class="docutils literal notranslate"><span class="pre">speaker_embedding</span></code> is present, otherwise <code class="docutils literal notranslate"><span class="pre">CustomVoice</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">instructions</span></code></p></td>
 <td><p>string</p></td>
@@ -1304,13 +1413,18 @@ the SGLang-Omni server:</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
 <td><p>Model-specific. Qwen3-TTS Base accepts request-scoped seed, Voxtral TTS currently rejects seed</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">return_spec_tokens_details</span></code></p></td>
+<td><p>bool</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>With a speculative draft, return this request’s acceptance statistics: <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Spec-*</span></code> headers on buffered audio, <code class="docutils literal notranslate"><span class="pre">sglext.spec_tokens_details</span></code> on <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code> and on the raw audio outcome</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<p>Invalid speech requests return an OpenAI-style error envelope:</p>
+<p>Invalid speech requests return an OpenAI-style error envelope. For example, streaming with <code class="docutils literal notranslate"><span class="pre">response_format=&quot;mp3&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;flac&quot;</span></code> returns HTTP 400:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stream=true requires response_format='pcm'"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Streaming requires response_format='pcm' or 'wav'"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BadRequestError"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response_format"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span>
@@ -1453,6 +1567,7 @@ python<span class="w"> </span>-m<span class="w"> </span>benchmarks.eval.benchmar
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-the-server">Launch the Server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-curl">Use Curl</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fish-speech-voice-cloning">Fish Speech Voice Cloning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sse-event-framing">SSE Event Framing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-speech">Batch Speech</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#websocket-speech-streaming">WebSocket Speech Streaming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploaded-voices">Uploaded Voices</a></li>
@@ -1500,7 +1615,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>

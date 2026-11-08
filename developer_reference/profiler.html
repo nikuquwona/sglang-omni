@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,6 +51,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'developer_reference/profiler';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
@@ -60,8 +61,8 @@
     <link rel="prev" title="Reference Encode Service" href="reference_encode_service.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/minimax_music3.html">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -540,8 +598,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="request-level-profiler">
 <h1>Request-level profiler<a class="headerlink" href="#request-level-profiler" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">sglang-omni</span></code> ships two complementary profilers that share the same <code class="docutils literal notranslate"><span class="pre">run_id</span></code>
-and are controlled by the same HTTP surface:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sglang-omni</span></code> ships two complementary profilers that share the same <code class="docutils literal notranslate"><span class="pre">run_id</span></code> and are controlled by the same HTTP surface:</p>
 <ul class="simple">
 <li><p>a <strong>request-level event recorder</strong> that writes a JSONL stream of
 per-request milestones (admission, preprocess, encoder, prefill, first
@@ -559,8 +616,7 @@ Intel.</p></li>
 deeper kernel investigation.</p>
 <section id="event-model">
 <h2>Event model<a class="headerlink" href="#event-model" title="Link to this heading">#</a></h2>
-<p>Every instrumentation point appends a single line of JSON to a per-process
-JSONL file. The shape:</p>
+<p>Every instrumentation point records one logical event. After the run is deactivated, each retained event is serialized as one line of JSON in a per-process JSONL file. The shape is:</p>
 <div class="highlight-jsonc notranslate"><div class="highlight"><pre><span></span>{
   "request_id": "req-123",
   "stage": "thinker",
@@ -572,11 +628,18 @@ JSONL file. The shape:</p>
 }
 </pre></div>
 </div>
-<p>Files are written under <code class="docutils literal notranslate"><span class="pre">&lt;event_dir&gt;/events_&lt;stage&gt;_&lt;pid&gt;.jsonl</span></code>. Multiple
-co-located stages in the same OS process share <strong>one</strong> JSONL file — the
-filename uses the first stage to start, and the per-event <code class="docutils literal notranslate"><span class="pre">stage</span></code> field
-identifies the owner. The views layer merges files from every process by
-<code class="docutils literal notranslate"><span class="pre">request_id</span></code>.</p>
+<p>Files are written under <code class="docutils literal notranslate"><span class="pre">&lt;event_dir&gt;/events_&lt;stage&gt;_&lt;pid&gt;.jsonl</span></code>. Multiple co-located stages in the same OS process share <strong>one</strong> JSONL file — the filename uses the first stage to start, and the per-event <code class="docutils literal notranslate"><span class="pre">stage</span></code> field identifies the owner. The views layer merges files from every process by <code class="docutils literal notranslate"><span class="pre">request_id</span></code>. The writer creates each JSONL file exclusively; an existing file is a storage failure rather than an append target.</p>
+<p>The recorder uses one bounded producer-private buffer per OS thread and one low-priority writer thread per process, created only after the run stops. Each producer can retain 1024 events by default. <code class="docutils literal notranslate"><span class="pre">event_buffer_capacity</span></code> overrides that per-producer limit for one recording; any positive integer is accepted, with no hard-coded maximum. The number of producer buffers remains separately bounded at 16 per process. An omitted value uses the recorder’s constructor default on each new run, and capacity cannot change during an active run. Buffers grow dynamically as events are retained; event objects are not preallocated.</p>
+<p>To estimate memory, multiply the per-recording event capacity by each process’s producer-buffer count and sum the results:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>retained_events &lt;= sum(process producer_buffer_count * event_buffer_capacity)
+approximate_memory = retained_events * estimated_bytes_per_event
+</pre></div>
+</div>
+<p>Bytes per event depends on the workload and Python object contents; measure it when accurate memory budgeting matters. A larger capacity can increase post-stop serialization and flush time. Overflow still drops events and marks the trace incomplete. Linux <code class="docutils literal notranslate"><span class="pre">SCHED_IDLE</span></code> is best effort and cannot guarantee zero Python GIL or CPU interference.</p>
+<p>Each OS thread registers its buffer once under a small control lock. Cached producers then capture timestamps, stage attribution, and bounded metadata without acquiring that lock. Buffer admission is the stop cutoff: the post-stop writer waits for admitted operations, while a capture that has not reserved a buffer before stop is ignored and does not consume its snapshots. <code class="docutils literal notranslate"><span class="pre">RequestEventBuffer</span></code> uses the same producer buffer: deferred records count against the same event limit and are snapshotted once. During capture, producers do not start a writer, open files, serialize JSON, flush, or enqueue into a shared queue. JSON serialization, file operations, and flushes run only after deactivation.</p>
+<p>Events do not exist on disk until the run has stopped. Consumers must treat a missing sidecar, or a sidecar with <code class="docutils literal notranslate"><span class="pre">complete:</span> <span class="pre">false</span></code>, as incomplete.</p>
+<p>Each finalized run also attempts to write <code class="docutils literal notranslate"><span class="pre">run_status_&lt;pid&gt;.json</span></code> beside the JSONL file. When publication succeeds, it records <code class="docutils literal notranslate"><span class="pre">run_id</span></code>, <code class="docutils literal notranslate"><span class="pre">pid</span></code>, <code class="docutils literal notranslate"><span class="pre">stages</span></code>, the effective <code class="docutils literal notranslate"><span class="pre">event_buffer_capacity</span></code>, <code class="docutils literal notranslate"><span class="pre">producer_buffer_count</span></code>, and <code class="docutils literal notranslate"><span class="pre">producer_buffer_event_counts</span></code> (accepted plus dropped records per registered buffer), followed by event counters, metadata snapshot and truncation counts, serialization/write/finalization failures, <code class="docutils literal notranslate"><span class="pre">incomplete_reasons</span></code>, and <code class="docutils literal notranslate"><span class="pre">complete</span></code>; that flag has <code class="docutils literal notranslate"><span class="pre">completeness_scope</span></code> set to <code class="docutils literal notranslate"><span class="pre">event_storage</span></code> and does not claim semantic timing or cross-process coverage. The sidecar also records whether the writer obtained <code class="docutils literal notranslate"><span class="pre">SCHED_IDLE</span></code> or used the default scheduling policy. <code class="docutils literal notranslate"><span class="pre">RequestEventFinalization.wait()</span></code> reports whether the status sidecar was published; inspect <code class="docutils literal notranslate"><span class="pre">complete</span></code> separately to determine whether the trace is complete. Producer-buffer overflow, writer failure, metadata snapshot failure, metadata truncation, and a missing or failed drain mark the run incomplete. Consumers must not treat a missing sidecar, or a sidecar with <code class="docutils literal notranslate"><span class="pre">complete:</span> <span class="pre">false</span></code>, as a complete trace.</p>
+<p>Metadata is intentionally limited to scalars, JSON-like mappings/sequences, and tensor-like values represented by shape/dtype/device summaries. Tensor contents are never materialized by the producer. Unsupported values are rejected without calling arbitrary <code class="docutils literal notranslate"><span class="pre">repr</span></code>; the serving path records a metadata snapshot failure and continues. Strings are bounded, and bytes are unsupported rather than copied into the trace. Bounded depth/item truncation is recorded in the event metadata and in the status sidecar rather than reported as complete.</p>
 <section id="standard-event-names">
 <h3>Standard event names<a class="headerlink" href="#standard-event-names" title="Link to this heading">#</a></h3>
 <p>The recorder always attaches the active <code class="docutils literal notranslate"><span class="pre">stage</span></code> name to every event, so the
@@ -689,15 +752,19 @@ first executable prefill / extend batch is selected.</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">scheduler_first_emit</span></code></p></td>
 <td><p>First <code class="docutils literal notranslate"><span class="pre">stream_output_builder</span></code> emission per request</p></td>
 </tr>
-<tr class="row-odd"><td><p>Code2Wav</p></td>
+<tr class="row-odd"><td><p>AR scheduler</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">session_kv_snapshot</span></code></p></td>
+<td><p>Streaming-session KV after a completed Unit has checkpointed: logical/session-window lengths, allocated/available pool positions and cache-evictable positions</p></td>
+</tr>
+<tr class="row-even"><td><p>Code2Wav</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">code2wav_decode_start</span></code></p></td>
 <td><p>Each window’s decode start: trigger, start/end/new/context/window frames, <code class="docutils literal notranslate"><span class="pre">rows</span></code> (the windows its replay decodes together), active and threshold-ready requests, inbox depth</p></td>
 </tr>
-<tr class="row-even"><td><p>Code2Wav</p></td>
+<tr class="row-odd"><td><p>Code2Wav</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">code2wav_decode_launched</span></code></p></td>
 <td><p>Pipelined window whose vocoder work and asynchronous D2H copy have been enqueued; includes execution mode, window/new-frame counts and <code class="docutils literal notranslate"><span class="pre">rows</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>Code2Wav</p></td>
+<tr class="row-even"><td><p>Code2Wav</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">code2wav_decode_end</span></code></p></td>
 <td><p>Repeats start metadata and adds the current decode’s <code class="docutils literal notranslate"><span class="pre">audio_samples</span></code> plus execution metadata; output-overlap runs also include <code class="docutils literal notranslate"><span class="pre">pipelined</span></code> and the previous window’s post-EOS-scan <code class="docutils literal notranslate"><span class="pre">d2h_wait_ns</span></code></p></td>
 </tr>
@@ -717,6 +784,13 @@ instrumentation sites do not need to guard against the disabled case.</p>
 </section>
 <section id="full-duplex-session-unit-metrics">
 <h2>Full Duplex session Unit metrics<a class="headerlink" href="#full-duplex-session-unit-metrics" title="Link to this heading">#</a></h2>
+<p>Pass <code class="docutils literal notranslate"><span class="pre">event_buffer_capacity</span></code> to <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/start_request_profile</span></code>, or to <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/start_profile</span></code> when request-event recording is enabled. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:8000/start_request_profile<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"run_id":"performance_test","event_dir":"/tmp/performance_test/events","event_buffer_capacity":1500}'</span>
+</pre></div>
+</div>
+<p>The value applies per producer for that run and can be changed on the next profiling run without restarting the server.</p>
 <p>Enable the existing request event recorder with <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/start_request_profile</span></code>
 and stop it with <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/stop_request_profile</span></code>. The JSONL files then include a
 small session vocabulary that can be converted with
@@ -726,6 +800,7 @@ metadata to name the Unit as <code class="docutils literal notranslate"><span cl
 Unit lifecycle and start events carry the input modality and media clock.
 Output events carry the output sequence, modality, media clock, duration, and
 kind. Payload bytes are never stored.</p>
+<p><code class="docutils literal notranslate"><span class="pre">session_kv_snapshot</span></code> is emitted after a completed AR Unit releases its request row into the streaming-session cache. Its <code class="docutils literal notranslate"><span class="pre">cache_type</span></code> and <code class="docutils literal notranslate"><span class="pre">kv_allocator_type</span></code> fields identify the active cache path. <code class="docutils literal notranslate"><span class="pre">session_logical_length</span></code> is the record’s logical sequence length and can exceed the physical pool for a sliding-window model. <code class="docutils literal notranslate"><span class="pre">session_swa_evicted_length</span></code> is the record’s SWA eviction cursor, and <code class="docutils literal notranslate"><span class="pre">session_window_kv_positions</span></code> is their difference. <code class="docutils literal notranslate"><span class="pre">kv_pool_capacity_positions</span></code>, <code class="docutils literal notranslate"><span class="pre">kv_pool_allocated_positions</span></code>, <code class="docutils literal notranslate"><span class="pre">available_kv_positions</span></code>, and <code class="docutils literal notranslate"><span class="pre">evictable_kv_positions</span></code> describe the allocator at that boundary. For a single PureSWA session with radix caching disabled, the session-window and pool-allocated counts must agree; their plateau, not the logical length or process GPU memory, shows whether the pool reuses expired slots during a long call.</p>
 <p>The event boundaries have these meanings:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">session_unit_ready</span></code> is declared by the ingress owner when a logical Unit
@@ -810,6 +885,12 @@ clears both the thread-local slot and the contextvar.</p>
 </section>
 <section id="lifecycle">
 <h2>Lifecycle<a class="headerlink" href="#lifecycle" title="Link to this heading">#</a></h2>
+<p><strong>Intended use and assumptions:</strong> Request event profiling is an opt-in tool for
+controlled performance investigations, not an always-on logging or recovery
+service. Use a <strong>unique <code class="docutils literal notranslate"><span class="pre">run_id</span></code> and a fresh, empty <code class="docutils literal notranslate"><span class="pre">event_dir</span></code> for each
+recording</strong>. Only one run can be active or draining in a process. A new run is
+rejected until the prior post-stop writer has finished; this prevents a new
+measured window from sharing a writer with the old one.</p>
 <p>The recorder is process-local. It is started on every stage and on the
 coordinator when <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/start_profile</span></code> (or <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/start_request_profile</span></code>)
 is hit:</p>
@@ -822,9 +903,19 @@ carrying both the torch trace template and the <code class="docutils literal not
 the first stage to call <code class="docutils literal notranslate"><span class="pre">start()</span></code> wins the filename; every subsequent
 stage in the same process writes to the same file and the per-event
 <code class="docutils literal notranslate"><span class="pre">stage</span></code> field disambiguates.</p></li>
-<li><p>On <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/stop_profile</span></code>, the recorder is closed everywhere; files
-remain on disk under <code class="docutils literal notranslate"><span class="pre">&lt;event_dir&gt;</span></code>.</p></li>
+<li><p>On <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/stop_profile</span></code>, every process deactivates its current run without
+joining the writer on its serving/control loop. Accepted events still drain
+and the writer creates the status sidecar during finalization. The HTTP
+response is not an acknowledgement that every process has finalized its
+artifact; inspect every expected process sidecar before analysis.</p></li>
 </ol>
+<p>The Python API is nonblocking by default: <code class="docutils literal notranslate"><span class="pre">RequestEventRecorder.stop()</span></code> is
+equivalent to <code class="docutils literal notranslate"><span class="pre">stop(wait=False)</span></code>. It deactivates promptly and returns the event
+path; it does not wait for disk finalization. Administrative code may use
+<code class="docutils literal notranslate"><span class="pre">stop(wait=True)</span></code>, the returned <code class="docutils literal notranslate"><span class="pre">RequestEventFinalization</span></code> handle, or
+<code class="docutils literal notranslate"><span class="pre">wait_for_finalizations(timeout_seconds=...)</span></code>. Serving control paths use
+<code class="docutils literal notranslate"><span class="pre">stop(wait=False)</span></code> or <code class="docutils literal notranslate"><span class="pre">deactivate()</span></code>. A stalled or failed writer cannot block
+serving, but the resulting status must be treated as incomplete.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/stop_profile</span></code> and <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/stop_request_profile</span></code> accept an optional
 <code class="docutils literal notranslate"><span class="pre">run_id</span></code> field. When <strong>omitted</strong>, the request is a wildcard: every stage
 stops whatever profiler session is currently active. When <strong>set</strong>, only
@@ -840,8 +931,10 @@ paying for a kernel trace.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sglang_omni.profiler.views</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_report</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">build_report</span><span class="p">(</span><span class="s2">"/tmp/profiles/demo-run/events"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s2">"request_count"</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s2">"stage_breakdown"</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s2">"completeness"</span><span class="p">][</span><span class="s2">"state"</span><span class="p">])</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">build_report</span></code> validates the process-local <code class="docutils literal notranslate"><span class="pre">run_status_&lt;pid&gt;.json</span></code> sidecars against the supplied event filenames. It reports <code class="docutils literal notranslate"><span class="pre">complete</span></code>, <code class="docutils literal notranslate"><span class="pre">incomplete</span></code>, or <code class="docutils literal notranslate"><span class="pre">unknown</span></code>; missing or malformed sidecars are always <code class="docutils literal notranslate"><span class="pre">unknown</span></code> with <code class="docutils literal notranslate"><span class="pre">complete:</span> <span class="pre">false</span></code>. This checks only the files supplied to the report. A directory containing one TP rank’s files can establish local event-storage completeness for that rank, but cannot establish that every expected TP rank or process is present. Global completeness requires an expected-process inventory, which this report does not provide.</p>
 <p>…or via the CLI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>sglang_omni.profiler<span class="w"> </span>/tmp/profiles/demo-run/events<span class="w"> </span>--format<span class="w"> </span>table
 python<span class="w"> </span>-m<span class="w"> </span>sglang_omni.profiler<span class="w"> </span>/tmp/profiles/demo-run/events<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--out<span class="w"> </span>report.json
@@ -871,7 +964,9 @@ reconstructed even when each stage runs in its own process.</p>
 <p>The torch profiler runs alongside the event recorder when
 <code class="docutils literal notranslate"><span class="pre">enable_torch=true</span></code> (the default for <code class="docutils literal notranslate"><span class="pre">/start_profile</span></code>). It records
 continuously between <code class="docutils literal notranslate"><span class="pre">start()</span></code> and <code class="docutils literal notranslate"><span class="pre">stop()</span></code> — no <code class="docutils literal notranslate"><span class="pre">schedule(...)</span></code>, no
-<code class="docutils literal notranslate"><span class="pre">step()</span></code> requirement — and exports a Chrome trace <code class="docutils literal notranslate"><span class="pre">*.trace.json.gz</span></code> on stop.</p>
+<code class="docutils literal notranslate"><span class="pre">step()</span></code> requirement — and exports a Chrome trace <code class="docutils literal notranslate"><span class="pre">*.trace.json.gz</span></code> on stop.
+CPU ops are recorded from every thread in the process, including scheduler
+threads that existed before <code class="docutils literal notranslate"><span class="pre">start()</span></code>.</p>
 <p>The expensive introspection flags are opt-in via env vars so the default
 trace stays small enough to load in <code class="docutils literal notranslate"><span class="pre">chrome://tracing</span></code> or
 <a class="reference external" href="https://ui.perfetto.dev"><code class="docutils literal notranslate"><span class="pre">ui.perfetto.dev</span></code></a>:</p>
@@ -886,7 +981,7 @@ trace stays small enough to load in <code class="docutils literal notranslate"><
 <td><p>Record input tensor shapes per op</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SGLANG_TORCH_PROFILER_PROFILE_MEMORY=1</span></code></p></td>
-<td><p>Record tensor memory allocation / free events</p></td>
+<td><p>Record tensor memory allocation / free events. Disables all-thread capture: only the thread that starts the profiler is recorded, so worker thread CPU ops and memory events are excluded</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SGLANG_TORCH_PROFILER_WITH_STACK=1</span></code></p></td>
 <td><p>Record the Python (and C++) call stack per op</p></td>
@@ -925,7 +1020,7 @@ multi-GB trace — only opt in when you need that specific information.</p>
 <tr class="row-even"><td><p>POST</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/start_request_profile</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">{&quot;run_id&quot;:</span> <span class="pre">?,</span> <span class="pre">&quot;event_dir&quot;:</span> <span class="pre">?}</span></code></p></td>
-<td><p>Event recorder only — no torch trace. Lower overhead; safer to leave on.</p></td>
+<td><p>Event recorder only — no torch trace. Lower overhead; still intended for short, opt-in captures.</p></td>
 </tr>
 <tr class="row-odd"><td><p>POST</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/stop_request_profile</span></code></p></td>
@@ -947,14 +1042,23 @@ python<span class="w"> </span>-m<span class="w"> </span>sglang_omni.profiler<spa
 <section id="discipline">
 <h2>Discipline<a class="headerlink" href="#discipline" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Profiling must never break serving.</strong> The emitter swallows write
-errors and counts drops; the first failure is logged once.</p></li>
+<li><p><strong>Profiling must never break serving.</strong> While active, the emitter performs
+no JSON serialization or file I/O, takes no recorder-wide lock after its
+one-time producer registration, and never waits for capacity or a writer.
+Producer-buffer overflow and bounded registration failures are counted as
+drops; writer failures are recorded in the run status.</p></li>
+<li><p><strong>Finalization is deferred.</strong> The writer starts only after the last local
+stage releases the run or an administrative stop deactivates it. It waits
+for in-flight producers to quiesce before freezing buffers, then flushes and
+closes the JSONL file before publishing the status sidecar. A new run is
+rejected while this drain is in progress.</p></li>
 <li><p><strong>Tensors and large blobs stay out of event metadata.</strong> Keep metadata
 to small scalars (ids, counts, durations, modality, error strings). The
 recorder enforces this defensively: if a tensor / numpy array ends up
-in metadata, <code class="docutils literal notranslate"><span class="pre">_json_default</span></code> serializes a summary
-(<code class="docutils literal notranslate"><span class="pre">{&quot;__tensor_summary__&quot;:</span> <span class="pre">true,</span> <span class="pre">&quot;type&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;shape&quot;:</span> <span class="pre">[...],</span> <span class="pre">&quot;dtype&quot;:</span> <span class="pre">&quot;...&quot;,</span> <span class="pre">&quot;device&quot;:</span> <span class="pre">&quot;...&quot;}</span></code>) instead of materializing the contents. 0-D
-tensors / numpy scalars still serialize as plain scalars.</p></li>
+in metadata, the JSON default serializer emits a summary
+(<code class="docutils literal notranslate"><span class="pre">{&quot;__tensor_summary__&quot;:</span> <span class="pre">true,</span> <span class="pre">&quot;type&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;shape&quot;:</span> <span class="pre">[...],</span> <span class="pre">&quot;dtype&quot;:</span>&#160;&#160; <span class="pre">&quot;...&quot;,</span> <span class="pre">&quot;device&quot;:</span> <span class="pre">&quot;...&quot;}</span></code>) instead of materializing the contents. CPU
+0-D tensors / numpy scalars still serialize as plain scalars; device-backed
+0-D values remain summaries.</p></li>
 <li><p><strong>Event naming.</strong> Lowercase snake_case, prefix with the layer that
 owns the event (<code class="docutils literal notranslate"><span class="pre">stage_*</span></code>, <code class="docutils literal notranslate"><span class="pre">scheduler_*</span></code>, <code class="docutils literal notranslate"><span class="pre">encoder_*</span></code>, etc.). Use the
 stage name (not the event name) to distinguish “thinker prefill start”
@@ -1056,7 +1160,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>

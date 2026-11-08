@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,17 +51,18 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cookbook/ming_tts';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MOSS-TTS" href="moss_tts.html" />
-    <link rel="prev" title="Qwen3 TTS" href="qwen3_tts.html" />
+    <link rel="next" title="Ming-3.0-asr-tiny" href="ming3_asr.html" />
+    <link rel="prev" title="LLaDA2.0-Uni" href="llada2_uni.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer_reference/mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer_reference/mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -576,9 +634,11 @@ the checkpoint:</p>
 <span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
 </pre></div>
 </div>
-<p>The provided configuration enables the AR and acoustic-tail CUDA graphs and a fixed-width CUDA
-graph for streaming AudioVAE transitions. Non-streaming full-sequence AudioVAE decode remains
-compact eager, and requests are non-streaming unless <code class="docutils literal notranslate"><span class="pre">stream</span></code> is set.</p>
+<p>The provided configuration enables the AR, acoustic-tail, and prefill CUDA graphs and a
+fixed-width CUDA graph for streaming AudioVAE transitions. Prefill uses the breakable backend
+(<code class="docutils literal notranslate"><span class="pre">cuda_graph_backend_prefill</span></code>) with token buckets up to 512; longer prefills run eager.
+Non-streaming full-sequence AudioVAE decode remains compact eager, and requests are non-streaming
+unless <code class="docutils literal notranslate"><span class="pre">stream</span></code> is set.</p>
 <p>For non-streaming requests, <code class="docutils literal notranslate"><span class="pre">audio_decode</span></code> sends the complete generated latent sequence through
 one full-sequence AudioVAE decode. Streaming requests use the separate incremental AudioVAE path
 with request-local cache and overlap state. Older configs need three changes, all enforced
@@ -644,6 +704,7 @@ later call supplies the right-hand context needed to emit that initial group. Su
 consume <code class="docutils literal notranslate"><span class="pre">steady_chunk_patches</span></code> at a time. The provided configuration uses two initial patches and
 four steady patches, and the terminal step flushes any remainder. Pipe the response to <code class="docutils literal notranslate"><span class="pre">ffplay</span></code>
 to play it during generation:</p>
+<p>Streaming AudioVAE automatically uses Triton BTH upsampling when Triton is available and the input is a non-empty CUDA BF16 BTH tensor with non-negative strides; other streaming inputs use the existing PyTorch upsampler, and non-streaming AudioVAE decode is unchanged.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sS<span class="w"> </span>--fail<span class="w"> </span>--no-buffer<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
@@ -797,7 +858,8 @@ flags used for generation:</p>
 <h2>Benchmark Results<a class="headerlink" href="#benchmark-results" title="Link to this heading">#</a></h2>
 <section id="recommended-single-h200-tp1">
 <h3>Recommended Single-H200 TP1<a class="headerlink" href="#recommended-single-h200-tp1" title="Link to this heading">#</a></h3>
-<p>The recommended TP1 configuration was evaluated on <strong>1× H200 141 GB</strong> with concurrency 8, eight warmup requests, and the full Seed-TTS-Eval EN and ZH splits. Streaming used two initial patches followed by four-patch steady groups, with the AR, acoustic-tail, and streaming AudioVAE CUDA graphs enabled. Non-streaming requests continued to use compact full-sequence AudioVAE eager decode.</p>
+<p>The recommended TP1 configuration was evaluated on <strong>1× H200 141 GB</strong> with concurrency 8, eight warmup requests, and the full Seed-TTS-Eval EN and ZH splits. Streaming used two initial patches followed by four-patch steady groups, with the AR, breakable prefill, acoustic-tail, and streaming AudioVAE CUDA graphs enabled. Non-streaming requests continued to use compact full-sequence AudioVAE eager decode.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Corpus</span> <span class="pre">WER/CER</span></code> is the micro-averaged corpus rate over every sample, including outliers. The scorer splits Chinese into characters, so its ZH rate is a CER even though the log labels it WER.</p>
 <p>Streaming:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -818,45 +880,45 @@ flags used for generation:</p>
 <td><p>EN</p></td>
 <td class="text-right"><p>1088</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>0.95%</p></td>
-<td class="text-right"><p>0.1620</p></td>
-<td class="text-right"><p>0.764</p></td>
-<td class="text-right"><p>0.3380</p></td>
-<td class="text-right"><p>10.456</p></td>
-<td class="text-right"><p>49.428</p></td>
+<td class="text-right"><p>0.96%</p></td>
+<td class="text-right"><p>0.0950</p></td>
+<td class="text-right"><p>0.450</p></td>
+<td class="text-right"><p>0.1992</p></td>
+<td class="text-right"><p>17.743</p></td>
+<td class="text-right"><p>84.201</p></td>
 </tr>
 <tr class="row-odd"><td><p>text-only</p></td>
 <td><p>ZH</p></td>
 <td class="text-right"><p>2020</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>0.64%</p></td>
-<td class="text-right"><p>0.1577</p></td>
-<td class="text-right"><p>0.789</p></td>
-<td class="text-right"><p>0.3283</p></td>
-<td class="text-right"><p>10.124</p></td>
-<td class="text-right"><p>50.770</p></td>
+<td class="text-right"><p>0.70%</p></td>
+<td class="text-right"><p>0.0937</p></td>
+<td class="text-right"><p>0.470</p></td>
+<td class="text-right"><p>0.1999</p></td>
+<td class="text-right"><p>17.010</p></td>
+<td class="text-right"><p>85.302</p></td>
 </tr>
 <tr class="row-even"><td><p>reference</p></td>
 <td><p>EN</p></td>
 <td class="text-right"><p>1088</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>1.25%</p></td>
-<td class="text-right"><p>0.1942</p></td>
-<td class="text-right"><p>0.863</p></td>
-<td class="text-right"><p>0.4501</p></td>
-<td class="text-right"><p>9.247</p></td>
-<td class="text-right"><p>41.769</p></td>
+<td class="text-right"><p>1.03%</p></td>
+<td class="text-right"><p>0.1222</p></td>
+<td class="text-right"><p>0.541</p></td>
+<td class="text-right"><p>0.3091</p></td>
+<td class="text-right"><p>14.759</p></td>
+<td class="text-right"><p>66.595</p></td>
 </tr>
 <tr class="row-odd"><td><p>reference</p></td>
 <td><p>ZH</p></td>
 <td class="text-right"><p>2020</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>0.66%</p></td>
-<td class="text-right"><p>0.1659</p></td>
-<td class="text-right"><p>0.953</p></td>
-<td class="text-right"><p>0.4081</p></td>
-<td class="text-right"><p>8.381</p></td>
-<td class="text-right"><p>48.285</p></td>
+<td class="text-right"><p>0.62%</p></td>
+<td class="text-right"><p>0.1026</p></td>
+<td class="text-right"><p>0.587</p></td>
+<td class="text-right"><p>0.2780</p></td>
+<td class="text-right"><p>13.621</p></td>
+<td class="text-right"><p>78.198</p></td>
 </tr>
 </tbody>
 </table>
@@ -880,46 +942,46 @@ flags used for generation:</p>
 <td><p>EN</p></td>
 <td class="text-right"><p>1088</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>0.95%</p></td>
-<td class="text-right"><p>0.1413</p></td>
-<td class="text-right"><p>0.667</p></td>
-<td class="text-right"><p>11.965</p></td>
-<td class="text-right"><p>56.721</p></td>
+<td class="text-right"><p>0.92%</p></td>
+<td class="text-right"><p>0.0924</p></td>
+<td class="text-right"><p>0.433</p></td>
+<td class="text-right"><p>18.432</p></td>
+<td class="text-right"><p>86.966</p></td>
 </tr>
 <tr class="row-odd"><td><p>text-only</p></td>
 <td><p>ZH</p></td>
 <td class="text-right"><p>2020</p></td>
 <td class="text-right"><p>0</p></td>
 <td class="text-right"><p>0.64%</p></td>
-<td class="text-right"><p>0.1335</p></td>
-<td class="text-right"><p>0.668</p></td>
-<td class="text-right"><p>11.959</p></td>
-<td class="text-right"><p>60.040</p></td>
+<td class="text-right"><p>0.0895</p></td>
+<td class="text-right"><p>0.446</p></td>
+<td class="text-right"><p>17.920</p></td>
+<td class="text-right"><p>89.597</p></td>
 </tr>
 <tr class="row-even"><td><p>reference</p></td>
 <td><p>EN</p></td>
 <td class="text-right"><p>1088</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>1.26%</p></td>
-<td class="text-right"><p>0.1573</p></td>
-<td class="text-right"><p>0.696</p></td>
-<td class="text-right"><p>11.469</p></td>
-<td class="text-right"><p>51.688</p></td>
+<td class="text-right"><p>1.05%</p></td>
+<td class="text-right"><p>0.1162</p></td>
+<td class="text-right"><p>0.510</p></td>
+<td class="text-right"><p>15.668</p></td>
+<td class="text-right"><p>70.747</p></td>
 </tr>
 <tr class="row-odd"><td><p>reference</p></td>
 <td><p>ZH</p></td>
 <td class="text-right"><p>2020</p></td>
 <td class="text-right"><p>0</p></td>
-<td class="text-right"><p>0.67%</p></td>
-<td class="text-right"><p>0.1254</p></td>
-<td class="text-right"><p>0.718</p></td>
-<td class="text-right"><p>11.127</p></td>
-<td class="text-right"><p>63.931</p></td>
+<td class="text-right"><p>0.78%</p></td>
+<td class="text-right"><p>0.0923</p></td>
+<td class="text-right"><p>0.528</p></td>
+<td class="text-right"><p>15.131</p></td>
+<td class="text-right"><p>87.042</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>All 12,432 requests completed successfully. Streaming returned its first audio payload in 0.33-0.45 seconds, while non-streaming retained higher complete-response throughput. The worst corpus WER was 1.26%, and the worst corpus CER was 0.67%.</p>
+<p>All 12,432 requests completed successfully. Streaming returned its first audio payload in 0.20-0.31 seconds, while non-streaming retained higher complete-response throughput. The worst corpus WER was 1.05%, and the worst corpus CER was 0.78%.</p>
 <p>Streaming playback continuity:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -957,8 +1019,8 @@ flags used for generation:</p>
 </tr>
 <tr class="row-even"><td><p>reference</p></td>
 <td><p>EN</p></td>
-<td class="text-right"><p>1072</p></td>
-<td class="text-right"><p>16</p></td>
+<td class="text-right"><p>1076</p></td>
+<td class="text-right"><p>12</p></td>
 <td class="text-right"><p>0.0000</p></td>
 <td class="text-right"><p>0.0000</p></td>
 <td class="text-right"><p>100.00%</p></td>
@@ -1011,20 +1073,20 @@ checkpoint; the dense 0.5B checkpoint is not supported.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="qwen3_tts.html"
+       href="llada2_uni.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Qwen3 TTS</p>
+        <p class="prev-next-title">LLaDA2.0-Uni</p>
       </div>
     </a>
     <a class="right-next"
-       href="moss_tts.html"
+       href="ming3_asr.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MOSS-TTS</p>
+        <p class="prev-next-title">Ming-3.0-asr-tiny</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1094,7 +1156,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>

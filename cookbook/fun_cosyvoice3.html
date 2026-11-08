@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,17 +51,18 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cookbook/fun_cosyvoice3';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="AuK" href="auk.html" />
-    <link rel="prev" title="LLaDA2.0-Uni" href="llada2_uni.html" />
+    <link rel="next" title="Fun-ASR-Nano" href="fun_asr.html" />
+    <link rel="prev" title="FunAudioLLM" href="companies/fun_audio_llm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minimax_music3.html">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer_reference/mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer_reference/mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -515,7 +573,10 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-silicon">Apple Silicon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-silicon">Apple Silicon</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native-mlx-runtime">Native MLX runtime</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesizing-speech">Synthesizing Speech</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-voice-cloning">Zero-shot Voice Cloning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-lingual-synthesis">Cross-lingual Synthesis</a></li>
@@ -530,6 +591,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vocoder-configuration">Vocoder Configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torch-compile-for-the-dit-backbone">torch.compile for the DiT backbone</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt-for-the-dit-backbone">TensorRT for the DiT backbone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speculative-decoding">Speculative Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Zero-shot Voice Cloning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cross-lingual Synthesis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Instruction-based Style Control</a></li>
@@ -607,7 +669,45 @@ keg-only FFmpeg libraries to TorchCodec:</p>
 <span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
 </pre></div>
 </div>
-<p>For Intel GPUs, follow the <a class="reference internal" href="../get_started/installation_xpu.html#fun-cosyvoice3-text-to-speech-single-xpu"><span class="std std-ref">Fun-CosyVoice3 XPU recipe</span></a>.</p>
+<section id="native-mlx-runtime">
+<h3>Native MLX runtime<a class="headerlink" href="#native-mlx-runtime" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cosyvoice3_server</span></code> from the native MLX runtime (<code class="docutils literal notranslate"><span class="pre">sglang_omni_mlx/native</span></code>) serves the same <code class="docutils literal notranslate"><span class="pre">/v1/audio/speech</span></code> API on an Apple Silicon Mac from the float16 <a class="reference external" href="https://huggingface.co/mlx-community/Fun-CosyVoice3-0.5B-2512-fp16"><code class="docutils literal notranslate"><span class="pre">mlx-community/Fun-CosyVoice3-0.5B-2512-fp16</span></code></a> checkpoint, as one C++ process without PyTorch, ONNX Runtime or Python. Voice cloning runs the reference-audio front end natively too: the checkpoint’s CAMPPlus speaker encoder, and the S3 speech tokenizer v3 from <a class="reference external" href="https://huggingface.co/mlx-community/S3TokenizerV3"><code class="docutils literal notranslate"><span class="pre">mlx-community/S3TokenizerV3</span></code></a> in the model directory’s <code class="docutils literal notranslate"><span class="pre">speech_tokenizer/</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sglang_omni_mlx/native/scripts/build_runtime.sh<span class="w"> </span>~/omni-runtime
+
+hf<span class="w"> </span>download<span class="w"> </span>mlx-community/Fun-CosyVoice3-0.5B-2512-fp16<span class="w"> </span>config.json<span class="w"> </span>model.safetensors<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>tokenizer.json<span class="w"> </span>tokenizer_config.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--revision<span class="w"> </span>18ccb7fbd7246e8cd3420d02f5dd28595cc0fcd9<span class="w"> </span>--local-dir<span class="w"> </span>fun-cosyvoice3-mlx-fp16
+hf<span class="w"> </span>download<span class="w"> </span>mlx-community/S3TokenizerV3<span class="w"> </span>config.json<span class="w"> </span>model.safetensors<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--revision<span class="w"> </span>b143914b3e912278104824da706edc9c2d317c4e<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--local-dir<span class="w"> </span>fun-cosyvoice3-mlx-fp16/speech_tokenizer
+
+~/omni-runtime/bin/cosyvoice3_server<span class="w"> </span>--model-path<span class="w"> </span>fun-cosyvoice3-mlx-fp16<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-name<span class="w"> </span>FunAudioLLM/Fun-CosyVoice3-0.5B-2512<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--allowed-local-media-path<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">"</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"input": "Hello from Apple Silicon.", "seed": 1}'</span><span class="w"> </span>-o<span class="w"> </span>hello.wav
+
+curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8000/v1/audio/speech<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">"{\"input\": \"Hello from Apple Silicon.\", \"ref_audio\": \"</span><span class="nv">$PWD</span><span class="s2">/reference.wav\",</span>
+<span class="s2">       \"ref_text\": \"What the reference recording says.\", \"seed\": 1}"</span><span class="w"> </span>-o<span class="w"> </span>cloned.wav
+</pre></div>
+</div>
+<p>The native server differs from the CUDA server in that:</p>
+<ul class="simple">
+<li><p>Reference audio is a WAV file of 0.5 to 30 seconds, sent as a base64 data URL (<code class="docutils literal notranslate"><span class="pre">ref_audio</span></code> or <code class="docutils literal notranslate"><span class="pre">references[0].data</span></code>), or as a path or <code class="docutils literal notranslate"><span class="pre">file://</span></code> URL inside <code class="docutils literal notranslate"><span class="pre">--allowed-local-media-path</span></code>; http(s) URLs and other containers return 400. <code class="docutils literal notranslate"><span class="pre">ref_audio</span></code> with <code class="docutils literal notranslate"><span class="pre">ref_text</span></code>, or one <code class="docutils literal notranslate"><span class="pre">references</span></code> item with <code class="docutils literal notranslate"><span class="pre">text</span></code>, clones the voice as on CUDA; without a transcript the reference conditions only the flow (cross-lingual). Giving both <code class="docutils literal notranslate"><span class="pre">ref_audio</span></code> and <code class="docutils literal notranslate"><span class="pre">references</span></code> returns 400. Uploaded voices (<code class="docutils literal notranslate"><span class="pre">/v1/audio/voices</span></code>) are not served.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">voice</span></code> must be <code class="docutils literal notranslate"><span class="pre">default</span></code>; <code class="docutils literal notranslate"><span class="pre">language</span></code> is accepted and unused, as on CUDA.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response_format</span></code> is <code class="docutils literal notranslate"><span class="pre">wav</span></code> or <code class="docutils literal notranslate"><span class="pre">pcm</span></code>; <code class="docutils literal notranslate"><span class="pre">speed</span></code> must be <code class="docutils literal notranslate"><span class="pre">1.0</span></code>; <code class="docutils literal notranslate"><span class="pre">stream_format</span></code> must be <code class="docutils literal notranslate"><span class="pre">audio</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stream:</span> <span class="pre">true</span></code> sends the whole utterance’s PCM once it is vocoded, since the flow decodes the utterance at once.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code> is at most <code class="docutils literal notranslate"><span class="pre">2048</span></code> speech tokens (25 per second, about 82 seconds), where CUDA takes any value; without it the limit is 20 per target text token, as on CUDA. Integer fields take integral floats such as <code class="docutils literal notranslate"><span class="pre">5.0</span></code>, as CUDA’s request model does.</p></li>
+<li><p>Sampling defaults match the CUDA server (<code class="docutils literal notranslate"><span class="pre">temperature</span></code> 0.7, <code class="docutils literal notranslate"><span class="pre">top_p</span></code> 0.8, <code class="docutils literal notranslate"><span class="pre">top_k</span></code> 20, <code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code> 1.21, with the repetition-aware redraw); a request without <code class="docutils literal notranslate"><span class="pre">seed</span></code> gets a random one.</p></li>
+<li><p>Started with <code class="docutils literal notranslate"><span class="pre">--model-name</span></code>, it returns 404 for any other <code class="docutils literal notranslate"><span class="pre">model</span></code>; without that flag, <code class="docutils literal notranslate"><span class="pre">model</span></code> is ignored, as on CUDA.</p></li>
+<li><p>Errors are <code class="docutils literal notranslate"><span class="pre">{&quot;detail&quot;:</span> <span class="pre">&quot;...&quot;}</span></code>. Requests run one at a time and <code class="docutils literal notranslate"><span class="pre">--max-queued-requests</span></code> (default 2) more wait; the rest get 503. A request not finished <code class="docutils literal notranslate"><span class="pre">--request-timeout-s</span></code> (default 600) seconds after it arrives is cancelled with 504, or its stream ends early, and so is one whose client disconnects. A request body over 32 MiB returns 413.</p></li>
+</ul>
+<p>Measured on an Apple M5 (24 GB, macOS 26.3.1), warm, over 8 utterances (76 s of audio): 0.2 s load, real-time factor 0.33, about 2.4 GB peak MLX memory (3.2 GB with a reference). With the same speech tokens, the legacy Python MLX implementation from <a class="reference external" href="https://github.com/sgl-project/sglang-omni/pull/1964">#1964</a> takes RTF 0.36 on the same MLX build. Transcribed back with Qwen3-ASR-1.7B-8bit, 16 English corpus sentences give 0.62% WER and 16 Chinese ones 0.97% CER. Against the official ONNX front end, the native one gives identical reference speech tokens on 20 of 20 corpus clips (speaker embedding cosine 0.99999, prompt mel within 7e-4), and with the same seed identical cloned speech tokens; cloned output transcribes at 1.03% WER (English) and 5.83% CER (Chinese, mostly digits and Latin names), the same with either front end. Mac CI checks seven seeded requests’ speech tokens (English, Chinese, Chinese with instructions, a <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code> cap, the default length limit, an English clone and a cross-lingual clone) against <code class="docutils literal notranslate"><span class="pre">sglang_omni_mlx/native/ci/model_golden/fun-cosyvoice3-0.5b-2512.json</span></code>, and on every chip the mel of two of them vocoded from the recorded tokens, within a tolerance.</p>
+<p>For Intel GPUs, follow the <a class="reference internal" href="../other_platforms/installation_xpu.html#fun-cosyvoice3-text-to-speech-single-xpu"><span class="std std-ref">Fun-CosyVoice3 XPU recipe</span></a>.</p>
+</section>
 </section>
 <section id="synthesizing-speech">
 <h2>Synthesizing Speech<a class="headerlink" href="#synthesizing-speech" title="Link to this heading">#</a></h2>
@@ -842,8 +942,9 @@ flow_merge_pad_budget_percent = 25
 </section>
 <section id="vocoder-configuration">
 <h3>Vocoder Configuration<a class="headerlink" href="#vocoder-configuration" title="Link to this heading">#</a></h3>
-<p>Vocoder configuration controls batching, precision, and acceleration. The scheduler accepts <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> (16) and <code class="docutils literal notranslate"><span class="pre">max_batch_wait_ms</span></code> (30) to tune batch assembly. Flow uses <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (bfloat16) for autocast, while HiFT uses <code class="docutils literal notranslate"><span class="pre">hift_dtype</span></code> (float32), independent of Flow; bfloat16 shows no speedup on H200 and reduces fidelity. Buffered Flow CUDA Graphs and DiT <code class="docutils literal notranslate"><span class="pre">torch.compile</span></code> are on by default. Streaming hops over the Flow prefix cache replay their Euler solve from CUDA graphs captured per frame tier (<code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> rows of the longest hop, on the decode batch ladder); a step above the largest tier runs eagerly, and <code class="docutils literal notranslate"><span class="pre">enable_flow_prefix_cuda_graph=false</span></code> turns the graphs off. A stream’s final step replays its whole-history Euler solve from CUDA graphs captured per frame tier with <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> row slots, on SGLang’s prefill graph ladder up to <code class="docutils literal notranslate"><span class="pre">flow_batch_admission_frames</span></code>. A final step above the largest tier runs eagerly, and <code class="docutils literal notranslate"><span class="pre">enable_flow_whole_history_cuda_graph=false</span></code> turns these graphs off. HiFT’s decode replays from CUDA graphs captured per row tier, up to <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code>, and per frame tier, from a first hop’s window to a final’s. F0 and the sine source stay eager, and a step wider than the largest frame tier decodes eagerly. The graphs need a float32 HiFT on CUDA with Triton, and <code class="docutils literal notranslate"><span class="pre">enable_hift_cuda_graph=false</span></code> turns them off. <code class="docutils literal notranslate"><span class="pre">enable_flow_estimator_trt</span></code> stays opt-in; enabling it turns the DiT compile default off, and enabling both explicitly is rejected.</p>
+<p>Vocoder configuration controls batching, precision, and acceleration. The scheduler accepts <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> (16) and <code class="docutils literal notranslate"><span class="pre">max_batch_wait_ms</span></code> (30) to tune batch assembly. Flow uses <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (bfloat16) for autocast, while HiFT uses <code class="docutils literal notranslate"><span class="pre">hift_dtype</span></code> (float32), independent of Flow; bfloat16 shows no speedup on H200 and reduces fidelity. Buffered Flow CUDA Graphs and DiT <code class="docutils literal notranslate"><span class="pre">torch.compile</span></code> are on by default. The Flow prefix cache keeps the keys and values of each stream’s completed frames for its later hops. It takes the GPU memory left after the TTS engine and the vocoder’s other allocations, within the stage’s <code class="docutils literal notranslate"><span class="pre">gpu_memory_fraction</span></code> or <code class="docutils literal notranslate"><span class="pre">total_reserve_bytes</span></code> when one is declared. It leaves free the prefix graphs and the largest step the vocoder admits, both measured at startup (the larger of <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> streams, each a 30 s reference prompt and the TTS engine’s context length of generated tokens, and the largest non-streaming batch that <code class="docutils literal notranslate"><span class="pre">flow_batch_admission_frames</span></code> lets through), and the runtime headroom (<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">mem_fraction_static</span></code> of the GPU memory free before the TTS engine loaded, or before the vocoder loaded in a process without the engine). The cache’s size counts its padding block, each stream’s convolution context and the allocator’s rounding. <code class="docutils literal notranslate"><span class="pre">flow_prefix_cache_gb</span></code> caps that size, a larger value falls back to it with a warning, and <code class="docutils literal notranslate"><span class="pre">0</span></code> turns the cache off. Streaming hops over the Flow prefix cache replay their Euler solve from CUDA graphs captured per frame tier (one at every whole DiT chunk, from a tier holding the shortest hop up to <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> rows of the longest hop). A step above the largest tier runs in eager mode, and <code class="docutils literal notranslate"><span class="pre">enable_flow_prefix_cuda_graph=false</span></code> turns the graphs off. A stream’s final step replays its whole-history Euler solve from CUDA graphs captured per frame tier with <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code> row slots, on the prefill graph ladder up to <code class="docutils literal notranslate"><span class="pre">flow_batch_admission_frames</span></code>. A final step above the largest tier runs eagerly, and <code class="docutils literal notranslate"><span class="pre">enable_flow_whole_history_cuda_graph=false</span></code> turns these graphs off. On SM120 the DiT runs FlashAttention 4, the whole-history graphs stay off. When the largest admitted step does not fit on the device, serving runs without the prefix cache. HiFT’s decode replays from CUDA graphs captured per row tier, up to <code class="docutils literal notranslate"><span class="pre">max_batch_size</span></code>, and per frame tier, from a first hop’s window to a final’s. F0 and the sine source stay eager, and a step wider than the largest frame tier decodes eagerly. The graphs need a float32 HiFT on CUDA with Triton, and <code class="docutils literal notranslate"><span class="pre">enable_hift_cuda_graph=false</span></code> turns them off. <code class="docutils literal notranslate"><span class="pre">enable_flow_estimator_trt</span></code> stays opt-in; enabling it turns the DiT compile default off, and enabling both explicitly is rejected.</p>
 <p>The TTS engine stage accepts <code class="docutils literal notranslate"><span class="pre">onnx_intra_op_threads</span></code> (16) for the speech tokenizer and speaker encoder ONNX sessions. Preprocessing takes <code class="docutils literal notranslate"><span class="pre">max_concurrency</span></code> (8) to limit concurrent reference conditioning requests.</p>
+<p>On CUDA the TTS engine replays prompt prefills from full CUDA graphs captured on the prefill batch ladder, which starts at <code class="docutils literal notranslate"><span class="pre">1</span></code> because a prompt that is already cached prefills a single token. The graphs need the <code class="docutils literal notranslate"><span class="pre">fa3</span></code>, <code class="docutils literal notranslate"><span class="pre">fa4</span></code> or <code class="docutils literal notranslate"><span class="pre">flashinfer</span></code> attention backend, and with any other backend the default prefill runs in eager mode. Opt out with <code class="docutils literal notranslate"><span class="pre">--tts_engine.engine.cuda_graph_backend_prefill</span> <span class="pre">disabled</span></code>. Declaring <code class="docutils literal notranslate"><span class="pre">cuda_graph_bs_prefill</span></code> keeps the declared list as is.</p>
 </section>
 <section id="torch-compile-for-the-dit-backbone">
 <h3>torch.compile for the DiT backbone<a class="headerlink" href="#torch-compile-for-the-dit-backbone" title="Link to this heading">#</a></h3>
@@ -964,6 +1065,86 @@ flow_merge_pad_budget_percent = 25
 </table>
 </div>
 <p>This result is only demonstrative, since we have further optimization after the evluation of TensorRT is done.</p>
+</section>
+<section id="speculative-decoding">
+<h3>Speculative Decoding<a class="headerlink" href="#speculative-decoding" title="Link to this heading">#</a></h3>
+<p>SpeechSpec’s DSpark draft <a class="reference external" href="https://huggingface.co/yuekai/cosyvoice3_llm_dspark"><code class="docutils literal notranslate"><span class="pre">yuekai/cosyvoice3_llm_dspark</span></code></a> proposes 7 speech tokens per step from three of the LLM’s hidden layers, and the LLM verifies them in one forward pass.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sgl-omni<span class="w"> </span>serve<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span>FunAudioLLM/Fun-CosyVoice3-0.5B-2512<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts_engine.engine.speculative_algorithm<span class="w"> </span>DSPARK<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts_engine.engine.speculative_draft_model_path<span class="w"> </span>yuekai/cosyvoice3_llm_dspark<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+<p>Send <code class="docutils literal notranslate"><span class="pre">return_spec_tokens_details:</span> <span class="pre">true</span></code> with a speech request to get its acceptance statistics. Buffered audio adds <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Spec-Accept-Length</span></code>, <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Spec-Accept-Rate</span></code>, <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Spec-Num-Correct-Drafts</span></code>, <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Spec-Num-Proposed-Drafts</span></code> and <code class="docutils literal notranslate"><span class="pre">X-SGLang-Omni-Spec-Verify-Ct</span></code> headers; the SSE <code class="docutils literal notranslate"><span class="pre">speech.audio.done</span></code> event and the raw PCM outcome from <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/audio/speech/{request_id}</span></code> carry <code class="docutils literal notranslate"><span class="pre">sglext.spec_tokens_details</span></code>, which also holds the per-verify histogram. <code class="docutils literal notranslate"><span class="pre">spec_accept_length</span></code> is speech tokens per verify, including the token sampled at prefill, so it can read higher than the scheduler log’s <code class="docutils literal notranslate"><span class="pre">accept</span> <span class="pre">len</span></code>, which counts only verified tokens. <code class="docutils literal notranslate"><span class="pre">spec_accept_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">spec_num_proposed_drafts</span></code>, and their headers, are left out when no drafts were proposed or the draft width is adaptive.</p>
+<p>Verification reproduces CosyVoice3’s sampler exactly: temperature, top-k/top-p, the repetition penalty, the minimum-length stop mask and the repetition-aware redraw. The speech tokens therefore follow the same distribution as without the draft. A request’s <code class="docutils literal notranslate"><span class="pre">seed</span></code> fixes every draft and verify draw, so a seeded request reproduces its speech tokens while the draft is on; they differ from the tokens the same seed gives without the draft, which samples differently.</p>
+<p>LLM speech-token throughput without the vocoder (Seed-TTS zh, 2,020 utterances, one H200 141GB with SGLang 0.5.22, target and draft on FA3, each batch run to completion), with the default sampling and about 3.0 tokens accepted per verify:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Batch</p></th>
+<th class="head"><p>Baseline</p></th>
+<th class="head"><p>DSpark</p></th>
+<th class="head"><p>Speedup</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>434 tok/s</p></td>
+<td><p>711 tok/s</p></td>
+<td><p>1.64x</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>2,421 tok/s</p></td>
+<td><p>3,794 tok/s</p></td>
+<td><p>1.57x</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>4,260 tok/s</p></td>
+<td><p>6,388 tok/s</p></td>
+<td><p>1.50x</p></td>
+</tr>
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>11,030 tok/s</p></td>
+<td><p>15,027 tok/s</p></td>
+<td><p>1.36x</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>With SpeechSpec’s benchmark sampling (<code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">0.8</span></code>, <code class="docutils literal notranslate"><span class="pre">top_p</span> <span class="pre">0.95</span></code>, <code class="docutils literal notranslate"><span class="pre">top_k</span> <span class="pre">15</span></code>, <code class="docutils literal notranslate"><span class="pre">repetition_penalty</span> <span class="pre">1.1</span></code>), the speedups are 1.64x, 1.61x, 1.57x and 1.42x.</p>
+<p>End-to-end streaming on the same GPU (<code class="docutils literal notranslate"><span class="pre">benchmark_tts_seedtts</span> <span class="pre">--stream</span></code>, all 2,020 Seed-TTS zh utterances, default sampling), baseline → DSpark:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concurrency</p></th>
+<th class="head"><p>Throughput</p></th>
+<th class="head"><p>RTF mean</p></th>
+<th class="head"><p>TTFC mean</p></th>
+<th class="head"><p>WER (Qwen3-ASR)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2.68 → 3.77 req/s</p></td>
+<td><p>0.071 → 0.051</p></td>
+<td><p>0.140 → 0.122 s</p></td>
+<td><p>0.77% → 0.71%</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>12.37 → 15.59 req/s</p></td>
+<td><p>0.123 → 0.098</p></td>
+<td><p>0.230 → 0.227 s</p></td>
+<td><p>0.75% → 0.79%</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>18.02 → 21.08 req/s</p></td>
+<td><p>0.169 → 0.146</p></td>
+<td><p>0.306 → 0.333 s</p></td>
+<td><p>0.76% → 0.73%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The vocoder takes a growing share of each request as concurrency rises, so the end-to-end gain is largest at low concurrency.</p>
 </section>
 <section id="id1">
 <h3>Zero-shot Voice Cloning<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -1221,6 +1402,7 @@ in sync if you change the hop):</p>
 <li><p><strong>Voice conversion.</strong> Voice conversion is outside the current zero-shot TTS scope.</p></li>
 <li><p><strong>Streaming decode.</strong> Causal Flow + HiFT emit PCM after each hop (hop grows 25 → 50 → 100 by default). Quality can differ slightly from the buffered whole-utterance path. Opt-in TensorRT (<code class="docutils literal notranslate"><span class="pre">enable_flow_estimator_trt</span></code>) also accelerates streaming hops; it turns the <code class="docutils literal notranslate"><span class="pre">enable_dit_torch_compile</span></code> default off. TRT freezes DiT attention, so streaming+TRT is not bit-exact with PyTorch streaming. Keep the Module TRT wrapper when streaming: CosyVoice’s raw TRT enqueue is incompatible with packed hop-batch CFG shapes.</p></li>
 <li><p><strong>Flow batch scope.</strong> Flow batching supports the CosyVoice PyTorch estimator and the opt-in TensorRT estimator. Buffered HiFT grouping is independent and uses <code class="docutils literal notranslate"><span class="pre">hift_max_padding_waste</span></code>. Streaming coalesces first/follow-up hops across requests (<code class="docutils literal notranslate"><span class="pre">_can_batch_stream_chunks</span></code>, short peer wait) so TTFP stays low under load.</p></li>
+<li><p><strong>Speculative decoding.</strong> The DSpark draft runs on CUDA with TP 1, the TTS engine’s scheduler steps synchronously while it is on, and weight updates are refused while it is loaded.</p></li>
 <li><p><strong>cosyvoice dependency.</strong> The <code class="docutils literal notranslate"><span class="pre">cosyvoice</span></code> package has no PyPI release and must be installed from GitHub. Matcha-TTS is a required submodule and must also be importable; only the CosyVoice Flow and HiFT paths are used by the vocoder.</p></li>
 </ul>
 </section>
@@ -1238,20 +1420,20 @@ in sync if you change the hop):</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="llada2_uni.html"
+       href="companies/fun_audio_llm.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">LLaDA2.0-Uni</p>
+        <p class="prev-next-title">FunAudioLLM</p>
       </div>
     </a>
     <a class="right-next"
-       href="auk.html"
+       href="fun_asr.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">AuK</p>
+        <p class="prev-next-title">Fun-ASR-Nano</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1274,7 +1456,10 @@ in sync if you change the hop):</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-silicon">Apple Silicon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-silicon">Apple Silicon</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native-mlx-runtime">Native MLX runtime</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesizing-speech">Synthesizing Speech</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-voice-cloning">Zero-shot Voice Cloning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-lingual-synthesis">Cross-lingual Synthesis</a></li>
@@ -1289,6 +1474,7 @@ in sync if you change the hop):</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vocoder-configuration">Vocoder Configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torch-compile-for-the-dit-backbone">torch.compile for the DiT backbone</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt-for-the-dit-backbone">TensorRT for the DiT backbone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speculative-decoding">Speculative Decoding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Zero-shot Voice Cloning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cross-lingual Synthesis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Instruction-based Style Control</a></li>
@@ -1333,7 +1519,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>

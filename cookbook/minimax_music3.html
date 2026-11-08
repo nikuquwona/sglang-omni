@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=a64801f4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom_log.css?v=3b484c19" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=7ed07c24"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,17 +51,18 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cookbook/minimax_music3';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/sidebar_company_toggle.js?v=4014cbb0"></script>
     <script src="../_static/js/qwen3_omni_server_generator.js?v=d7738e8a"></script>
     <script src="../_static/js/ming_omni_server_generator.js?v=7979a72f"></script>
     <link rel="icon" href="../_static/logo.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ZONOS2" href="zonos2.html" />
-    <link rel="prev" title="dots.tts" href="dots_tts.html" />
+    <link rel="next" title="InclusionAI" href="companies/inclusionai.html" />
+    <link rel="prev" title="MiniMax" href="companies/minimax.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.8" />
-    <meta name="docbuild:last-update" content="Oct 20, 2026"/>
+  <meta name="docsearch:version" content="0.2.0" />
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -206,46 +207,99 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation — CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_apple_silicon.html">Installation — Apple Silicon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_npu.html">Installation — Ascend NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_xpu.html">Installation — Intel XPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_cpu.html">Installation — Intel CPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/installation_musa.html">Installation — MUSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to SGLang-Omni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Platforms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_apple_silicon.html">Apple Silicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_npu.html">Ascend NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_xpu.html">Intel XPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_cpu.html">Intel CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_platforms/installation_musa.html">Moore Threads MUSA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cookbook</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_tts.html">Qwen3 TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">MiniMax Music 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auk.html">AuK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/qwen.html">Qwen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_tts.html">Qwen3-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_omni.html">Qwen3-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qwen3_asr.html">Qwen3-ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openmoss.html">OpenMOSS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts.html">MOSS-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_tts_local.html">MOSS-TTS-Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moss_transcribe_diarize.html">MOSS-Transcribe-Diarize</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openai.html">OpenAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="whisper_asr.html">Whisper ASR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/nvidia.html">NVIDIA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nemotron3_5_asr.html">Nemotron 3.5 ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_transcribe.html">Nemotron Transcribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_voicechat.html">NemotronLabs VoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="personaplex.html">PersonaPlex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmos3_nano.html">Cosmos3 Nano serving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nemotron_diarization.html">Nemotron 3 Diarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fish_audio.html">Fish Audio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_s2_pro.html">Fish Audio S2-Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishaudio_drama3.html">Fish Audio Drama 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/fun_audio_llm.html">FunAudioLLM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fun_cosyvoice3.html">Fun-CosyVoice3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fun_asr.html">Fun-ASR-Nano</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/openbmb.html">OpenBMB</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="minicpm_o.html">MiniCPM-o</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/boson_ai.html">Boson AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="higgs_tts.html">Higgs TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="companies/minimax.html">MiniMax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">MiniMax Music 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/inclusionai.html">InclusionAI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ming_omni.html">Ming-Omni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llada2_uni.html">LLaDA2.0-Uni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming_tts.html">Ming-Omni-TTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_asr.html">Ming-3.0-asr-tiny</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_audio.html">Ming-3.0-audio-flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ming3_tts.html">Ming-3.0-TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/tencent.html">Tencent</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="auk.html">AuK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hy_simulmt.html">Hy-SimulMT</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/zyphra.html">Zyphra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonos2.html">ZONOS2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/autoark_ai.html">AutoArk AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arkasr.html">ARK-ASR-3B</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/mistral_ai.html">Mistral AI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="voxtral_tts.html">Voxtral TTS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="companies/dots_studio.html">Dots Studio</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dots_tts.html">dots.tts</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">General Usage</span></p>
 <ul class="nav bd-sidenav">
@@ -256,29 +310,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology.html">Process Topology, Replicas, and GPU Sharing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/tts_process_topology.html">TTS Process Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/process_topology_migration.html">Process Topology Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Rust Router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage/omni_router.html">SGLang-Omni Router</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/mps_dp.html">Same-GPU Data Parallelism with CUDA MPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_usage/native_media_routes.html">Native Media Routes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/main.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/contribution_guide.html">Contribution Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer_reference/mlx/index.html">Native MLX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer_reference/mlx/long_audio.html">Qwen3-ASR long-recording measurements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/apiserver_design.html">API Server Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/pipeline.html">Pipeline Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_interactive_model.html">Full Duplex Interactive Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/adding_parameters.html">Adding a Parameter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/communication.html">Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/reference_encode_service.html">Reference Encode Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/profiler.html">Request-level profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/qwen3_asr_concurrency_profile.html">Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_bench.html">Full-Duplex-Bench runbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_metrics.html">Full-Duplex-Bench v1.0 unified metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/full_duplex_guide.html">Full-Duplex Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/duplex_load_generator_pacing.html">Duplex Load Generator Pacing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_bench.html">TTS benchmark runbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_reference/tts_model_integration.html">TTS Model Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/asr_bench.html">ASR benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/omni_offline_bench.html">MiniCPM-o offline benchmark runbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/rl_admin_control.html">RL Admin Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_reference/mlx.html">MLX Path</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/ci_labels.html">CI Workflows and Labels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_reference/bump_version.html">Bumping the SGLang Pin</a></li>
 </ul>
@@ -514,7 +572,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-silicon-native-mlx">Apple Silicon: native MLX</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native-mlx-stage-offload">Native MLX stage offload</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-parity-and-mac-ci">Reference parity and Mac CI</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#serial-weight-offload">Serial weight offload</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-record">Validation Record</a></li>
 </ul>
@@ -528,7 +589,10 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guidance">Guidance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fp32-flex-attention">FP32 flex attention</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters">Request Parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-that-the-model-rejects">Parameters That The Model Rejects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
@@ -599,7 +663,7 @@ uv<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </sp
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-v<span class="w"> </span>-e<span class="w"> </span>.<span class="w">   </span><span class="c1"># drop -e for a non-editable install</span>
 </pre></div>
 </div>
-<p>On Intel GPUs, first follow the <a class="reference internal" href="../get_started/installation_xpu.html"><span class="std std-doc">Intel XPU installation instructions</span></a>, then replace <code class="docutils literal notranslate"><span class="pre">CUDA_VISIBLE_DEVICES</span></code> in the commands below with <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0</span></code> or <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0,1</span></code>).</p>
+<p>On Intel GPUs, first follow the <a class="reference internal" href="../other_platforms/installation_xpu.html"><span class="std std-doc">Intel XPU installation instructions</span></a>, then replace <code class="docutils literal notranslate"><span class="pre">CUDA_VISIBLE_DEVICES</span></code> in the commands below with <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0</span></code> or <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0,1</span></code>).</p>
 <p><strong>Single GPU</strong> (colocate both stages):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span>MiniMaxAI/MiniMax-Music3<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
 </pre></div>
@@ -610,6 +674,142 @@ uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </s
 </div>
 <p>Default optimizations that are on without further flags: backbone decode device graph, RVQ depth device graph, compiled DIT blocks, compiled DAV decoder, and batched seeded sampling.</p>
 <p>Classifier-free guidance is on in both stages and has no flag. See <a class="reference internal" href="#guidance"><span class="std std-ref">Guidance</span></a> for what it costs you, because the AR half changes how much a request occupies.</p>
+</section>
+<section id="apple-silicon-native-mlx">
+<h2>Apple Silicon: native MLX<a class="headerlink" href="#apple-silicon-native-mlx" title="Link to this heading">#</a></h2>
+<p>The standalone <code class="docutils literal notranslate"><span class="pre">music3_server</span></code> runs entirely in C++ under
+<code class="docutils literal notranslate"><span class="pre">sglang_omni_mlx/native/</span></code>; it uses the same HTTP request fields as the examples
+below. Download the pinned converted checkpoint, then build with the native
+runtime’s existing MLX 0.32.3 toolchain:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>sglang_omni_mlx/native/ci/provision_models.py<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_DATA</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model<span class="w"> </span>mlx-community/MiniMax-Music3-mxfp8
+sglang_omni_mlx/native/scripts/build_runtime.sh<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_RUNTIME</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_BUILD</span><span class="s2">"</span>
+<span class="s2">"</span><span class="nv">$MUSIC3_RUNTIME</span><span class="s2">/bin/music3_server"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_DATA</span><span class="s2">/models/mlx-community_MiniMax-Music3-mxfp8"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-name<span class="w"> </span>MiniMaxAI/MiniMax-Music3<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+<p>Set <code class="docutils literal notranslate"><span class="pre">MUSIC3_DATA</span></code>, <code class="docutils literal notranslate"><span class="pre">MUSIC3_RUNTIME</span></code> and <code class="docutils literal notranslate"><span class="pre">MUSIC3_BUILD</span></code> to separate local directories. Serving needs neither Python nor SGLang’s CUDA package. Model provisioning uses the existing CI Python requirements. The converted weights occupy about 14 GB; allow additional unified memory for the KV cache and acoustic activations. Both stages stay resident by default, with MLX’s free buffer cache limited to 1 GiB.</p>
+<p>This path includes Qwen3/RVQ decoding, condition fusion, Euler Flow/DiT,
+stereo DAV decoding, overlap crops, and Hann sinc conversion from 44.1 to
+32 kHz. AR guidance is fixed at 1.5 and top-k at 50. <code class="docutils literal notranslate"><span class="pre">max_new_tokens</span></code> defaults
+to 750 frames and accepts 1–9000, subject to the 10,240-token context and
+5000-token prompt limit. Before cleanup, <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">instructions</span></code> are each
+limited to 64 KiB of UTF-8. <code class="docutils literal notranslate"><span class="pre">seed</span></code> accepts integers in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2**63)</span></code> and defaults
+to zero. Optional <code class="docutils literal notranslate"><span class="pre">dit_steps</span></code> accepts 1–100 (default 30), and <code class="docutils literal notranslate"><span class="pre">dit_cfg_scale</span></code>
+accepts finite nonnegative values (default 1.7).</p>
+<p>Responses are complete stereo PCM16 <code class="docutils literal notranslate"><span class="pre">wav</span></code> or raw interleaved <code class="docutils literal notranslate"><span class="pre">pcm</span></code> at
+32 kHz. <code class="docutils literal notranslate"><span class="pre">stream=true</span></code>, other formats and speed changes return 400. Only one
+song is generated at a time; a concurrent request returns 503. A request not
+answered <code class="docutils literal notranslate"><span class="pre">--request-timeout-s</span></code> seconds (1800 by default) after it is admitted
+returns 504. That deadline, a client disconnect and supervisor shutdown each
+cancel generation at its next frame, acoustic window or Euler step, which frees
+the server for the next request. Voxt’s
+<code class="docutils literal notranslate"><span class="pre">--supervised</span></code> lifecycle, <code class="docutils literal notranslate"><span class="pre">/health</span></code> and <code class="docutils literal notranslate"><span class="pre">/v1/models</span></code> are supported; this does
+not add a Music3 interface to Voxt.</p>
+<section id="native-mlx-stage-offload">
+<h3>Native MLX stage offload<a class="headerlink" href="#native-mlx-stage-offload" title="Link to this heading">#</a></h3>
+<p>Pass both components to the native server to load one stage at a time:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">"</span><span class="nv">$MUSIC3_RUNTIME</span><span class="s2">/bin/music3_server"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_DATA</span><span class="s2">/models/mlx-community_MiniMax-Music3-mxfp8"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-name<span class="w"> </span>MiniMaxAI/MiniMax-Music3<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--stage-offload-components<span class="w"> </span>ar,dit
+</pre></div>
+</div>
+<p>Startup loads configuration and the tokenizer and validates checkpoint shapes and stage ownership without evaluating the weights. Every tensor must belong to exactly one stage: AR/RVQ uses language_model and rvq_depth_decoder; the acoustic stage uses condition_encoder, transformer and vocoder. Each accepted request loads AR/RVQ weights, evaluates the hidden-state handoff, synchronizes and releases AR, then loads the acoustic weights. Acoustic weights stay loaded across all windows and are released after completion, cancellation or failure.</p>
+<p>The checkpoint directory is resolved once at startup; keep its contents unchanged while the server runs. No second host weight copy is retained. Reloading weights adds disk I/O and latency; file-backed pages can remain in the operating system’s cache.</p>
+<p>The existing single-request worker owns both stages and returns 503 for concurrent submissions. Omitting the flag keeps both stages resident. Component names accept either order, surrounding whitespace and mixed case, matching the CUDA CLI. This option belongs to the native executable; CUDA continues to use the <code class="docutils literal notranslate"><span class="pre">sgl-omni</span> <span class="pre">serve</span></code> option described below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">music3_synthesize</span></code> accepts the same flag and reports per-request elapsed time, AR elapsed time and peak active MLX allocation in bytes. Its diagnostic <code class="docutils literal notranslate"><span class="pre">--check-cancellation</span></code> flag cancels at the fully evaluated AR handoff before synthesizing a retry, and reports active MLX allocation before and after cancellation. The Mac golden harness runs short and cross-window cases in separate resident and offload processes and requires identical waveform digests and metadata. HTTP seeded-repeat and busy cases run in both modes; the remaining HTTP cases run resident. CI uploads WAVs from both modes for review. The earlier resident validation record below does not establish offload memory or latency results.</p>
+</section>
+<section id="reference-parity-and-mac-ci">
+<h3>Reference parity and Mac CI<a class="headerlink" href="#reference-parity-and-mac-ci" title="Link to this heading">#</a></h3>
+<p>The numerical reference is <a class="reference external" href="https://github.com/sgl-project/sglang-omni/pull/1990">PR #1990</a>
+at <code class="docutils literal notranslate"><span class="pre">195e4e9058e13af605f13f5c55a26efe651805a6</span></code>. Reference source hashes are in
+<code class="docutils literal notranslate"><span class="pre">native/ci/music3_reference.json</span></code>; checkpoint hashes and revision are in
+<code class="docutils literal notranslate"><span class="pre">native/ci/model_pins.json</span></code>. The first feedback frame and FP16 hidden-state
+handoff follow that reference. The server lifecycle extraction follows
+<a class="reference external" href="https://github.com/sgl-project/sglang-omni/pull/2870">PR #2870</a>.</p>
+<p>For an independent waveform comparison, use a separate Python reference
+environment with MLX 0.32.3, mlx-lm 0.31.3, Transformers 5.12.1, NumPy
+2.3.5 and SoundFile 0.13.1. The validated Mac environment used Torch 2.13.0
+and TorchAudio 2.11.0 for CPU resampling. Python is used only for this check:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>sglang_omni_mlx/native/ci/generate_music3_reference.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model-path<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_DATA</span><span class="s2">/models/mlx-community_MiniMax-Music3-mxfp8"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--runtime-bin<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_RUNTIME</span><span class="s2">/bin"</span><span class="w"> </span>--output-directory<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_PARITY</span><span class="s2">"</span>
+</pre></div>
+</div>
+<p>It downloads only hash-verified reference source, generates both fixed cases
+with each implementation, and compares waveform length, peak error (at most
+0.001) and RMS error (at most 0.0001). Retain <code class="docutils literal notranslate"><span class="pre">parity.json</span></code>, the reference pin
+and both sets of WAVs for review; these tolerances are acceptance thresholds,
+not measured results.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">--prompt-only</span></code> to the same command to compare native prompt text and token
+IDs with the frozen Python reference without loading model weights or generating
+audio. It covers nested Markdown bullets, Unicode whitespace and line separators,
+multilingual tag casing, malformed tags, and both waveform cases. The results
+are saved in <code class="docutils literal notranslate"><span class="pre">prompt-parity.json</span></code>.</p>
+<p>Mac CI runs the Music3 HTTP checks and includes
+<code class="docutils literal notranslate"><span class="pre">native/ci/model_golden/minimax-music3.json</span></code> in its existing golden loop. Its
+cases cover English and Chinese, including a 250-frame acoustic overlap.
+Music3 HTTP tests run in a separate pytest process so the module-scoped ASR
+servers release their weights first. The runner logs its unified memory size.
+Apple M5 outputs are recorded after comparison with the frozen reference.
+For another chip, review and import the runner’s
+<code class="docutils literal notranslate"><span class="pre">golden-outputs/minimax-music3.json</span></code> artifact using the existing workflow:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>sglang_omni_mlx/native/ci/check_model_golden.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--golden<span class="w"> </span>sglang_omni_mlx/native/ci/model_golden/minimax-music3.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--import<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_GOLDEN_OUTPUT</span><span class="s2">"</span>
+</pre></div>
+</div>
+<p>Exact PCM digests are checked per Apple chip; an unrecorded chip fails and
+uploads its WAVs and metadata for review.</p>
+<p>Local validation on 2026-10-18 used an Apple M5 with 24 GiB of unified memory,
+macOS 26.6.2 and MLX 0.32.3. The native CMake build, 21 selected Music3 tests,
+seven golden-harness tests, six server model-kind checks and two existing
+Whisper supervisor lifecycle checks passed. The Music3 tests cover WAV/PCM
+responses, exact seeded repeats, invalid requests and a concurrent request
+refused as busy. They also cover the busy, deadline and disconnect paths
+above, each checking that the server returns to idle.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Reference case</p></th>
+<th class="head text-right"><p>Frames</p></th>
+<th class="head text-right"><p>Samples per channel</p></th>
+<th class="head text-right"><p>Peak PCM error</p></th>
+<th class="head text-right"><p>RMS PCM error</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>English short</p></td>
+<td class="text-right"><p>50</p></td>
+<td class="text-right"><p>63,902</p></td>
+<td class="text-right"><p>3.052e-5</p></td>
+<td class="text-right"><p>1.207e-7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chinese acoustic overlap</p></td>
+<td class="text-right"><p>250</p></td>
+<td class="text-right"><p>319,879</p></td>
+<td class="text-right"><p>3.052e-5</p></td>
+<td class="text-right"><p>2.443e-7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Both outputs are finite, non-silent 32 kHz stereo. The errors above compare
+normalized PCM16 samples against the frozen Python reference; the maximum
+is one PCM16 level. The original acceptance thresholds were unchanged.
+A fresh native process reproduced both recorded golden hashes exactly.
+These checks cover fixed-input waveform parity.</p>
+<p>To rerun the real-checkpoint HTTP and per-chip golden checks:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NATIVE_RUNTIME_BIN</span><span class="o">=</span><span class="s2">"</span><span class="nv">$MUSIC3_RUNTIME</span><span class="s2">/bin"</span><span class="w"> </span><span class="nv">CI_DATA_ROOT</span><span class="o">=</span><span class="s2">"</span><span class="nv">$MUSIC3_DATA</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>sglang_omni_mlx/native/ci/test_model_servers.py<span class="w"> </span>-k<span class="w"> </span>music3
+python<span class="w"> </span>sglang_omni_mlx/native/ci/check_model_golden.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--runtime-bin<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_RUNTIME</span><span class="s2">/bin"</span><span class="w"> </span>--data-root<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_DATA</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--golden<span class="w"> </span>sglang_omni_mlx/native/ci/model_golden/minimax-music3.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--outputs<span class="w"> </span><span class="s2">"</span><span class="nv">$MUSIC3_GOLDEN_OUTPUTS</span><span class="s2">"</span>
+</pre></div>
+</div>
+</section>
 <section id="serial-weight-offload">
 <h3>Serial weight offload<a class="headerlink" href="#serial-weight-offload" title="Link to this heading">#</a></h3>
 <p>To alternate AR and DIT/DAV weights on one GPU, enable both offload components:</p>
@@ -988,12 +1188,20 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 <section id="concurrency">
 <h2>Concurrency<a class="headerlink" href="#concurrency" title="Link to this heading">#</a></h2>
 <p>The server batches continuously. Admission defaults to 16 concurrent requests (<code class="docutils literal notranslate"><span class="pre">max_running_requests=16</span></code>), which is <strong>32 decode rows</strong>, because guidance gives every request a second row. Raise admission at serve time with <code class="docutils literal notranslate"><span class="pre">--minimax_music3_ar.engine.max_running_requests</span></code>; the row count, the decode device graph and the RVQ depth device graph are all derived from it:</p>
-<p>On Intel GPUs, first follow the <a class="reference internal" href="../get_started/installation_xpu.html"><span class="std std-doc">Intel XPU installation instructions</span></a>, then replace <code class="docutils literal notranslate"><span class="pre">CUDA_VISIBLE_DEVICES</span></code> in the commands below with <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0</span></code> or <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0,1</span></code>).</p>
+<p>On Intel GPUs, first follow the <a class="reference internal" href="../other_platforms/installation_xpu.html"><span class="std std-doc">Intel XPU installation instructions</span></a>, then replace <code class="docutils literal notranslate"><span class="pre">CUDA_VISIBLE_DEVICES</span></code> in the commands below with <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0</span></code> or <code class="docutils literal notranslate"><span class="pre">ZE_AFFINITY_MASK=0,1</span></code>).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span>MiniMaxAI/MiniMax-Music3<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--minimax_music3_ar.engine.max_running_requests<span class="w"> </span><span class="m">32</span>
 </pre></div>
 </div>
 <p>That serves 32 concurrent requests as 64 rows. Do not pass <code class="docutils literal notranslate"><span class="pre">engine.cuda_graph_max_bs</span></code> here: this model computes the cap itself so the graphs always cover the doubled batch, and a value you supply is discarded rather than honoured.</p>
+<section id="fp32-flex-attention">
+<h3>FP32 flex attention<a class="headerlink" href="#fp32-flex-attention" title="Link to this heading">#</a></h3>
+<p>On CUDA, the default FP32 acoustic DIT uses PyTorch flex attention while retaining FP32 inputs and TF32 matmuls. To restore the previous SDPA path:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>sgl-omni<span class="w"> </span>serve<span class="w"> </span>--model-path<span class="w"> </span>MiniMaxAI/MiniMax-Music3<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dit_dav.factory.fp32_flex_attention<span class="w"> </span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>The option resolves to flex attention only on CUDA with <code class="docutils literal notranslate"><span class="pre">dtype=float32</span></code> and <code class="docutils literal notranslate"><span class="pre">attention_backend=torch_sdpa</span></code>; MUSA, XPU, and other dtype/backend combinations retain their existing attention path. Flex-attention output is not byte-identical to SDPA, so validate generated audio for your workload when comparing the two paths.</p>
 <p>Send clients in parallel rather than in sequence:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
 
@@ -1030,6 +1238,7 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 </div>
 <p>Concurrency is where this model is most efficient. The depth decoder costs the same per step whether one request or eight share the batch, so its per-request share falls as concurrency rises.</p>
 <p>That flatness is also why guidance is cheap in time and expensive in memory. The AR step is bound by reading the backbone’s weights rather than by arithmetic, so the second row rides along in the same pass with little extra wall time, while doubling the KV each request holds. Size the pool for the rows, not the requests.</p>
+</section>
 </section>
 <section id="request-parameters">
 <h2>Request Parameters<a class="headerlink" href="#request-parameters" title="Link to this heading">#</a></h2>
@@ -1132,20 +1341,20 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dots_tts.html"
+       href="companies/minimax.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">dots.tts</p>
+        <p class="prev-next-title">MiniMax</p>
       </div>
     </a>
     <a class="right-next"
-       href="zonos2.html"
+       href="companies/inclusionai.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ZONOS2</p>
+        <p class="prev-next-title">InclusionAI</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1167,7 +1376,10 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-silicon-native-mlx">Apple Silicon: native MLX</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native-mlx-stage-offload">Native MLX stage offload</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-parity-and-mac-ci">Reference parity and Mac CI</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#serial-weight-offload">Serial weight offload</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-record">Validation Record</a></li>
 </ul>
@@ -1181,7 +1393,10 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guidance">Guidance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fp32-flex-attention">FP32 flex attention</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters">Request Parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-that-the-model-rejects">Parameters That The Model Rejects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
@@ -1218,7 +1433,7 @@ By SGLang-Omni Team
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 20, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>
